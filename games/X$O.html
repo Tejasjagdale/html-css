@@ -1,0 +1,597 @@
+<html>
+<head>
+<title>
+</title>
+<script src="../javascript/sweetalert.min.js"></script>
+<style>
+*
+{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body
+{
+display:flex;
+justify-content:center;
+align-items:center;
+background-image:url(../gameimages/backimg.jpeg);
+background-size:100% 100%;
+flex-direction:column;
+}
+
+header
+{
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-weight:1000;
+font-size:30px;
+letter-spacing:5px;
+width:400px;
+height:50px;
+background: LINEAR-GRADIENT(TO RIGHT,#D41DED,#FFF200);
+border:4px solid #88001b;
+border-bottom:none;
+box-shadow:2px 2px yellow,4px 4px white,6px 6px darkred;
+margin-top:110px;
+}
+
+main
+{
+width:400px;
+height:400px;
+display:grid;
+grid-template-rows:repeat(3,1fr);
+grid-template-columns:repeat(3,1fr);
+border:4px solid #88001b;
+box-shadow:2px 2px yellow,4px 4px white,6px 6px darkred;
+}
+
+#box1
+{
+border-bottom:2px solid #88001b;
+border-right:2px solid #88001b;
+background-color:#855e42;
+}
+
+.img1
+{
+width:100%;
+height:100%;
+}
+
+#box2
+{
+border-left:2px solid #88001b;
+border-bottom:2px solid #88001b;
+border-right:2px solid #88001b;
+background-color:#855e42;
+}
+
+.img2
+{
+width:100%;
+height:100%;
+}
+
+
+#box3
+{
+border-left:2px solid #88001b;
+border-bottom:2px solid #88001b;
+background-color:#855e42;
+}
+
+.img3
+{
+width:100%;
+height:100%;
+}
+
+#box4
+{
+border-top:2px solid #88001b;
+border-bottom:2px solid #88001b;
+border-right:2px solid #88001b;
+background-color:#855e42;
+}
+
+.img4
+{
+width:100%;
+height:100%;
+}
+
+
+#box5
+{
+border-top:2px solid #88001b;
+border-left:2px solid #88001b;
+border-bottom:2px solid #88001b;
+border-right:2px solid #88001b;
+background-color:#855e42;
+}
+
+.img5
+{
+width:100%;
+height:100%;
+}
+
+
+#box6
+{
+border-top:2px solid #88001b;
+border-left:2px solid #88001b;
+border-bottom:2px solid #88001b;
+background-color:#855e42;
+}
+
+.img6
+{
+width:100%;
+height:100%;
+}
+
+#box7
+{
+border-top:2px solid #88001b;
+border-right:2px solid #88001b;
+background-color:#855e42;
+}
+
+.img7
+{
+width:100%;
+height:100%;
+}
+
+
+#box8
+{
+border-top:2px solid #88001b;
+border-left:2px solid #88001b;
+border-right:2px solid #88001b;
+background-color:#855e42;
+}
+
+.img8
+{
+width:100%;
+height:100%;
+}
+
+
+#box9
+{
+border-top:2px solid #88001b;
+border-left:2px solid #88001b;
+background-color:#855e42;
+}
+
+.img9
+{
+width:100%;
+height:100%;
+}
+
+.box:hover
+{
+background-color:rgba(128,128,128,0.8);
+}
+
+footer
+{
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:30px;
+letter-spacing:10px;
+width:400px;
+height:50px;
+background: LINEAR-GRADIENT(TO RIGHT,#D41DED,#FFF200);
+border:4px solid #88001b;
+border-top:none;
+box-shadow:2px 2px yellow,4px 4px white,6px 6px darkred;
+}
+
+button
+{
+width:100px;
+height:30px;
+background-color:white;
+border:2px solid black;
+color:black;
+text-transform:uppercase;
+cursor:pointer;
+font-weight:1000;
+}
+
+.swal-modal
+{
+width:350px;
+height:450px;
+border:3px solid darkgreen;
+}
+
+.swal-icon
+{
+width:200px;
+height:100px;
+}
+
+.swal-title
+{
+display:flex;
+align-items:center;
+justify-content:center;
+letter-spacing:2px;
+font-weight:1000;
+width:350px;
+height:50px;
+}
+
+.swal-text
+{
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:20px;
+width:350px;
+height:100px;
+}
+
+.swal-footer
+{
+display:flex;
+align-items:center;
+justify-content:center;
+width:350px;
+height:100px;
+}
+
+.swal-button
+{
+background-color:lightgreen;
+width:200px;
+height:50px;
+font-size:25px;
+border:2px solid green;
+}
+
+</style>
+</head>
+<body>
+<header>START</header>
+<main>
+<div id="box1" class="box" >
+<img   class="img1" onclick="box1()">
+</div>
+<div id="box2" class="box" >
+<img  class="img2" onclick="box2()">
+</div>
+<div id="box3" class="box" >
+<img  class="img3" onclick="box3()">
+</div>
+<div id="box4" class="box" >
+<img  class="img4" onclick="box4()">
+</div>
+<div id="box5" class="box" >
+<img   class="img5" onclick="box5()">
+</div>
+<div id="box6" class="box" >
+<img  class="img6" onclick="box6()">
+</div>
+<div id="box7" class="box" >
+<img    class="img7" onclick="box7()">
+</div>
+<div id="box8" class="box" >
+<img  class="img8" onclick="box8()">
+</div>
+<div id="box9" class="box" >
+<img  class="img9" onclick="box9()">
+</div>
+</main>
+<footer>
+<button onclick="reset()">reset</button>
+</footer>
+
+<script>
+"use strict"
+
+var img1="../gameimages/X.png";
+var img2="../gameimages/zero.png";
+
+var boxi1=document.querySelector('.img1');
+var boxi2=document.querySelector('.img2');
+var boxi3=document.querySelector('.img3');
+var boxi4=document.querySelector('.img4');
+var boxi5=document.querySelector('.img5');
+var boxi6=document.querySelector('.img6');
+var boxi7=document.querySelector('.img7');
+var boxi8=document.querySelector('.img8');
+var boxi9=document.querySelector('.img9');
+
+var c=Math.floor(Math.random()*2);
+
+var a=c;
+
+var counter=0,counter1=0,counter2=0,counter3=0,counter4=0,counter5=0,counter6=0,counter7=0,counter8=0,counter9=0;
+
+function selection()
+{
+c++;
+
+if(c%2==0)
+{
+var img=img1;
+}
+
+else
+{
+var img=img2;
+}
+
+message();
+
+return img;
+}
+
+function message()
+{
+if(c%2==0)
+{
+document.querySelector("header").innerHTML="ZERO TURN NOW";
+}
+
+else
+{
+document.querySelector("header").innerHTML="X TURN NOW";
+}
+}
+
+message();
+
+function box1()
+{
+if(counter1==0)
+{
+boxi1.setAttribute("src",selection());
+}
+
+else
+{
+swal("SORRY", "please don't double click", "../gameimages/no.jpeg");
+}
+counter1++;
+hcheck();
+vcheck();
+dcheck();
+}
+
+
+function box2()
+{
+if(counter2==0)
+{
+boxi2.setAttribute("src",selection());
+}
+
+else
+{
+swal("SORRY", "please don't double click", "../gameimages/no.jpeg");
+}
+counter2++;
+hcheck();
+vcheck();
+dcheck();
+}
+
+function box3()
+{
+if(counter3==0)
+{
+boxi3.setAttribute("src",selection());
+}
+
+else
+{
+swal("SORRY", "please don't double click", "../gameimages/no.jpeg");
+}
+counter3++;
+hcheck();
+vcheck();
+dcheck();
+}
+
+
+function box4()
+{
+if(counter4==0)
+{
+boxi4.setAttribute("src",selection());
+}
+
+else
+{
+swal("SORRY", "please don't double click", "../gameimages/no.jpeg");
+}
+counter4++;
+hcheck();
+vcheck();
+dcheck();
+}
+
+
+function box5()
+{
+if(counter5==0)
+{
+boxi5.setAttribute("src",selection());
+}
+
+else
+{
+swal("SORRY", "please don't double click", "../gameimages/no.jpeg");
+}
+counter5++;
+hcheck();
+vcheck();
+dcheck();
+}
+
+
+function box6()
+{
+if(counter6==0)
+{
+boxi6.setAttribute("src",selection());
+}
+
+else
+{
+swal("SORRY", "please don't double click", "../gameimages/no.jpeg");
+}
+counter6++;
+hcheck();
+vcheck();
+dcheck();
+}
+
+
+function box7()
+{
+if(counter7==0)
+{
+boxi7.setAttribute("src",selection());
+}
+
+else
+{
+swal("SORRY", "please don't double click", "../gameimages/no.jpeg");
+}
+counter7++;
+hcheck();
+vcheck();
+dcheck();
+}
+
+
+function box8()
+{
+if(counter8==0)
+{
+boxi8.setAttribute("src",selection());
+}
+
+else
+{
+swal("SORRY", "please don't double click", "../gameimages/no.jpeg");
+}
+counter8++;
+hcheck();
+vcheck();
+dcheck();
+}
+
+function box9()
+{
+if(counter9==0)
+{
+boxi9.setAttribute("src",selection());
+}
+
+else
+{
+swal("SORRY", "please don't double click", "../gameimages/no.jpeg");
+}
+counter9++;
+hcheck();
+vcheck();
+dcheck();
+}
+
+function hcheck()
+{
+if(boxi1.src==boxi2.src && boxi1.src==boxi3.src && boxi1.src!="")
+{
+swal("Congratulation", "someone just won", "../gameimages/clap.jpeg");
+setTimeout(reset,1800);
+}
+
+if(boxi4.src==boxi5.src && boxi4.src==boxi6.src && boxi5.src!="")
+{
+swal("Congratulation", "someone just won", "../gameimages/clap.jpeg");
+setTimeout(reset,1800);
+}
+
+if(boxi7.src==boxi8.src && boxi7.src==boxi9.src && boxi7.src!="")
+{
+swal("Congratulation", "someone just won", "../gameimages/clap.jpeg");
+setTimeout(reset,1800);
+}
+}
+
+function vcheck()
+{
+if(boxi1.src==boxi4.src && boxi1.src==boxi7.src && boxi1.src!="")
+{
+swal("Congratulation", "someone just won", "../gameimages/clap.jpeg");
+setTimeout(reset,1800);
+}
+
+if(boxi2.src==boxi5.src && boxi2.src==boxi8.src && boxi5.src!="")
+{
+swal("Congratulation", "someone just won", "../gameimages/clap.jpeg");
+setTimeout(reset,1800);
+}
+
+if(boxi3.src==boxi6.src && boxi3.src==boxi9.src && boxi3.src!="")
+{
+swal("Congratulation", "someone just won", "../gameimages/clap.jpeg");
+setTimeout(reset,1800);
+}
+}
+
+
+function dcheck()
+{
+
+if(boxi1.src==boxi5.src && boxi1.src==boxi9.src && boxi1.src!="")
+{
+swal("Congratulation", "someone just won", "../gameimages/clap.jpeg");
+setTimeout(reset,1800);
+}
+
+if(boxi7.src==boxi5.src && boxi5.src==boxi3.src && boxi5.src!="")
+{
+swal("Congratulation", "someone just won", "../gameimages/clap.jpeg");
+setTimeout(reset,1800);
+}
+
+if( (boxi1.src!=boxi2.src || boxi1.src!=boxi3.src && boxi1.src!="" && boxi2.src!="" && boxi3.src!="" && boxi4.src!="" && boxi5.src!="" && boxi6.src!="" && boxi7.src!="" && boxi8.src!="" && boxi9.src!="")&&
+    (boxi1.src!=boxi5.src || boxi1.src!=boxi9.src && boxi1.src!="" && boxi2.src!="" && boxi3.src!="" && boxi4.src!="" && boxi5.src!="" && boxi6.src!="" && boxi7.src!="" && boxi8.src!="" && boxi9.src!="")&&
+    (boxi7.src!=boxi5.src || boxi5.src!=boxi3.src && boxi1.src!="" && boxi2.src!="" && boxi3.src!="" && boxi4.src!="" && boxi5.src!="" && boxi6.src!="" && boxi7.src!="" && boxi8.src!="" && boxi9.src!="")&&
+    (boxi3.src!=boxi6.src || boxi3.src!=boxi9.src && boxi1.src!="" && boxi2.src!="" && boxi3.src!="" && boxi4.src!="" && boxi5.src!="" && boxi6.src!="" && boxi7.src!="" && boxi8.src!="" && boxi9.src!="")&&
+    (boxi2.src!=boxi5.src || boxi2.src!=boxi8.src && boxi1.src!="" && boxi2.src!="" && boxi3.src!="" && boxi4.src!="" && boxi5.src!="" && boxi6.src!="" && boxi7.src!="" && boxi8.src!="" && boxi9.src!="")&&
+    (boxi1.src!=boxi4.src || boxi1.src!=boxi7.src && boxi1.src!="" && boxi2.src!="" && boxi3.src!="" && boxi4.src!="" && boxi5.src!="" && boxi6.src!="" && boxi7.src!="" && boxi8.src!="" && boxi9.src!="")&&
+    (boxi4.src!=boxi5.src || boxi4.src!=boxi6.src && boxi1.src!="" && boxi2.src!="" && boxi3.src!="" && boxi4.src!="" && boxi5.src!="" && boxi6.src!="" && boxi7.src!="" && boxi8.src!="" && boxi9.src!="")&&
+    (boxi7.src!=boxi8.src || boxi7.src!=boxi9.src && boxi1.src!="" && boxi2.src!="" && boxi3.src!="" && boxi4.src!="" && boxi5.src!="" && boxi6.src!="" && boxi7.src!="" && boxi8.src!="" && boxi9.src!="")
+   )
+{
+swal("DRAW", "no one won", "../gameimages/cry.jpeg");
+setTimeout(reset,1800);
+}
+}
+
+function reset()
+{
+location.reload();
+}
+</script>
+</body>
+</html>

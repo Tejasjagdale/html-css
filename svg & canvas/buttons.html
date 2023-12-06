@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg elements</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+
+        body{
+            width:100%;
+            height:100vh;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background-image: linear-gradient(to left,grey ,black);
+        }
+
+        .shadow {
+            filter: drop-shadow( 0px 0px 5px #5FD9EF);
+        }
+
+        .button{
+            position: relative;
+            padding: 1px;
+        }
+
+        .linear{
+            position: absolute;
+            left:30px;
+            bottom:13px;
+            width:225px;
+            height:50px;
+            background-color: rgba(0, 0, 0, 0);
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            color:#5FD9EF;
+            font-weight: 500;
+            font-size: 30px;
+        }
+
+        .linear i{
+            font-size: 32px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="button">
+        <!-- <div class="linear"><i class="far fa-address-book"></i><p>Contact</p></div> -->
+    <svg height="600" width="300" style="border:2px solid black;padding-top:20px">
+        <path  stroke="#5FD9EF" stroke-width="4" d="M0 200 v200 l40 -40 v-110 Z" fill="rgba(17, 122, 165, 0.2)" class="smenu" fill-rule="evenodd" ></path>
+        <path  stroke="#5FD9EF" stroke-width="4" d="M30 25 v70 h225 l15 -15 v-40 h-170 v-30 h-40 Z" fill="rgba(17, 122, 165, 0.2)" class="shadow" fill-rule="evenodd" ></path>
+        <path  stroke="#5FD9EF" stroke-width="4" d="M30 140 v70 h225 l15 -15 v-40 h-170 v-30 h-40 Z" fill="rgba(17, 122, 165, 0.2)" class="shadow" fill-rule="evenodd" ></path>
+        <path  stroke="#5FD9EF" stroke-width="4" d="M30 255 v70 h225 l15 -15 v-40 h-170 v-30 h-40 Z" fill="rgba(17, 122, 165, 0.2)" class="shadow" fill-rule="evenodd" ></path>
+        <path  stroke="#5FD9EF" stroke-width="4" d="M30 370 v70 h225 l15 -15 v-40 h-170 v-30 h-40 Z" fill="rgba(17, 122, 165, 0.2)" class="shadow" fill-rule="evenodd" ></path>
+        <path  stroke="#5FD9EF" stroke-width="4" d="M30 485 v70 h225 l15 -15 v-40 h-170 v-30 h-40 Z" fill="rgba(17, 122, 165, 0.2)" class="shadow" fill-rule="evenodd" ></path>
+    </svg>
+    </div>
+</body>
+</html>

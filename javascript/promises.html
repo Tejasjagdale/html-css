@@ -1,0 +1,40 @@
+<script>
+    const pobj1 = new Promise( (reslove,reject) => {
+        setTimeout(()=>{
+            let roll_no=[1,2,3,4,5];
+            reslove(roll_no);
+            reject("Error whiile communicting");
+        },1000);
+    });
+
+    const getbiodata=(indexdata)=>{
+        return new Promise( (reslove,reject)=>{
+            setTimeout((indexdata)=>{
+                let biodata={
+                    name:'tejas',
+                    age:'19'
+                }
+                reslove(`my roll no is ${indexdata} and my name is ${biodata.name} i am ${biodata.age}`);
+            },1000,indexdata);
+        });
+    }
+
+    // pobj1.then((rollno)=>{
+    //     return getbiodata(rollno[1]);
+    // }).then((msg)=>{
+    //         console.log(msg);
+    //     }).catch((error)=>{
+    //     console.log(error);
+    // });
+
+
+    async function getdata(){
+        const rollnodata = await pobj1;
+        console.log(rollnodata);
+
+        const biodatas = await getbiodata(rollnodata[0]);
+        console.log(biodatas);
+    }
+
+    getdata();
+</script>

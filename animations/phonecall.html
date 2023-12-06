@@ -1,0 +1,154 @@
+<html>
+<head>
+<title>
+</title>
+<style>
+*
+{
+margin:0;
+padding:0;
+}
+
+body
+{
+display:flex;
+}
+
+.main
+{
+width:50%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background-color:#2f3640;
+}
+
+.img
+{
+width:150px;
+height:150px;
+border-radius:50%;
+background-image:url("../animationimages/phone.png");
+background-size:100% 100%;
+background-repeat:no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+.img:before
+{
+content:"";
+position:absolute;
+width:calc(100% + 40px);
+height:calc(100% + 40px);
+border:1px solid #44bd32;
+border-radius:50%;
+animation:pulse 1.5s linear infinite;
+}
+
+@keyframes pulse
+{
+
+0%{transform:scale(0.5);opacity:0;}
+
+50%{transform:scale(1);opacity:1;}
+
+100%{transform:scale(1.4);opacity:1;}
+
+}
+
+.img:after
+{
+content:"";
+position:absolute;
+width:calc(100% + 40px);
+height:calc(100% + 40px);
+border:1px solid #44bd32;
+border-radius:50%;
+animation:pulse 1.5s linear infinite;
+animation-delay:0.4s;
+}
+
+@keyframes pulse
+{
+
+0%{transform:scale(0.5);opacity:0;}
+
+50%{transform:scale(1);opacity:1;}
+
+100%{transform:scale(1.4);opacity:1;}
+
+}
+
+.img1
+{
+width:150px;
+height:150px;
+border-radius:50%;
+background-image:url("../animationimages/phone1.png");
+background-size:100% 100%;
+background-repeat:no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+.img1:before
+{
+content:"";
+position:absolute;
+width:calc(100% + 40px);
+height:calc(100% + 40px);
+border:1px solid #ec1c24;
+border-radius:50%;
+animation:pulse 1.5s linear infinite;
+}
+
+@keyframes pulse
+{
+
+0%{transform:scale(0.5);opacity:0;}
+
+50%{transform:scale(1);opacity:1;}
+
+100%{transform:scale(1.4);opacity:1;}
+
+}
+
+.img1:after
+{
+content:"";
+position:absolute;
+width:calc(100% + 40px);
+height:calc(100% + 40px);
+border:1px solid #ec1c24;
+border-radius:50%;
+animation:pulse 1.5s linear infinite;
+animation-delay:0.4s;
+}
+
+@keyframes pulse
+{
+
+0%{transform:scale(0.5);opacity:0;}
+
+50%{transform:scale(1);opacity:1;}
+
+100%{transform:scale(1.4);opacity:1;}
+
+}
+</style>
+</head>
+<body>
+<div class="main">
+    <div class="img"></div>
+</div>
+<div class="main">
+    <div class="img1"></div>
+</div>
+</body>
+</html>

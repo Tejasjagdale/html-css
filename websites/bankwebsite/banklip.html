@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+bank loginpage
+</title>
+<link rel="stylesheet" type="text/css" href="css/banklp.css">
+</head>
+<body>
+
+<div class="amenuc">
+<div id="rb1"></div>
+<div id="rb2"></div>
+<div id="rb3"></div>
+<div class="mcard1"></div>
+<div class="mcard2"></div>
+<div class="mcard3"></div>
+</div>
+<div class="cmenu">
+<button class="mbtn1" onclick="showabc1()">button1</button>
+<button class="mbtn2" onclick="showabc2()">button2</button>
+<button class="mbtn3" onclick="showabc3()">button3</button>
+</div>
+
+<ul id="hmenu1">
+<li><p class="hmt"></p></li>
+<li><p class="hmt"></p></li>
+<li><p class="hmt"></p></li>
+<li><p class="hmt"></p></li>
+<li><p class="hmt"></p></li>
+</ul>
+
+<ul id="hmenu2">
+<li><p class="hmt1" id="am1" onclick="stoptf()"></p></li>
+<li><p class="hmt1" id="am2"></p></li>
+<li><p class="hmt1" id="am3"></p></li>
+</ul>
+
+<div class="alert2" onclick="stop()">
+<div class="ialert2">
+</div>
+</div>
+
+<span class="icon" onclick="menu()">></span>
+<div class="slide">
+<ul class="menu">
+<li class="selected">online banking</li>
+<li class="li" onclick="showtfh()"><p class="hcc">privious transactions</p></li>
+<li class="li" onclick="alert2()"><p class="hcc">amount balance?</p></li>
+<li class="li" onclick="showtf()" ><p class="hcc" >fund transfer</p></li>
+<li class="li" onclick="showcal()"><p class="hcc">calculators</p></li>
+<li class="li" ><p class="hcc">loan application</p></li>
+<li class="li" ><p class="hcc">credit card</p></li>
+<li class="li" ><p class="hcc">debit card</p></li>
+</ul>
+</div>
+<span class="return" onclick="back()"><</span>
+
+<header>
+
+<div class="hd">
+Bank application
+</div>
+<div class="hd1">
+</div>
+<div class="hd2">
+</div>
+
+<button class="hlb" onclick="alert1()">logout</button>
+
+</header>
+
+<main>
+
+<div class="cal">
+
+<div class="ctd">
+<table id="ctable">
+<thead>
+<tr>
+<th>Months</th>
+<th>Opening Balance</th>
+<th>Interest paid during the month</th>
+<th>Principal repaid during the month</th>
+<th>Closing Balance</th>
+</tr>
+</thead>
+
+<tbody class="atvd">
+</tbody>
+
+</table>
+</div>
+
+<p id="dline2"></p>
+
+<ul class="calmenu">
+<li onclick="imgc('home1.png')"><p>home</p></li>
+<li onclick="imgc('car.png')"><p>car</p></li>
+<li onclick="imgc('personal.png')"><p>personal</p></li>
+</ul>
+
+<img class="cimg" src="../../images/home1.png" >
+
+<div class="cali">
+
+<div class="mec">
+<h2 class="mem">Equated Monthly <br>Installments (EMI)</h2>
+<p class="meo">Rs.26097</p>
+<form>
+<input type="submit" value="Get a call back" class="cbtn">
+</form>
+</div>
+
+<form class="calid">
+  <p class="vol">Loan Amount ( rupee)</p>
+  <p class="liup1"></p>
+  <input type="range"  name="vol1" value="0" min="300000" max="50000000" class="rif" id="rif1">
+  <p class="vol">Interest Rate (p.a)</p>
+  <p class="liup2"></p>
+  <input type="range"  name="vol2" min="8" max="11" value="0" class="rif" id="rif2">
+  <p class="vol">Tenure (years)</p>
+  <p class="liup3"></p>
+  <input type="range"  name="vol3" min="1" max="30" value="0" class="rif" id="rif3">
+</form>
+</div>
+
+<div class="dres">
+<div class="pie">
+</div>
+
+<div class="tcalv">
+<p class="cb1"></p><p class="tcalt1">Principal Amt</p><p class="tv1">Rs.300000</p>
+<p class="cb2"></p><p class="tcalt2">Interest Amt</p><p class="tv2">Rs.13158</p>
+<p class="tcalt3">Total Amt Payble</p><p class="tv3">Rs.313158</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="dftt">
+<table id="table">
+
+<thead class="thead">
+<tr class="tr1">
+<th>srno</th>
+<th>Amount</th>
+<th>Beneficlary name</th>
+<th>Account no</th>
+<th>time</th>
+<th>Date</th>
+</tr>
+</thead>
+</table>
+</div>
+
+<form>
+<div class="ftransfer">
+<h1 class="fth">amount transfer</h1>
+
+<div class="ftm">
+<p class="fttf">Account Number : <input type="text" id="anif" class="ftif"> </p>
+<p class="fttf">Beneficlary Name : <input type="text" id="bnif" class="ftif"> </p>
+<p class="fttf">Amount to transfer : <input type="text" id="atif" class="ftif"> </p>
+<p class="fttf">Enter current Date : <input type="date" id="date" class="ftif"> </p>
+</div>
+
+<div class="ftf">
+<input type="submit" value="send" id="sb2">
+<input type="reset" value="cancel" id="cb">
+</div>
+</div>
+</form>
+
+<p class="text">Key Updates</p>
+<div class="rightb" onclick="rb()">></div>
+
+<div class="cards">
+<div id="card1"><p class="c1p"><button>click here</button></p></div>
+<div id="card2"><p class="c2p"><button>click here</button></p></div>
+<div id="card3"><p class="c3p"><button>click here</button></p></div>
+</div>
+
+</main>
+
+<footer>
+
+<div class="fd">
+<p class="smh" style="background-color:#3b5999"></p>
+<p class="smh" style="background-color:#25d366;color:white"></p>
+<p class="smh" style="background-color:#cd201f;color:white"></p>
+<p class="smh" style="background-color:#00aced"></p>
+</div>
+<div class="fd1">
+</div>
+<div class="fd2">
+</div>
+
+</footer>
+
+<script>
+var adc1=document.querySelector('.mcard1');
+var adc2=document.querySelector('.mcard2');
+var adc3=document.querySelector('.mcard3');
+var x2=document.querySelector('.alert2');
+var x3=document.querySelector('#table');
+var main=document.querySelector('main');
+var c1=document.querySelector('#card1');
+var c2=document.querySelector('#card2');
+var c3=document.querySelector('#card3');
+var y=document.querySelector('.slide');
+var z=document.querySelector('.icon');
+var r=document.querySelector('.return');
+var ft=document.querySelector('.ftransfer');
+var cal=document.querySelector('.cal');
+var ft1= document.querySelector(".dftt");
+var hc1=document.querySelector('.text');
+var hc2=document.querySelector('.rightb');
+var hc3=document.querySelector('.cards');
+var mm=document.getElementById('hmenu2');
+var am=document.querySelector('.hmt1');
+var m1=document.getElementById('am2');
+var m2=document.getElementById('am1');
+var m3=document.getElementById('am3');
+var btn1=document.querySelector('.mbtn1');
+var btn2=document.querySelector('.mbtn2');
+var btn3=document.querySelector('.mbtn3');
+var hc4=document.querySelector('.cmenu');
+var hc5=document.querySelector('.amenuc');
+var slider1=document.getElementById("rif1");
+var output1=document.querySelector('.liup1');
+var slider2=document.getElementById("rif2");
+var output2=document.querySelector('.liup2');
+var slider3=document.getElementById("rif3");
+var output3=document.querySelector('.liup3');
+var toutput1=document.querySelector('.tv1');
+var toutput2=document.querySelector('.tv2');
+var toutput3=document.querySelector('.tv3');
+var img=document.querySelector('.cimg');
+var c=0;
+
+output1.innerHTML=slider1.value+"rs";
+output2.innerHTML=slider2.value+"%";
+output3.innerHTML=slider3.value+"yrs";
+
+
+slider1.addEventListener('input',function(){
+output1.innerHTML=slider1.value+"rs";
+emical();
+});
+
+slider2.addEventListener('input',function(){
+output2.innerHTML=slider2.value+"%";
+emical();
+});
+
+slider3.addEventListener('input',function(){
+output3.innerHTML=slider3.value+"yrs";
+emical();
+});
+
+
+slider1.addEventListener('input',function(){
+toutput1.innerHTML="Rs."+slider1.value;
+});
+
+
+function emical(){
+ var LA=slider1.value;
+ var IR=slider2.value;
+ var TN=slider3.value;
+
+ var r= IR/1200;
+ var x =Math.pow((1+r),TN*12);
+
+ var EMI =  LA*((r*x)/(x - 1));
+
+ document.querySelector(".meo").innerHTML="Rs."+Math.round(EMI);
+ document.querySelector(".tv2").innerHTML="Rs."+Math.round((EMI*12*TN)-LA);
+ document.querySelector(".tv3").innerHTML="Rs."+Math.round(EMI*12*TN);
+
+ var pie1=LA;
+ var piet=Math.round(EMI*12*TN);
+ var pie2=Math.round((EMI*12*TN)-LA);
+
+ var fpie=(pie1/piet)*100;
+ 
+
+ var apie=(360*Math.round(fpie))/100;
+
+ document.querySelector(".pie").setAttribute("style","background-image:conic-gradient( white 0 "+(360-apie)+"deg,orange 0 "+apie+"deg);")
+
+}
+
+function alert2()
+{
+x2.setAttribute("style","display:flex");
+window.setTimeout("back()",100);
+window.setTimeout("stoptf()",0);
+}
+
+function alert1()
+{
+window.location="bankhp.html";
+}
+
+function stop()
+{
+x2.setAttribute("style","display:none");
+}
+
+function menu()
+{
+y.setAttribute("style","left:0%");
+z.setAttribute("style","display:none");
+r.setAttribute("style","left:20%");
+}
+
+
+function back()
+{
+y.setAttribute("style","left:-20%");
+z.setAttribute("style","display:flex");
+r.setAttribute("style","left:-22%");
+}
+
+function rb()
+{
+c++;
+
+if(c==1)
+{
+c1.setAttribute("style","transform:rotate(90deg) translateY(-43%);opacity:0;filter:blur(10px);z-index:1");
+c2.setAttribute("style","transform:rotate(0deg) translateY(0%);opacity:1;filter:blur(0px);z-index:3");
+c3.setAttribute("style","transform:rotate(0deg) translateY(0%);opacity:0;filter:blur(0px);z-index:2");
+}
+
+if(c==2)
+{
+c2.setAttribute("style","transform:rotate(90deg) translateY(-43%);opacity:0;filter:blur(10px);z-index:1");
+c3.setAttribute("style","transform:rotate(0deg) translateY(0%);opacity:1;filter:blur(0px);z-index:3");
+c1.setAttribute("style","transform:rotate(0deg) translateY(0%);opacity:0;filter:blur(0px);z-index:2");
+}
+
+
+if(c==3)
+{
+c3.setAttribute("style","transform:rotate(90deg) translateY(-43%);opacity:0;filter:blur(10px);z-index:1");
+c1.setAttribute("style","transform:rotate(0deg) translateY(0%);opacity:1;filter:blur(0px);z-index:3");
+c2.setAttribute("style","transform:rotate(0deg) translateY(0%);opacity:0;filter:blur(0px);z-index:2");
+c=0;
+}
+
+}
+
+function showtf()
+{
+m1.innerHTML="transfer";
+m2.innerHTML="Home";
+m1.setAttribute("style","background-color:#5f0a87;color:white;border-radius:20% 20% 0% 0%/40% 40% 0% 0%");
+ft.setAttribute("style","display:flex");
+ft1.setAttribute("style","display:none");
+cal.setAttribute("style","display:none");
+hc1.setAttribute("style","display:none");
+hc2.setAttribute("style","display:none");
+hc3.setAttribute("style","display:none");
+hc4.setAttribute("style","display:none");
+hc5.setAttribute("style","display:none");
+window.setTimeout("back()",100);
+}
+
+function showtfh()
+{
+m1.innerHTML="transactions";
+m2.innerHTML="Home";
+m1.setAttribute("style","background-color:#5f0a87;color:white;border-radius:20% 20% 0% 0%/40% 40% 0% 0%;font-size:12px");
+ft.setAttribute("style","display:none");
+cal.setAttribute("style","display:none");
+hc1.setAttribute("style","display:none");
+hc2.setAttribute("style","display:none");
+hc3.setAttribute("style","display:none");
+hc4.setAttribute("style","display:none");
+hc5.setAttribute("style","display:none");
+ft1.setAttribute("style","display:flex");
+var hcv=x3.offsetHeight+30;
+var hcv1=hcv+"px";
+if(hcv>=270)
+{
+main.style.height=hcv1;
+console.log(hcv1);
+}
+window.setTimeout("back()",100);
+}
+
+function stoptf()
+{
+m1.innerHTML="";
+m2.innerHTML="";
+m1.setAttribute("style","background-color:white");
+cal.setAttribute("style","display:none");
+ft.setAttribute("style","display:none");
+hc1.setAttribute("style","display:flex");
+hc2.setAttribute("style","display:flex");
+hc3.setAttribute("style","display:flex");
+hc4.setAttribute("style","display:flex");
+hc5.setAttribute("style","display:flex");
+main.setAttribute("style","height:70vh");
+ft1.setAttribute("style","display:none");
+window.setTimeout("back()",100);
+}
+
+function showac1()
+{
+adc1.setAttribute("style","left:-10%;width:10%;z-index:1");
+adc2.setAttribute("style","left:0;width:100%;z-index:2");
+adc3.setAttribute("style","left:100%;width:10%;z-index:1");
+btn1.setAttribute("style","background-color:rgb(255,255,255,0.6);color:black");
+btn2.setAttribute("style","background:#5f0a87;color:white");
+btn3.setAttribute("style","border-bottom:none;color:black");
+rb2.setAttribute("style","background-color:#5f0a87");
+rb1.setAttribute("style","background-color:white");
+rb3.setAttribute("style","background-color:white");
+t1=setTimeout("showac2()",4000);
+}
+
+function showac2()
+{
+adc2.setAttribute("style","left:-10%;width:10%;z-index:1");
+adc3.setAttribute("style","left:0;width:100%;z-index:2");
+adc1.setAttribute("style","left:100%;width:10%;z-index:1");
+btn2.setAttribute("style","border-bottom:none;color:black");
+btn3.setAttribute("style","background:#5f0a87;color:white");
+btn1.setAttribute("style","background-color:rgb(255,255,255,0.6);color:black");
+rb1.setAttribute("style","background-color:white");
+rb3.setAttribute("style","background-color:#5f0a87");
+rb2.setAttribute("style","background-color:white");
+t2=setTimeout("showac3()",4000);
+}
+
+function showac3()
+{
+adc3.setAttribute("style","left:-10%;width:10%;z-index:1");
+adc1.setAttribute("style","left:0;width:100%;z-index:2");
+adc2.setAttribute("style","left:100%;width:10%;z-index:1");
+btn2.setAttribute("style","border-bottom:none;color:black");
+btn1.setAttribute("style","background:#5f0a87;color:white");
+rb3.setAttribute("style","background-color:white");
+rb2.setAttribute("style","background-color:white");
+rb1.setAttribute("style","background-color:#5f0a87");
+btn3.setAttribute("style","border-bottom:none;color:black");
+t3=setTimeout("showac1()",4000);
+}
+
+function showabc1()
+{
+window.setTimeout("showac3()",100);
+clearTimeout(t1);
+clearTimeout(t2);
+clearTimeout(t3);
+}
+
+function showabc2()
+{
+window.setTimeout("showac1()",100);
+clearTimeout(t1);
+clearTimeout(t2);
+clearTimeout(t3);
+}
+
+function showabc3()
+{
+window.setTimeout("showac2()",100);
+clearTimeout(t1);
+clearTimeout(t2);
+clearTimeout(t3);
+}
+
+
+function showcal()
+{
+mm.setAttribute("style","width:60%;right:10%;text-transform:none");
+m1.innerHTML="EMI Calculator";
+m2.innerHTML="HOME";
+m1.setAttribute("style","background:#5f0a87;color:white;border-radius:20% 20% 0% 0%/40% 40% 0% 0%");
+cal.setAttribute("style","display:flex");
+ft.setAttribute("style","display:none");
+ft1.setAttribute("style","display:none");
+hc1.setAttribute("style","display:none");
+hc2.setAttribute("style","display:none");
+hc3.setAttribute("style","display:none");
+hc4.setAttribute("style","display:none");
+hc5.setAttribute("style","display:none");
+window.setTimeout("back()",100);
+var hot=document.getElementById("ctable").offsetHeight+550;
+var hcv1=hot+"px";
+main.style.height=hcv1;
+console.log(hcv1);
+}
+
+function addvtt()
+{
+c++;
+if(c==1)
+{
+for(i=1;i<=360;i++)
+{
+document.querySelector(".ctd").setAttribute("style","display:flex");
+var new1=document.createElement("TR");
+new1.setAttribute("class","tr2");
+new1.setAttribute("id","tvalues"+i);
+ var LA=slider1.value;
+ var IR=slider2.value;
+ var TN=slider3.value;
+ var IRY=0;
+
+ var r= IR/1200;
+ var x =Math.pow((1+r),TN*12);
+
+ var EMI =  LA*((r*x)/(x - 1));
+
+ if(i==1){
+ var col1=LA;
+ var col2=(LA*IR)/1200;
+ var col3=EMI-col2;
+ var col4=LA-col3;
+ }
+ if(i>1){
+   col1=col4;
+   col2=(col1*IR)/1200;
+   col3=EMI-col2;
+   col4=col4-col3;
+ }
+
+
+new1.innerHTML="<td>"+i+"</td><td>"+Math.round(col1)+"</td><td>"+Math.round(col2)+"</td><td>"+Math.round(col3)+"</td><td>"+Math.round(col4)+"</td>";
+document.querySelector('.atvd').appendChild(new1);
+}
+}
+
+for(i=slider3.value;i<=360;i++)
+{
+document.getElementById("tvalues"+i).classList.add('hide');
+}
+
+
+for(i=1;i<=slider3.value;i++)
+{
+document.getElementById("tvalues"+i).classList.remove('hide');
+}
+
+var hot=document.getElementById("ctable").offsetHeight+580;
+var hcv1=hot+"px";
+main.style.height=hcv1;
+}
+
+function imgc(name)
+{
+img.setAttribute("src","../../images/"+name);
+if(name=="car.png")
+{
+slider3.setAttribute("max","8");
+}
+if(name=="home1.png")
+{
+slider3.setAttribute("max","30");
+}
+if(name=="personal.png")
+{
+slider3.setAttribute("max","2");
+}
+}
+
+ft1.setAttribute("style","display:none");
+window.setTimeout("showac1()",2000);
+</script>
+</body>
+</html>
+
+

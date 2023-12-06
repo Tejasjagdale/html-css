@@ -1,0 +1,286 @@
+<html>
+<head>
+<title>
+css less8
+</title>
+</head>
+<style>
+body
+{
+margin:0;
+line-height:1.4;
+background-color:lightgrey;
+}
+
+.allcover
+{
+display:flex;
+flex-direction:column;
+}
+
+header
+{
+background-color:rgb(0,250,154);
+display:flex;
+}
+
+footer
+{
+background-color:rgb(0,250,154);
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+h1
+{
+margin-left:5%;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+main
+{
+width:auto;
+height:50vh;
+background-image:url(../images/laptop.jpeg);
+background-size:100% 100%;
+position:relative;
+}
+
+.above
+{
+display:flex;
+margin-left:60%;
+margin-top:15px;
+}
+
+.list
+{
+background-color:darkgreen;
+color:white;
+list-style:none;
+margin-right:10px;
+height:25px;
+width:60px;
+padding-left:.3em;
+border-radius:5px;
+}
+
+.list:hover
+{
+background-color:white;
+color:darkgreen;
+margin-right:10px;
+height:25px;
+width:60px;
+padding-left:.3em;
+border-radius:5px;
+border:1px solid darkgreen;
+cursor:pointer;
+}
+
+.bottom
+{
+display:flex;
+justify-content:space-around;
+}
+
+.a
+{
+background-color:white;
+width:300px;
+height:70vh;
+padding:1em;
+margin-top:40px;
+animation:rotateA 2s linear;
+animation-delay:0s;
+}
+
+@keyframes rotateA
+{
+0%
+{transform:rotateY(0deg);}
+50%
+{transform:rotateY(180deg);}
+100%
+{transform:rotateY(0deg);}
+}
+.b
+{
+background-color:white;
+width:300px;
+height:70vh;
+padding:1em;
+margin-top:40px;
+display:flex;
+flex-direction:column;
+animation:rotateB 2s linear ;
+animation-delay:1s;
+}
+
+@keyframes rotateB
+{
+0%
+{transform:rotateY(0deg);}
+50%
+{transform:rotateY(180deg);}
+100%
+{transform:rotateY(0deg);}
+}
+
+
+
+
+.c
+{
+background-color:white;
+width:300px;
+height:70vh;
+padding:1em;
+margin-top:40px;
+animation:rotateC 2s linear ;
+animation-delay:2s;
+}
+
+@keyframes rotateC
+{
+0%
+{transform:rotateY(0deg);}
+50%
+{transform:rotateY(180deg);}
+100%
+{transform:rotateY(0deg);}
+}
+
+.middel1
+{
+position:absolute;
+right:120px;
+top:35px;
+font-size:46px;
+}
+
+.middel2
+{
+position:absolute;
+right:120px;
+top:151px;
+background-color:darkgreen;
+color:white;
+border:0;
+height:25px;
+width:90px;
+border-radius:5px;
+}
+
+.middel2:hover
+{
+background-color:white;
+color:darkgreen;
+border:1px solid darkgreen;
+}
+
+.a1
+{
+background-color:white;
+border:1px solid darkgreen;
+color:darkgreen;
+border-radius:5px;
+}
+
+.b1
+{
+background-color:white;
+border:1px solid darkgreen;
+color:darkgreen;
+border-radius:5px;
+}
+
+.c1
+{
+background-color:white;
+border:1px solid darkgreen;
+color:darkgreen;
+border-radius:5px;
+}
+
+.bul
+{
+display:flex;
+margin-left:0px;
+list-style:none;
+transform:translateX(-40px);
+}
+
+</style>
+<body>
+<div class="allcover">
+<header>
+<h1>INK</h1>
+
+<ul class="above">
+        <li class="list">features</li>
+        <li class="list">pricing</li>
+        <li class="list">support</li>
+        <li class="list">login</li>
+</ul>
+</header>
+
+<main>
+<p class="middel1"><b>Team collaboration done right</b></p>
+<a href=""><button class="middel2">Get started</button></a>
+</main>
+
+<div class="bottom">
+
+<div class="a">
+<img src="../images/hen.jpeg" style="width:100%;height:40vh">
+<h3>work together,even if you're apart</h3>
+<p>
+organize your team conversation into
+threads. collaborate together on
+documents in real-time. use face-to-face
+video calls when typing just won't do.
+</p>
+<a href="" ><button class="a1"><b>Read more</b></button></a>
+ </div>
+
+<div class="b"> 
+<img src="../images/chick.jpeg" style="width:100%;height:40vh">
+<h3>Take it with you</h3>
+<p>
+ink is avaliable on awide array of
+devices, so you can work from anywhere:
+</p>
+
+<ul class="bul">
+<li ><button style="border:0px;background-color:#ccc;margin-right:5px">web</button></li>
+<li ><button style="border:0px;background-color:#ccc;margin-right:5px">ios</button></li>
+<li ><button style="border:0px;background-color:#ccc;margin-right:5px">Android</button></li>
+<li ><button style="border:0px;background-color:#ccc;margin-right:5px">windows phone</button></li>
+</ul>
+
+<a href="" ><button class="b1"><b>Read more</b></button></a>
+</div>
+
+<div class="c">
+<img src="../images/hen2.jpeg" style="width:100%;height:40vh">
+<h3>Priced right</h3>
+<p>
+whether you work on ateam of three or
+a three hundred. you'll find our tiered
+pricing reasonable at every  level.
+</p>
+<a href="" ><button class="c1"><b>Read more</b></button></a>
+ </div>
+
+</div>
+</div>
+<br>
+
+<footer>
+<p>copywrite (a)2017 <br><br></p>
+</footer>
+</body>
+</html>

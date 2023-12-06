@@ -1,0 +1,69 @@
+
+<html>
+    <head>
+        <title>
+            wave css
+        </title>
+        <style>
+            *{
+                margin:0;
+                padding: 0%;
+                box-sizing: border-box;
+            }
+
+            
+
+            .header{
+                width:100%;
+                height:40vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 50px;
+            }
+
+            .wave{
+                width:100%;
+                height:60vh;
+                background-color: aqua;
+                animation:wave 5s cubic-bezier(.55,.5,.45,.5) infinite;
+            }
+
+            @keyframes wave {
+                0%,100%{clip-path: polygon(0 39%, 15% 43%, 28% 51%, 38% 58%, 48% 64%, 62% 69%, 79% 71%, 100% 63%, 100% 99%, 0% 100%);}
+                50%{clip-path: polygon(0 71%, 14% 78%, 26% 81%, 45% 80%, 59% 64%, 73% 56%, 85% 52%, 100% 51%, 100% 99%, 0% 100%);}
+            }
+
+            img{
+                position: absolute;
+                top:200px;
+                right:0px;
+                width:200px;
+                height: 200px;
+            }
+
+            .drop{
+                position: absolute;
+                top:390px;
+                right:130px;
+                width:100px;
+                height: 100px;
+                animation:drop 2s ease-out infinite;
+            }
+
+            @keyframes drop{
+                0%{top:390px;opacity:1;}
+                50%{top:600px;opacity:1;}
+                100%{top:600px;opacity:0;}
+            }
+        </style>
+    </head>
+    <body>
+
+      <div class="header">wave css <img src="images/tap.png" /> <img src="images/drop.png"  class="drop"/></div>
+      <div class="wave">
+          
+      </div>
+
+    </body>
+    </html>

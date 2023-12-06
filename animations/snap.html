@@ -1,0 +1,460 @@
+<html>
+<head>
+<title>
+</title>
+<style>
+*
+{
+margin:0px;
+padding:0px;
+box-sizing:border-box;
+}
+
+
+.main1
+{
+position:absolute;
+top:100px;
+left:100px;
+width:300px;
+height:600px;
+display:grid;
+grid-template-rows:repeat(6,1fr);
+grid-template-columns:repeat(3,1fr);
+}
+
+.main2
+{
+position:absolute;
+top:20px;
+right:300px;
+width:450px;
+height:720px;
+display:grid;
+grid-template-rows:repeat(4,1fr);
+grid-template-columns:repeat(3,1fr);
+}
+
+.box1
+{
+background-image:url('../animationimages/img18.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box2
+{
+background-image:url('../animationimages/img17.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box3
+{
+background-image:url('../animationimages/img16.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box4
+{
+background-image:url('../animationimages/img15.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box5
+{
+background-image:url('../animationimages/img14.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box6
+{
+background-image:url('../animationimages/img13.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box7
+{
+background-image:url('../animationimages/img12.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box8
+{
+background-image:url('../animationimages/img11.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box9
+{
+background-image:url('../animationimages/img10.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box10
+{
+background-image:url('../animationimages/img9.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box11
+{
+background-image:url('../animationimages/img8.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box12
+{
+background-image:url('../animationimages/img7.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box13
+{
+background-image:url('../animationimages/img6.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box14
+{
+background-image:url('../animationimages/img5.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box15
+{
+background-image:url('../animationimages/img4.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box16
+{
+background-image:url('../animationimages/img3.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box17
+{
+background-image:url('../animationimages/img2.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.box18
+{
+background-image:url('../animationimages/img1.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.b1
+{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-100%,-50%);
+width:150px;
+height:5vh;
+background-color:yellow;
+color:black;
+font-size:22px;
+font-width:900;
+border:2px solid black;
+border-radius:10px;
+outline:none;
+cursor:pointer;
+}
+
+.boxs1
+{
+background-image:url('../animationimages/thanos12.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.boxs2
+{
+background-image:url('../animationimages/thanos11.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.boxs3
+{
+background-image:url('../animationimages/thanos10.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.boxs4
+{
+background-image:url('../animationimages/thanos9.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.boxs5
+{
+background-image:url('../animationimages/thanos8.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.boxs6
+{
+background-image:url('../animationimages/thanos7.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.boxs7
+{
+background-image:url('../animationimages/thanos6.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.boxs8
+{
+background-image:url('../animationimages/thanos5.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.boxs9
+{
+background-image:url('../animationimages/thanos4.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.boxs10
+{
+background-image:url('../animationimages/thanos3.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.boxs11
+{
+background-image:url('../animationimages/thanos2.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+.boxs12
+{
+background-image:url('../animationimages/thanos1.png');
+background-size:100% 100%;
+background-repeat:no-repeat;
+transition:all 3s linear 0s;
+}
+
+</style>
+</head>
+<body>
+<div class="main1">
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+<div class="box4"></div>
+<div class="box5"></div>
+<div class="box6"></div>
+<div class="box7"></div>
+<div class="box8"></div>
+<div class="box9"></div>
+<div class="box10"></div>
+<div class="box11"></div>
+<div class="box12"></div>
+<div class="box13"></div>
+<div class="box14"></div>
+<div class="box15"></div>
+<div class="box16"></div>
+<div class="box17"></div>
+<div class="box18"></div>
+</div>
+<div class="main2">
+<div class="boxs1"></div>
+<div class="boxs2"></div>
+<div class="boxs3"></div>
+<div class="boxs4"></div>
+<div class="boxs5"></div>
+<div class="boxs6"></div>
+<div class="boxs7"></div>
+<div class="boxs8"></div>
+<div class="boxs9"></div>
+<div class="boxs10"></div>
+<div class="boxs11"></div>
+<div class="boxs12"></div>
+</div>
+<button class="b1" onclick="start()">SNAP</button>
+<script>
+start=()=>
+{
+document.querySelector('.box1').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px);");
+document.querySelector('.box2').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px);");
+document.querySelector('.box3').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px);");
+
+document.querySelector('.boxs1').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px);background-color:red;");
+document.querySelector('.boxs2').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px);background-color:red;");
+document.querySelector('.boxs3').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px);background-color:red;");
+
+setTimeout("start1()",0);
+}
+
+start1=()=>
+{
+document.querySelector('.box5').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.box6').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.box9').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.box4').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+
+document.querySelector('.boxs5').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.boxs6').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.boxs4').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+
+setTimeout("starti1()",0);
+
+starti1=()=>
+{
+document.querySelector('.box6').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px);");
+document.querySelector('.box5').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px);");
+document.querySelector('.box9').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px);");
+document.querySelector('.box4').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+
+document.querySelector('.boxs5').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+document.querySelector('.boxs6').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+document.querySelector('.boxs4').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+
+}
+
+setTimeout("start2()",0);
+}
+
+start2=()=>
+{
+document.querySelector('.box7').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.box8').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+
+document.querySelector('.boxs7').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.boxs8').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.boxs9').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+
+setTimeout("starti2()",400);
+
+starti2=()=>
+{
+document.querySelector('.box7').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+document.querySelector('.box8').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+document.querySelector('.box4').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+
+document.querySelector('.boxs7').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+document.querySelector('.boxs8').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+document.querySelector('.boxs9').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+}
+
+setTimeout("start3()",0);
+}
+
+start3=()=>
+{
+document.querySelector('.box10').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.box11').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.box12').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+
+setTimeout("starti3()",800);
+
+
+starti3=()=>
+{
+document.querySelector('.box10').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+document.querySelector('.box11').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+document.querySelector('.box12').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+
+document.querySelector('.boxs10').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px);background-color:red");
+document.querySelector('.boxs11').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px);background-color:red");
+document.querySelector('.boxs12').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px);background-color:red");
+}
+
+setTimeout("start4()",0);
+}
+
+start4=()=>
+{
+document.querySelector('.box13').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.box14').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.box15').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+
+setTimeout("starti4()",1000);
+
+starti4=()=>
+{
+document.querySelector('.box13').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+document.querySelector('.box14').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+document.querySelector('.box15').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+}
+
+setTimeout("start5()",0);
+}
+
+start5=()=>
+{
+document.querySelector('.box16').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.box17').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+document.querySelector('.box18').setAttribute("style","transform:translate(100px,-40px) rotate(25deg)");
+
+setTimeout("starti5()",1200);
+
+starti5=()=>
+{
+document.querySelector('.box16').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+document.querySelector('.box17').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+document.querySelector('.box18').setAttribute("style","transform:translate(100px,-40px) rotate(25deg);opacity:0;filter:blur(50px)");
+}
+}
+</script>
+</body>
+</html>

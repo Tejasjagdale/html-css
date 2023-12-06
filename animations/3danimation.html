@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            3d animation
+        </title>
+        
+        <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor:none;
+}
+
+.outer_room{
+    position: fixed;
+    width:2000px;
+    height:1000px;
+    transform-style: preserve-3d;
+    transform:translateZ(100px);
+    transition:all 5s linear;
+    z-index:-1;
+}
+
+.slab{
+    position: absolute;
+    width:2000px;
+    height:1000px;
+    background-color: rgba(128,128,128);
+    transform-style: preserve-3d;
+    transform:rotateX(-90deg);
+    transform-origin:top;
+    z-index:-1;
+}
+
+.floor{
+    position: absolute;
+    width:2000px;
+    height:1000px;
+    background-color: rgba(160,82,45);
+    transform-style: preserve-3d;
+    transform:rotateX(90deg);
+    transform-origin:bottom;
+    z-index:-1;
+}
+
+.wall1{
+    position: absolute;
+    width:1000px;
+    height:1000px;
+    background-image: url("images/wall2.jpg");
+    background-color: rgba(0,255,0);
+    transform-style: preserve-3d;
+    transform:rotateY(90deg);
+    transform-origin:left;
+    z-index:-1;
+}
+
+
+.wall2{
+    position:absolute;
+    width:1000px;
+    height:1000px;
+    background-image: url("images/wall2.jpg");
+    background-color: rgba(255,255,0);
+    transform-style: preserve-3d;
+    transform:translateX(1000px) rotateY(-90deg);
+    transform-origin:right;
+    z-index:-1;
+}
+
+.wall3{
+    position: absolute;
+    width:2000px;
+    height:1000px;
+    background-image: url("images/wall2.jpg");
+    background-color:rgba(238,130,238);
+    transform-style: preserve-3d;
+    z-index:-1;
+}
+
+.wall4{
+    position: absolute;
+    width:2000px;
+    height:1000px;
+    background-image: url("images/wall2.jpg");
+    background-color: rgba(0,0,255);
+    transform-style: preserve-3d;
+    transform:translateZ(-1000px);
+    z-index:-1;
+}
+
+#sight{
+    width:100%;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective:100px;
+    perspective-origin:50% 50%; 
+    z-index:-1;
+} 
+
+.cube{
+    position: relative;
+    width:300px;
+    height:300px;
+    transform-style: preserve-3d;
+    transform:translate3d(1000px,500px,-500px) rotateZ(90deg);
+    z-index:-1;
+}
+
+.face1{
+    position: absolute;
+    width:300px;
+    height:300px;
+    background-color: rgba(0,0,255);
+    transform-style: preserve-3d;
+    transform:rotateX(-90deg);
+    transform-origin:top;
+    z-index:-1;
+}
+
+.face2{
+    position: absolute;
+    width:300px;
+    height:300px;
+    background-color: rgba(0,255,0);
+    transform-style: preserve-3d;
+    transform:rotateX(90deg);
+    transform-origin:bottom;
+    z-index:-1;
+}
+
+.face3{
+    position: absolute;
+    width:300px;
+    height:300px;
+    background-color: rgba(255,0,0);
+    transform-style: preserve-3d;
+    transform:rotateY(90deg);
+    transform-origin:left;
+    z-index:-1;
+}
+
+.face4{
+    position: absolute;
+    width:300px;
+    height:300px;
+    background-color: rgba(0,255,255);
+    transform-style: preserve-3d;
+    transform:rotateY(-90deg);
+    transform-origin:right;
+    z-index:-1;
+}
+
+.face5{
+    position: absolute;
+    width:300px;
+    height:300px;
+    background-color: rgba(255,0,255);
+    transform-style: preserve-3d;
+    transform:rotateX(0deg);
+    transform-origin:top;
+    z-index:-1;
+}
+
+.face6{
+    position: absolute;
+    width:300px;
+    height:300px;
+    background-color: rgba(255,255,0);
+    transform-style: preserve-3d;
+   transform:translateZ(-300px);
+   z-index:-1;
+}
+
+.cursor{
+    position: absolute;
+    transform-style: preserve-3d;
+   transform:translateZ(-100px) rotateZ(-30deg);
+   z-index:-1;
+}
+        </style>
+    </head>
+    <body >
+    <div id="sight">
+       <div class="outer_room" >
+        <img src="images/mstick.png" width="100px" height="100px" class="cursor">
+           <div class="floor"></div>
+           <div class="slab"></div>
+           <div class="wall1"></div>
+           <div class="wall2"></div>
+           <div class="wall3"></div>
+           <div class="wall4"></div>
+
+           <div class="cube">
+               <div class="face1"></div>
+               <div class="face2"></div>
+               <div class="face3"></div>
+               <div class="face4"></div>
+               <div class="face5"></div>
+               <div class="face6"></div>
+           </div>
+        </div>
+    </div>
+    </body>
+    <script>
+
+        document.querySelector("body").addEventListener("mousemove",(e)=>{
+            var x=(e.screenX/screen.width)*100;
+            var y=(e.screenY/screen.height)*100;
+
+            var curx=e.screenX;
+            var cury=e.screenY;
+
+            document.querySelector("#sight").setAttribute("style",`perspective-origin:${100-x}% ${100-y}%;`);
+
+            document.querySelector(".cursor").setAttribute("style",`left:${x}%;top:${y}%`);
+
+            });
+
+            let keys ={ ArrowUp:false, ArrowDown:false}
+
+            document.addEventListener('keydown',keyDown);
+            document.addEventListener('keyup',keyUp);
+
+           function keyDown(e)
+           {
+            window.requestAnimationFrame(keyDown);
+            if(e.key=="w")
+            {
+              w=1000;
+              document.querySelector(".outer_room").setAttribute("style",`transform:translateZ(${w}px)`);
+              document.querySelector(".cursor").setAttribute("style",`transform:translateZ(-${w}px)`);
+            }
+
+            if(e.key=="s")
+            {
+              w=100;
+              document.querySelector(".outer_room").setAttribute("style",`transform:translateZ(${w}px)`);
+            }
+
+            if(e.key == "a"){
+                w=100;
+                document.querySelector(".outer_room").setAttribute("style",`transform:translateZ(${w}px)`);
+                document.querySelector(".outer_room").setAttribute("style",`transform:translateX(${w}px)`);
+            }
+           }
+
+           function keyUp(e)
+           {
+            if(e.key=="w")
+            {
+                document.querySelector(".outer_room").setAttribute("style",`transform:translateZ(${w}px)`);
+            }
+
+            if(e.key=="s")
+            {
+                document.querySelector(".outer_room").setAttribute("style",`transform:translateZ(${w}px)`);
+            }
+           }
+
+    </script>
+</html>

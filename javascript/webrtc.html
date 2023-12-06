@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display Webcam Stream</title>
+ 
+<style>
+#container {
+	margin: 0px auto;
+	width: 500px;
+	height: 375px;
+	border: 10px #333 solid;
+}
+#videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
+
+        .none {
+            -webkit-filter: none;
+            filter: none;
+        }
+
+        .blur {
+            filter: blur(3px);
+        }
+
+        .grayscale {
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+        }
+
+        .invert {
+            -webkit-filter: invert(1);
+            filter: invert(1);
+        }
+
+        .sepia {
+            -webkit-filter: sepia(1);
+            filter: sepia(1);
+        }
+
+</style>
+</head>
+ 
+<body>
+<div id="container">
+	
+    <p><button class="capture-button">Capture video</button>
+    <p><button id="cssfilters-apply">Apply CSS filter</button></p>
+</div>
+<script>
+    const cssFiltersButton = document.querySelector("#cssfilters-apply");
+
+    let filterIndex = 0;
+    const filters = [
+    "grayscale",
+    "sepia",
+    "blur",
+    "brightness",
+    "contrast",
+    "hue-rotate",
+    "hue-rotate2",
+    "hue-rotate3",
+    "saturate",
+    "invert",
+    "",
+    ];
+
+    var video = document.querySelector("#videoElement");
+
+    cssFiltersButton.onclick = video.onclick = function () {
+        video.className = filters[filterIndex++ % filters.length];
+    };
+
+    if (navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+        video.srcObject = stream;
+        })
+        .catch(function (err0r) {
+        console.log("Something went wrong!");
+        });
+    }
+</script>
+</body>
+</html>

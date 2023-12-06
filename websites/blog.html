@@ -1,0 +1,318 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>
+Starbuzz Coffee blog
+</title> 
+</head> 
+
+<style>
+
+body 
+{ 
+width:auto;     
+background-color: #b5a789; 
+font-family: Georgia, "Times New Roman", Times, serif; 
+font-size: small; 
+margin:0px;
+} 
+
+header.head
+{
+background-color: #675c47;
+margin: 0px 10px 0px 10px;
+width:auto;
+height:25vh;
+position:relative;
+}
+
+.topimg
+{
+position:absolute;
+left:0px;
+height:25vh;
+width:40%;
+}
+
+.topslogan
+{
+position:absolute;
+right:0px;
+height:25vh;
+width:40%;
+}
+
+.j
+{
+background-color: #efe5d0; 
+ color:#954b4b;
+text-shadow:2px 2px 6px #954b4b;
+}
+
+ul 
+{    
+background-color:#b5a789;     
+margin: 10px 10px 0px 10px;        
+padding: 5px 0px 5px 0px; 
+} 
+ul li 
+{    
+display: inline;    
+padding: 5px 10px 5px 10px; 
+background-color:  #efe5d0;    
+border:2px solid #675c47;
+text-shadow:1px 0px 1px #954b4b; 
+} 
+ul li a:link, ul li a:visited 
+{    
+color: #954b4b;    
+border-bottom: none;    
+font-weight: bold; 
+} 
+ul li:hover
+{    
+background-color: #c8b99c; 
+color:rgb(70,130,180);
+padding: 3px 3px 3px 3px;
+}
+ul li a:hover
+{    
+color:rgb(70,130,180);
+}
+
+.allcover 
+{ 
+width:auto;
+height:auto;        
+padding-top:5px;        
+padding-bottom:5px;
+margin-left:  auto;       
+margin-right: auto;        
+}
+#tableContainer 
+{  
+display: table;  
+border-spacing: 10px; 
+} 
+#tableRow 
+{  
+display: table-row;
+ }
+
+.left
+{
+display: table-cell; 
+background-color: #efe5d0;    
+width:20%;    
+padding:15px;    
+vertical-align: top; 
+margin: 5px 5px 10px 10px;
+clear:left;
+border:2px solid #675c47;
+background-image:linear-gradient(to right,white,#e1ceb8,#e1ceb8);
+}
+
+.blog
+{
+display: table-cell; 
+width:50%;
+background-color:#efe5d0;
+font-size:105%;
+padding:15px;         
+vertical-align:top;
+margin: 0px 5px 0px 5px; 
+border:2px solid #675c47;
+background-image:linear-gradient(to right,white,#e1ceb8,#e1ceb8);
+}
+
+aside
+{
+text-align:center;
+display: table-cell; 
+width:30%;
+line-height:1.5em;
+background-color:#efe5d0;
+font-size:105%;       
+padding:15px;   
+vertical-align:top;
+margin: 5px 5px 10px 10px; 
+border:2px solid #675c47;
+background-image:linear-gradient(to right,white,#e1ceb8,#e1ceb8);
+}
+
+.insideright
+{
+ color:#954b4b;
+}
+.topright
+{
+text-align:center;  
+line-height:1.8em;
+display: inline;
+}
+
+footer
+{
+width:auto;
+background-color: #675c47; 
+color:#efe5d0; 
+text-align: center; 
+padding: 15px;
+margin: 0px 10px 10px 10px;
+font-size:90%;
+line-height:1.5em;
+clear:left; 
+}
+
+a:link
+{
+color:navy;
+}
+a:visited
+{     
+color: green;
+}
+a:hover
+{     
+color:red; 
+}
+
+header.j
+{
+background-image:linear-gradient(to right,white,#e1ceb8,#e1ceb8);
+}
+
+.j
+{
+background-image:linear-gradient(to right,white,#e1ceb8,#e1ceb8);
+}
+</style>
+<body  class="b">
+
+<div class="allcover">
+
+<header class="head">
+<img class="topimg" src="../images/coffeepot.png" alt="Starbuzz Coffee header image"  width="40%" height="3%">  
+ <img class="topslogan" src="../images/slogan.png"   alt="slogan"   width="40%" height="1%">
+</header>
+
+<ul>        
+<li><a href="index.html">HOME</a></li>        
+<li class="selected"><a href="blog.html">BLOG</a></li>        
+<li><a href="starrbuzzform.html">ORDER</a></li>         
+<li><a href="">RECIPES</a></li>        
+<li><a href="">LOCATIONS</a></li>  
+</ul>
+
+<div id="tableContainer">  
+<div id="tableRow">
+
+<section class="left">  
+<h1 class="j">BEVERAGES</h1>    
+<p>House Blend, $1.49</p>    
+<p>Mocha Cafe Latte, $2.35</p>    
+<p>Cappuccino, $1.89</p>    
+<p>Chai Tea, $1.85</p>  
+<h1 class="j">ELIXIRS</h1>    
+<p>      
+We proudly serve elixirs brewed by our friends      
+at the Head First Lounge.    
+</p>    
+<p>Green Tea Cooler, $2.99</p>    
+<p>Raspberry Ice Concentration, $2.99</p>    
+<p>Blueberry Bliss Elixir, $2.99</p>    
+<p>Cranberry Antioxidant Blast, $2.99</p>    
+<p>Chai Chiller, $2.99</p>    
+<p>Black Brain Brew, $2.99</p> 
+</section>
+
+<section class="blog">
+
+<article>   
+<header class="j">       
+<h2>1.Starbuzz launches...Tweet Sip</h2>       
+<time datetime="2012-05-03">5/3/2012</time>   
+</header>   
+<p style="text-indent:70px"> 
+As promised, today I'm proud to announce that Starbuzz Coffee is launching the Tweet Sip cup, 
+a special Starbuzz  Coffee cup that tweets each time you take a sip! Check  out my video of our new invention.   
+</p>
+</article>
+
+<article>
+<header class="j">   
+<h2>2.Starbuzz meets social media</h2>     
+<time datetime="2012-03-12">3/12/2012</time> 
+</header>   
+<p style="text-indent:70px">We've replaced a few elements and added a few elements, 
+and in the process, we've added a lot of meaning to our pages.
+The browser, search engines, and applications for building web pages,
+can-if they want-be a lot smarter about how they handle different parts of your page. 
+And your page is easier for you, and other web developers, to read. 
+Even though your page looks the same, it's a lot more meaningful under the covers. 
+</p> 
+</article>
+
+<article>
+  
+<header class="j">     
+<h2>3.starbuzz uses computer science</h2>     
+<time datetime="2012-03-10">3/10/2012</time>  
+</header>
+  
+<p style="text-indent:70px">
+It is easy to get confused about which element to use, 
+so we're glad you asked. The  element is more generic than 
+, but it's not as generic as  For instance, if you're just adding an element so you can style the page, 
+then use a . If you're adding an element to mark up content that forms a 
+well-defined section of related content, then use . And if you have some 
+content that can be reused or distributed independently from the rest of the content 
+on the page, then use  content that can be reused or distributed independently from the rest of the content
+</p> 
+</article>
+
+<article> 
+ 
+<header class="j">     
+<h2>4.Most unique patron of the month</h2>     
+<time datetime="2012-02-18">2/18/2012</time>  
+</header> 
+ 
+<p style="text-indent:70px">
+ Most of the time, your  and will have a need a header for descriptive or introduction purposes. 
+or at least a heading  Think about it: content within anneed a header for descriptive or introduction purposes. that content will
+need a header for descriptive or introduction purposes. content within anneed a header for descriptive or introduction purposes.
+</p>
+ 
+</article>
+</section>
+
+
+<aside>  
+<p class="topright">   
+<img src="../images/coffeebag.png" alt="Bean Machine bag" width="200px" height="200px">   <br>   
+ORDER ONLINE   with the    <a href="form.html">BEAN MACHINE</a>   <br>   
+<span class="insideright">    FAST <br>    FRESH <br>    TO YOUR DOOR <br>   </span>  
+</p>  
+<p style="text-indent:70px">      
+Why wait? You can order all our fine coffees right from the Internet with our new,        
+automated Bean Machine. How does it work? Just click on the Bean Machine link,       
+enter your order, and behind the scenes, your coffee is roasted, ground      
+(if you want), packaged, and shipped to your door.  
+</p>
+</aside>
+
+</div>
+</div>
+</div>
+
+<footer class="bottom">  
+(c) 2012, Starbuzz Coffee 
+<br>  
+All trademarks and registered trademarks appearing on   
+this site are the property of their respective owners. 
+</footer>
+</body>
+</html>
+

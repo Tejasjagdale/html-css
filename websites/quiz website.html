@@ -1,0 +1,279 @@
+<html>
+<head>
+<title>
+ouiz website
+</title>
+<style>
+*
+{
+margin:0px;
+padding:0px;
+box-sizing:border-box;
+}
+
+body
+{
+width:100%;
+height:100vh;
+}
+
+header
+{
+width:100%;
+height:15vh;
+background:LINEAR-GRADIENT(-45DEG,#000000,#F40606);
+}
+
+main
+{
+width:100%;
+height:70vh;
+position:relative;
+}
+
+#mbox1
+{
+position:absolute;
+top:10vh;
+left:5%;
+width:40%;
+height:50vh;
+background-color:green;
+}
+
+#lhead
+{
+display:flex;
+justify-content:center;
+align-items:center;
+width:100%;
+height:20%;
+background:LINEAR-GRADIENT(TO RIGHT,#ED1D1D,#0011FF);
+font-size:45px;
+text-transform:uppercase;
+border-left:2px solid black;
+border-right:2px solid black;
+border-top:2px solid black;
+text-shadow:1px 1px white,2px 2px black;
+}
+
+#lmain
+{
+width:100%;
+height:60%;
+background-color:white;
+display:flex;
+flex-direction:column;
+border-left:2px solid black;
+border-right:2px solid black;
+position:relative;
+}
+
+#lfooter
+{
+display:flex;
+justify-content:center;
+align-items:center;
+width:100%;
+height:20%;
+background:LINEAR-GRADIENT(TO RIGHT,#ED1D1D,#0011FF);
+border-left:2px solid black;
+border-right:2px solid black;
+border-bottom:2px solid black;
+}
+
+#mbox2
+{
+position:absolute;
+top:10vh;
+right:5%;
+width:40%;
+height:50vh;
+background-color:green;
+}
+
+#shead
+{
+display:flex;
+justify-content:center;
+align-items:center;
+width:100%;
+height:20%;
+background:LINEAR-GRADIENT(TO RIGHT,#ED1D1D,#0011FF);
+font-size:45px;
+text-transform:uppercase;
+border-left:2px solid black;
+border-right:2px solid black;
+border-top:2px solid black;
+text-shadow:1.5px 1.5px white,3px 3px black;
+}
+
+#smain
+{
+width:100%;
+height:60%;
+background-color:white;
+display:flex;
+flex-direction:column;
+border-left:2px solid black;
+border-right:2px solid black;
+position:relative;
+}
+
+#sfooter
+{
+display:flex;
+justify-content:center;
+align-items:center;
+width:100%;
+height:20%;
+background:LINEAR-GRADIENT(TO RIGHT,#ED1D1D,#0011FF);
+border-left:2px solid black;
+border-right:2px solid black;
+border-bottom:2px solid black;
+}
+
+.ft
+{
+width:100%;
+height:30%;
+display:flex;
+align-items:center;
+font-size:25px;
+text-transform:uppercase;
+margin-left:2.5%;
+}
+
+.tf
+{
+width:90%;
+height:15%;
+font-size:20px;
+margin-left:2.5%;
+}
+
+.button
+{
+width:20%;
+height:40%;
+border:none;
+outline:none;
+color:white;
+text-transform:uppercase;
+background-color:black;
+box-shadow:2px 2px white,4px 4px black;
+cursor:pointer;
+font-size:18px;
+}
+
+.img
+{
+cursor:pointer;
+width:5%;
+height:15%;
+position:absolute;
+bottom:10%;
+right:1%;
+}
+
+.img:hover+#password
+{
+
+}
+
+.button:hover
+{
+width:18%;
+height:38%;
+box-shadow:1.5px 1.5px white,3px 3px black;
+font-size:16px;
+}
+
+footer
+{
+width:100%;
+height:15vh;
+background:LINEAR-GRADIENT(-45DEG,#000000,#F40606);
+}
+
+</style>
+</head>
+<body>
+
+<header>
+</header>
+
+<main>
+
+<form>
+<div id="mbox1">
+<h1 id="lhead">login</h1>
+<div id="lmain">
+<p class="ft">username</p>
+<input type="text" class="tf">
+<p class="ft">password</p>
+<input type="password" class="tf" id="password1">
+<img src="../images/showpw.png" class="img" id="img1" onclick="toggle1()">
+</div>
+<div id="lfooter">
+<input type="submit" value="submit" class="button">
+</div>
+</div>
+</form>
+
+<form>
+<div id="mbox2">
+<h1 id="shead">signin</h1>
+<div id="smain">
+<p class="ft">username</p>
+<input type="text" class="tf">
+<p class="ft">password</p>
+<input type="password" class="tf" id="password2">
+<img src="../images/showpw.png" class="img" id="img2" onclick="toggle2()">
+</div>
+<div id="sfooter">
+<input type="submit" value="submit" class="button">
+</div>
+</div>
+</form>
+
+</main>
+
+<footer>
+</footer>
+
+<script>
+var password1=document.getElementById("password1");
+var password2=document.getElementById("password2");
+var img1=document.getElementById("img1");
+var img2=document.getElementById("img2");
+
+function toggle1(){
+if (password1.type === "password")
+{
+password1.type="text";
+img1.setAttribute("src","../images/dshowpw.png");
+}
+else
+{
+password1.type="password";
+img1.setAttribute("src","../images/showpw.png");
+}
+}
+
+function toggle2(){
+if (password2.type === "password")
+{
+password2.type="text";
+img2.setAttribute("src","../images/dshowpw.png");
+}
+else
+{
+password2.type="password";
+img2.setAttribute("src","../images/showpw.png");
+}
+}
+</script>
+
+</body>
+</html>

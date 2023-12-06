@@ -1,0 +1,705 @@
+<html>
+  <head>
+    <title style="color:red">create Forms</title>
+    <link rel="icon" href="form.png" type="image">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/fontawesome.min.css"
+      integrity="sha512-8jdwayz5n8F2cnW26l9vpV6+yGOcRAqz6HTu+DQ3FtVIAts2gTdlFZOGpYhvBMXkWEgxPN3Y22UWyZXuDowNLA=="
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+
+    <link href="formmpage.css" rel="stylesheet">
+  </head>
+  <body>
+    <form>
+    <header>
+      <input type="text" class="phpsections">
+      <input type="text" class="phpsectionq" id="phpsectionq1">
+      <input type="text" class="phpsectionq" id="phpsectionq2">
+      <input type="text" class="phpsectionq" id="phpsectionq3">
+      <p class="hht"><i class="fas fa-file-alt"></i> createforms</p>
+
+      <ul class="menu">
+        <li class="submenu">
+          <i
+            class="fas fa-adjust"
+            style="cursor: pointer"
+            onclick="darkmode()"
+          ></i>
+        </li>
+        <li class="submenu">
+          <i
+            class="fas fa-palette"
+            style="cursor: pointer"
+            onclick="theme()"
+          ></i>
+        </li>
+        <li class="submenu">
+          <a href="http://localhost/formswebsite/formpreview.php"><i class="fas fa-eye" style="cursor: pointer"></i></a>
+        </li>
+        <li class="submenu">
+          <i class="fas fa-cog" style="cursor: pointer"></i>
+        </li>
+        <li class="submenu" style="width: 85px">
+          <button class="share">
+            <i class="fa fa-share" aria-hidden="true"></i> send
+          </button>
+        </li>
+        <li class="submenu">
+          <i
+            class="fa fa-ellipsis-v"
+            aria-hidden="true"
+            style="cursor: pointer"
+          ></i>
+        </li>
+      </ul>
+
+      <button class="mfq">questions</button>
+      <button class="mfr">response</button>
+
+      <div class="colorsel">
+        <span
+          class="themenu"
+          style="
+            height: 10%;
+            box-shadow: 0px 0.1px 1px;
+            font-size: 20px;
+            padding-right: 21%;
+          "
+          ><i
+            class="fas fa-palette"
+            id="ticon"
+            style="font-size: 20px; color: blue; position: absolute; left: 8%"
+          ></i>
+          Theme options
+          <i
+            class="fas fa-times"
+            style="
+              cursor: pointer;
+              font-size: 25px;
+              font-weight: -1000;
+              color: black;
+              position: absolute;
+              right: 4%;
+            "
+            onclick="backtheme()"
+          ></i
+        ></span>
+        <div
+          class="themenu"
+          style="
+            height: 20%;
+            position: relative;
+            color: blue;
+            padding-right: 5%;
+          "
+        >
+          <span style="border: 1px solid grey; padding: 8px; cursor: pointer"
+            ><i
+              class="far fa-image"
+              style="color: blue; margin-right: 10px"
+            ></i>
+            Choose image
+          </span>
+          <p class="thh">Header</p>
+        </div>
+        <div class="themenu" id="themecolor" style="height: 30%">
+          <input
+            type="color"
+            onblur="addnewcolor()"
+            class="usercolor"
+            value="#fefe00"
+          /><i
+            class="fal fa-plus-circle"
+            id="plus"
+            onclick="addcolor('black')"
+          ></i>
+          <p class="thh1">theme</p>
+        </div>
+        <div
+          class="themenu"
+          id="backtheme"
+          style="height: 20%; position: relative"
+        >
+          <p class="thh2">Background color</p>
+        </div>
+        <div class="themenu" style="height: 20%"></div>
+      </div>
+    </header>
+ 
+    <ul class="options">
+        <li
+          class="suboption"
+          id="shortanswer"
+          onclick="selectoption(this.id)"
+          style="padding-right: 20%; margin-top: 3%; height: 8%"
+        >
+        <i class="far fa-grip-lines"
+        style="position: absolute; left: 6%"></i>
+          Short answers
+        </li>
+        <li
+          class="suboption"
+          id="paragraph"
+          onclick="selectoption(this.id)"
+          style="padding-right: 30%; border-bottom: 0.1px solid grey">
+        <i class="far fa-align-justify"
+           style="position: absolute; left: 6%"
+         ></i> 
+          Paragraph
+        </li>
+        <li class="suboption" id="multiplechoice" onclick="selectoption(this.id)" style="padding-right: 16%">
+          <i class="far fa-dot-circle" style="position: absolute; left: 6%"></i>
+          multiple choice
+        </li>
+        <li class="suboption" style="padding-right: 30%">
+          <ion-icon
+            name="checkbox-outline"
+            style="position: absolute; left: 6%"
+          ></ion-icon>
+          Checkbox
+        </li>
+        <li
+          class="suboption"
+          style="padding-right: 30%; border-bottom: 0.1px solid grey"
+        >
+          <ion-icon
+            name="caret-down-circle-outline"
+            style="position: absolute; left: 6%"
+          ></ion-icon>
+          Dropdown
+        </li>
+        <li
+          class="suboption" id="fileupload" onclick="selectoption(this.id)"
+          style="padding-right: 29%; border-bottom: 0.1px solid grey"
+        >
+          <i
+            class="fas fa-cloud-upload-alt"
+            aria-hidden="true"
+            style="position: absolute; left: 6%"
+          ></i>
+          file upload
+        </li>
+        <li class="suboption" style="padding-right: 27%">
+          <ion-icon
+            name="ellipsis-horizontal-outline"
+            style="position: absolute; left: 6%"
+          ></ion-icon>
+          linear scale
+        </li>
+        <li class="suboption" style="padding-left: 1%">
+          <ion-icon
+            name="apps-outline"
+            style="position: absolute; left: 6%"
+          ></ion-icon>
+          Multiple Choice Grid
+        </li>
+        <li
+          class="suboption"
+          style="padding-right: 16%; border-bottom: 0.1px solid grey"
+        >
+          <i
+            class="fa fa-th"
+            aria-hidden="true"
+            style="position: absolute; left: 6%"
+          ></i>
+          Checkbox grid
+        </li>
+        <li class="suboption" style="padding-right: 45%">
+          <ion-icon
+            name="today-outline"
+            style="position: absolute; left: 6%"
+          ></ion-icon>
+          Date
+        </li>
+        <li class="suboption" style="padding-right: 45%">
+          <ion-icon
+            name="time-outline"
+            style="position: absolute; left: 6%"
+          ></ion-icon>
+          Time
+        </li>
+      </ul> 
+
+      <main>
+
+      <ul class="movmenu">
+        <button
+          type="button"
+          name="submit1"
+          class="movsubmenu"
+          style="
+            background-color: transparent;
+            font-size: 22px;
+            border: none;
+            outline: none;
+          "
+          onclick="addquestion()"
+        >
+          <i
+            class="fa fa-plus-circle"
+            aria-hidden="true"
+            style="cursor: pointer; color: grey"
+          ></i>
+        </button>
+        <li class="movsubmenu" style="color: grey; font-size: 20px">
+          <i
+            class="fas fa-file-import"
+            style="cursor: pointer; color: grey; margin-right: 2px"
+          ></i>
+        </li>
+        <li class="movsubmenu" style="font-size: 20px">
+          <i class="fas fa-heading" style="cursor: pointer"></i>
+        </li>
+        <li class="movsubmenu" style="font-size: 22px">
+          <i class="far fa-image" style="cursor: pointer"></i>
+        </li>
+        <li class="movsubmenu" style="font-size: 22px">
+          <i class="far fa-file-video" style="cursor: pointer"></i>
+        </li>
+        <li class="movsubmenu" style="font-size: 25px">
+          <i
+            class="fas fa-grip-lines"
+            style="cursor: pointer"
+            onclick="addsection()"
+          ></i>
+        </li>
+      </ul>
+    </main>
+    </form>
+  </body>
+  <script>
+    var x1 = document.querySelector(".usercolor");
+    var themes = document.querySelector(".colorsel");
+    var i = 1;
+    var n = 0;
+    left = 34;
+
+    function darkmode() {
+      i++;
+      if (i % 2 == 0) {
+        document.querySelector("header").setAttribute("style", "background-color:rgba(0,0,0,1)");
+
+        list2 = document.getElementsByClassName("titleclass");
+     for (index = 0; index < list2.length;index++) {
+         list2[index].setAttribute("style","background-color:rgba(0,0,0,1)");
+      }
+      
+        document.querySelector(".submenu").setAttribute("style", "color:white");
+      } else {
+        document
+          .querySelector("header")
+          .setAttribute("style", "background-color:white");
+        document
+          .querySelectorAll(".submenu")
+          .setAttribute("style", "color:black");
+      }
+    }
+
+    function theme() {
+      themes.setAttribute("style", "right:0%");
+    }
+
+    function backtheme() {
+      themes.setAttribute("style", "right:-20%");
+    }
+
+    function addthemecolor() {
+      for (var z = 1; z <= 12; z++) {
+        var new1 = document.createElement("P");
+        new1.setAttribute("id", "color" + z);
+        document.querySelector("#themecolor").appendChild(new1);
+      }
+      for (var s = 1; s <= 12; s++) {
+        var colors = [
+          "#db4437",
+          "#673ab7",
+          "#3f51b5",
+          "#4285f4",
+          "#03a9f4",
+          "#00bcd4",
+          "#ff5722",
+          "#ff9800",
+          "#009688",
+          "#4caf50",
+          "#607d8b",
+          "#9e9e9e",
+        ];
+        document
+          .querySelector("#color" + s)
+          .setAttribute("style", "order:" + (13 - s));
+        document
+          .querySelector("#color" + s)
+          .setAttribute("onclick", "colorchange('" + colors[s - 1] + "')");
+        document
+          .querySelector("#color" + s)
+          .setAttribute(
+            "style",
+            "cursor:pointer;border:0.1px solid black;border-radius:50%;width:25px;height:25px;background-color:" +
+              colors[s - 1]
+          );
+        document
+          .getElementById("plus")
+          .setAttribute("style", "cursor:pointer;order:13");
+        backth("#3f51b5");
+      }
+    }
+
+    function addnewcolor() {
+      left = left + 33;
+      color = x1.value;
+      n++;
+      var new1 = document.createElement("P");
+      new1.setAttribute("id", "color" + (12 + n));
+      document.querySelector("#themecolor").appendChild(new1);
+      document
+        .querySelector("#color" + (12 + n))
+        .setAttribute("style", "order:" + 14);
+      document
+        .querySelector("#color" + (12 + n))
+        .setAttribute("onclick", "colorchange('" + color + "')");
+      document
+        .querySelector("#color" + (12 + n))
+        .setAttribute(
+          "style",
+          "cursor:pointer;border:0.1px solid black;border-radius:50%;width:25px;height:25px;background-color:" +
+            color
+        );
+      document
+        .getElementById("plus")
+        .setAttribute("style", "cursor:pointer;order:13");
+      document
+        .querySelector(".usercolor")
+        .setAttribute("style", "left:" + left);
+      colorchange(color);
+    }
+
+    function colorchange(color) {
+      document
+        .querySelector(".mfq")
+        .setAttribute(
+          "style",
+          "color:" + color + ";border-bottom:4px solid " + color
+        );
+
+      document.querySelector(".mfr").setAttribute("style", "color:" + color);
+      document.querySelector("#ticon").setAttribute("style","font-size:20px;position:absolute;left:8%;color:" + color);
+
+      list = document.getElementsByClassName("sec_no");
+     for (index1 = 0; index1< list.length;index1++) {
+         list[index1].setAttribute("style", "background-color:" + color);
+     }
+
+      list2 = document.getElementsByClassName("titleclass");
+
+     for (index = 0; index < list2.length;index++) {
+         list2[index].setAttribute("style", "border-top:10px solid" + color);
+      }
+
+      backth(color);
+    }
+
+    function backgroundcolor(id) {
+      var color = document.querySelector("#" + id).style.backgroundColor;
+      document
+        .querySelector("body")
+        .setAttribute("style", "background-color:" + color);
+    }
+
+    function backth(color) {
+      for (var t = 1; t <= 4; t++) {
+        var colors = [color + "1A", color + "33", color + "56", "#f6f6f6"];
+        var new1 = document.createElement("P");
+        new1.setAttribute("id", "colors" + t);
+        document.querySelector("#backtheme").appendChild(new1);
+        document
+          .querySelector("#colors" + t)
+          .setAttribute(
+            "style",
+            "cursor:pointer;border:0.1px solid grey;border-radius:50%;width:25px;height:25px;background-color:" +
+              colors[t - 1]
+          );
+        new1.setAttribute("onclick", "backgroundcolor(this.id)");
+      }
+      backgroundcolor("colors2");
+    }
+
+    //-------ADD SECTION PART------------//
+    var i=0;
+
+    function addsection(){
+      i++;
+
+      var sec = document.createElement("SECTION");
+      sec.id="sec"+i;
+      sec.className="sec";
+
+      document.querySelector("main").appendChild(sec);
+      document.getElementById("sec"+i).setAttribute("onclick","active(this.id)");
+      document.querySelector("#sec"+i).innerHTML=`<div class='titleclass'  id="titleclass${i}"><i id='dsec${i}' onclick='deletesection(this.id,event)' class='fas fa-trash-alt'></i><p class='sec_no' id='sec_no${i}'></p>`+
+              `<input type='textarea'  value='Untitle form' placeholder='from title' class='title' id='title${i}'>`+
+              `<input type='text'  placeholder='form description' class='desc' id='desc${i}'>`+
+              `</div>`+
+              `<div  onclick='editsection(this.id)' class='etitleclass'  id='etitleclass${i}'><p class='esec_no' id='esec_no${i}'></p>`+
+              `<h1 class='etitle' id='etitle${i}'>Untitle form</h1>`+
+              `<p class='edesc' id='edesc${i}' >form description</p>`+
+              `</div>`;
+
+        active("sec"+i);
+        editsection("etitleclass"+i);
+        sectionname();
+        document.querySelector(".phpsections").value=i;
+    }
+
+    function sectionname(){
+      var s = document.getElementsByClassName("sec");
+      for(var n=1;n<=s.length;n++){
+        document.getElementById("sec_no"+n).innerText=`section ${n} of ${s.length}`;
+        document.getElementById("esec_no"+n).innerText=`section ${n} of ${s.length}`;
+      }
+    }
+
+    //-------DELETE SECTION PART------------//
+
+    function deletesection(id,e){
+      i=i-1;
+      console.log(i);
+      e.stopPropagation();
+      switch (id) {
+      case "dsec1":
+      document.getElementById("sec1").remove();
+      break;
+      case "dsec2":
+      document.getElementById("sec2").remove();
+      break;
+      case "dsec3":
+      document.getElementById("sec3").remove();
+      break;
+      case "dsec4":
+      document.getElementById("sec4").remove();
+      break;
+      case "dsec5":
+      document.getElementById("sec5").remove();
+      break;
+     }
+
+      var c1= document.getElementsByClassName("sec");
+      var c2=document.getElementsByClassName("titleclass");
+      var c3=document.getElementsByClassName("etitleclass");
+      var c4= document.getElementsByClassName("title");
+      var c5=document.getElementsByClassName("desc");
+      var c6= document.getElementsByClassName("etitle");
+      var c7=document.getElementsByClassName("edesc");
+      var c8=document.getElementsByClassName("sec_no");
+      var c9= document.getElementsByClassName("fas fa-trash-alt");
+      var c10=document.getElementsByClassName("esec_no");
+      for(var n=0;n<c1.length;n++){
+      c1[n].id="sec"+(n+1);
+      c2[n].id="titleclass"+(n+1);
+      c3[n].id="etitleclass"+(n+1);
+      c4[n].id="title"+(n+1);
+      c5[n].id="desc"+(n+1);
+      c6[n].id="etitle"+(n+1);
+      c7[n].id="edesc"+(n+1);
+      c8[n].id="sec_no"+(n+1);
+      c9[n].id="dsec"+(n+1);
+      c10[n].id="esec_no"+(n+1);
+      }
+      active("sec"+1);
+      sectionname();
+      document.querySelector(".phpsections").value=i;
+    }
+
+     
+    addsection();
+    addthemecolor();
+
+     //-------ACTIVATE SECTION PART------------//
+     
+      function active(id){
+        var s = document.getElementsByClassName("sec");
+      for(var n=1;n<=s.length;n++){
+        if(id=="sec"+n){
+        document.getElementById("sec"+n).classList.add("secactive");
+        document.getElementById("titleclass"+n).classList.add("active");
+        document.getElementById("etitleclass"+n).setAttribute("style","display:none");
+        document.getElementById("sec_no"+n).setAttribute("style","left:-10px");
+        }
+      }
+
+      for(var n=1;n<=s.length;n++){
+        if(id!="sec"+n){
+        document.getElementById("sec"+n).classList.remove("secactive");
+        document.getElementById("titleclass"+n).classList.remove("active");
+        document.getElementById("sec_no"+n).setAttribute("style","left:0px");
+        }
+
+        var top=document.querySelector(".active").offsetTop;
+        document.querySelector(".movmenu").setAttribute("style","top:"+top);
+
+      }
+     };
+
+
+     //------- EDIT SECTION PART------------//
+
+     function editsection(id){
+      var s = document.getElementsByClassName("sec");
+       for(var n=1;n<=s.length;n++){
+      document.getElementById("etitle"+n).innerHTML=document.getElementById("title"+n).value;
+       document.getElementById("edesc"+n).innerHTML=document.getElementById("desc"+n).value;
+       }
+
+       var s = document.getElementsByClassName("sec");
+       for(var n=1;n<=s.length;n++){
+        if(id!="etitleclass"+n){
+        document.getElementById("titleclass"+n).classList.remove("active");
+        document.getElementById("etitleclass"+n).setAttribute("style","display:flex");
+        }
+       }
+     }
+
+
+    //------- QUESTION PART------------//
+    var q=0;
+
+    function addquestion(){
+      q++;
+      var question = document.createElement("DIV");
+      question.id="ques"+q;
+      question.className="ques";
+
+      document.querySelector(".secactive").appendChild(question);
+      document.getElementById("ques"+q).setAttribute("onclick","quesactive(this.id,event)");
+
+      document.getElementById("ques"+q).innerHTML=`<div class="hoptions"><input type='text'  value='Question' placeholder='Question' class='Questions' id='Questions${q}'>` +
+      `<p class="obtn" id="qso${q}" tabindex="1" onclick="options(this.id)"><i class="far fa-dot-circle"></i> multiple choice</p></div>`+
+      `<div class="moption1">
+        <p><i class="fal fa-circle" aria-hidden="true"></i><input type='text'  value='option1' placeholder='option1' class='eoptions' id='qoptions1'></p>
+        <p><i class="fal fa-circle" aria-hidden="true"></i><input type='text'  value='option2' placeholder='option2' class='eoptions' id='qoptions2'></p>
+        <p><i class="fal fa-circle" aria-hidden="true"></i><input type='text'  value='option3' placeholder='option3' class='eoptions' id='qoptions3'></p>
+        <p><i class="fal fa-circle" aria-hidden="true"></i><input type='text'  value='option4' placeholder='option4' class='eoptions' id='qoptions4'></p>
+        </div>`+
+        `<div class="moption2">
+         <p class="satif">Short answer text</p>
+        </div>`+
+        `<div class="moption3">
+          <p class="latif">long answer text</p>
+        </div>`+
+      `<div class="foptions"><i class="fa fa-clone" aria-hidden="true"></i><i id="dques${q}" onclick="deletequestion(this.id,event)" class="fas fa-trash" aria-hidden="true"></i><h3>Required</h3><input type="checkbox"></div>`;
+      var ql1=document.querySelectorAll("#sec1 .ques");
+      var ql2=document.querySelectorAll("#sec1 .ques");
+      var ql3=document.querySelectorAll("#sec1 .ques");
+      
+      document.getElementById("phpsectionq1").value=ql1;
+      document.getElementById("phpsectionq2").value=ql2;
+      document.getElementById("phpsectionq3").value=ql3;
+    }
+
+    //-------ACTIVATE QUESTION PART------------//
+
+    function quesactive(id,e){
+      e.stopPropagation();
+      var k = document.getElementsByClassName("ques");
+      for(var n=1;n<=k.length;n++){
+        if(id=="ques"+n){
+          document.getElementById(id).classList.add("quesactive");
+          editsection("etitleclass"+n);
+        }
+      }
+
+      for(var n=1;n<=k.length;n++){
+        if(id!="ques"+n){
+          document.getElementById("ques"+n).classList.remove("quesactive");
+      }
+      }
+     };
+
+     //-------DELETE QUESTION PART------------//
+
+     function deletequestion(id,e){
+      q=q-1;
+      e.stopPropagation();
+      var s = document.getElementsByClassName("ques");
+      for(var n=0;n<=s.length;n++){
+        if(id=="dques"+n){
+        document.getElementById("ques"+n).remove();
+        }
+     }
+
+     var c1= document.getElementsByClassName("ques");
+      var c2= document.getElementsByClassName("Questions");
+      var c3=document.getElementsByClassName("fas fa-trash");
+      var c4=document.getElementsByClassName("obtn");
+      for(var n=0;n<c1.length;n++){
+      c1[n].id="ques"+(n+1);
+      c2[n].id="Questions"+(n+1);
+      c3[n].id="dques"+(n+1);
+      c4[n].id="qso"+(n+1);
+      }
+      var ql1=document.querySelectorAll("#sec1 .ques");
+      var ql2=document.querySelectorAll("#sec1 .ques");
+      var ql3=document.querySelectorAll("#sec1 .ques");
+      
+      document.getElementById("phpsectionq1").value=ql1;
+      document.getElementById("phpsectionq2").value=ql2;
+      document.getElementById("phpsectionq3").value=ql3;
+
+     }
+
+     
+    function options(id){
+      document.getElementById(id).classList.add("opactive");
+      document.querySelector(".options").setAttribute("style","display:block");
+    }
+
+    function doptions(){
+      document.querySelector(".options").setAttribute("style","display:none");
+    }
+
+    function selectoption(id){
+       if(id=="shortanswer"){
+        document.querySelector(".opactive").innerHTML=` <i class="far fa-grip-lines" ></i> Short answers`;
+        document.querySelector(".moption2").setAttribute("style","display:flex;");
+        document.querySelector(".moption1").setAttribute("style","display:none;");
+        document.querySelector(".moption3").setAttribute("style","display:none;");
+      }
+
+       if(id=="paragraph"){
+        document.querySelector(".opactive").innerHTML=`<i class="far fa-align-justify" ></i> Paragraph`;
+        document.querySelector(".moption3").setAttribute("style","display:flex");
+        document.querySelector(".moption1").setAttribute("style","display:none");
+        document.querySelector(".moption2").setAttribute("style","display:none");
+       }
+
+        if(id=="multiplechoice"){
+          document.querySelector(".opactive").innerHTML=`<i class="far fa-dot-circle"></i> multiple choice`;
+          document.querySelector(".moption1").setAttribute("style","display:flex");
+          document.querySelector(".moption2").setAttribute("style","display:none");
+        document.querySelector(".moption3").setAttribute("style","display:none");
+       }
+
+        if(id=="fileupload"){
+          document.querySelector(".opactive").innerHTML=`<i class="fas fa-cloud-upload-alt"aria-hidden="true"></i>file upload`;
+       }
+      console.log(id);
+      doptions();
+    }
+
+
+
+
+  </script>
+</html>

@@ -1,0 +1,468 @@
+<html>
+<head>
+<title>
+flexbox website
+</title>
+<style>
+*
+{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+body
+{
+background-color:#709b90;
+}
+
+header
+{
+display:flex;
+align-items:center;
+padding-left:20px;
+text-transform:uppercase;
+color:#fff;
+font-size:50px;
+font-weight:1000;
+max-width:98%;
+height:15vh;
+background-color:rgb(143,188,143);
+margin:1vh 1%;
+position:relative;
+}
+
+nav
+{
+width:98%;
+height:8vh;
+margin:1vh 1%;
+background-color:#5f4b44;
+position:relative;
+}
+
+.ul1
+{
+display:inline-flex;
+list-style:none;
+}
+
+.li1
+{
+background-color:#cc6b5a;
+padding:0.5em;
+margin:0.75em;
+width:25%;
+height:80%;
+color:white;
+cursor:pointer;
+font-size:15px;
+}
+
+.selected
+{
+position:absolute;
+right:0px;
+background-color:#cc6b5a;
+color:white;
+padding:0.5em;
+margin:0.75em;
+cursor:pointer;
+}
+
+main
+{
+display:flex;
+max-width:98%;
+height:56vh;
+margin-left:1%;
+}
+
+.left
+{
+display:flex;
+flex-direction:column;
+width:20%;
+height:56vh;
+background-color:yellow;
+margin-right:1%;
+background-image:linear-gradient(to right,rgba(0,0,0,0.6),rgba(0,0,0,0.6)) , url(../images/coffee3.jpeg);
+background-size:100% 100%;
+background-repeat-no-repeat;
+}
+
+h1
+{
+margin-left:12px;
+}
+
+.menu
+{
+display:flex;
+justify-content:center;
+align-items:center;
+width:100%;
+height:20%;
+background-color:rgba(255,255,255,0.5);
+border:1px solid black;
+font-size:30px;
+font-weight:1000;
+}
+
+.menu:hover .submenu
+{
+display:block;
+}
+
+.submenu
+{
+width:100%;
+height:80%;
+}
+
+.li
+{
+display:flex;
+justify-content:center;
+align-items:center;
+max-width:100%;
+height:16%;
+background-color:rgba(255,0,0,0.4);
+border:1px solid black;
+}
+
+.main
+{
+display:flex;
+flex-direction:column;
+width:60%;
+height:56vh;
+background-color:white;
+padding:1em;
+margin-right:1%;
+}
+
+aside
+{
+display:flex;
+flex-direction:column;
+width:20%;
+height:56vh;
+}
+
+.box1
+{
+width:100%;
+height:49%;
+background-color:white;
+margin-bottom:3%;
+}
+
+.box2
+{
+width:100%;
+height:49%;
+background-color:white;
+padding:2em;
+}
+
+
+h3
+{
+text-align:right;
+margin:0.5em;
+}
+
+.box
+{
+margin:5px;
+margin-left:15px;
+}
+
+.b
+{
+background-color:#cc6b5a;
+width:100%;
+height:5vh;
+}
+
+.b1
+{
+margin:5px;
+color:rgb(70,130,180);
+border:1px solid darkyellow;
+padding:2px;
+margin-left:15px;
+}
+
+footer
+{
+max-width:98%;
+height:15vh;
+background-color:rgb(143,188,143);
+margin:1vh 1%;
+color:#fff;
+text-align:center;
+padding:1.5em;
+}
+
+.submenu
+{
+list-style:none;
+}
+
+@media only screen and (max-width:1070px)
+{
+.back
+{
+display:none;
+position:absolute;
+top:50%;
+right:-25px;
+width:25px;
+height:50px;
+font-size:35px;
+border:2px solid black;
+background-color:white;
+}
+
+.left
+{
+display:none;
+width:250px;
+height:100vh;
+position:absolute;
+top:0;
+right:-275px;
+}
+
+.main
+{
+display:flex;
+flex-direction:column;
+width:70%;
+height:56vh;
+background-color:white;
+padding:1em;
+margin-right:1%;
+}
+
+aside
+{
+display:flex;
+flex-direction:column;
+width:30%;
+height:56vh;
+}
+
+.icon
+{
+width:45px;
+height:45px;
+display:flex;
+flex-direction:column;
+position:absolute;
+top:50%;
+right:35px;
+transform:translateY(-50%);
+}
+
+.lines
+{
+width:100%;
+height:11px;
+margin-top:0px;
+margin-bottom:6px;
+background-color:#cc6b5a;
+}
+}
+
+@media only screen and (max-width:700px)
+{
+.back
+{
+right:0;
+}
+
+.left
+{
+width:250px;
+height:100vh;
+position:absolute;
+top:0;
+right:-10px;
+}
+
+main
+{
+display:flex;
+flex-direction:column;
+}
+
+.main
+{
+display:flex;
+width:100%;
+height:27vh;
+margin-bottom:2vh;
+}
+
+aside
+{
+display:flex;
+flex-direction:row;
+width:100%;
+height:27vh;
+}
+
+.box1
+{
+width:49%;
+height:27vh;
+margin-right:2%;
+}
+
+.box2
+{
+width:49%;
+height:27vh;
+}
+}
+
+@media only screen and (max-width:440px)
+{
+.back
+{
+right:0;
+}
+
+.left
+{
+width:250px;
+height:100vh;
+position:absolute;
+top:0;
+right:-10px;
+}
+
+main
+{
+display:flex;
+flex-direction:column;
+}
+
+.main
+{
+display:flex;
+width:100%;
+height:27vh;
+margin-bottom:2vh;
+}
+
+aside
+{
+display:flex;
+flex-direction:row;
+width:100%;
+height:27vh;
+}
+
+.box1
+{
+width:49%;
+height:27vh;
+margin-right:2%;
+}
+
+.box2
+{
+width:49%;
+height:27vh;
+}
+
+</style>
+</head>
+<body>
+
+<header>ink
+<div class="icon" onclick="toggel()">
+<div class="lines"></div>
+<div class="lines"></div>
+<div class="lines"></div>
+</div>
+</header>
+<nav>
+<ul class="ul1">
+   <li class="li1">HOME</li>
+   <li class="li1">FEATURES</li>
+   <li class="li1">PRICING</li>
+   <li class="li1">SUPPORT</li>
+   <li class="selected">ABOUT</li>
+</ul>
+</nav>
+<div class="back" onclick="back()">></div>
+<main>
+
+<div class="left">
+
+<div class="menu">menu</div>
+
+<ul class="submenu">
+       <li class="li"><a href="../css/flexbox project1.html" target=" blank">FLEXBOX <br> PROJECT1</a></li>
+       <li class="li"><a href="../css/flexbox project2.html" target=" blank1">FLEXBOX <br>PROJECT2</a></li>
+       <li class="li"><a href="../css/css less3.html" target=" blank2">FLEXBOX <br>PROJECT3</a></li>
+       <li class="li"><a href="../css/grid project1.html">FLEXBOX <br>PROJECT4</a></li>
+       <li class="li"><a href="">FLEXBOX <br>PROJECT5</a></li>
+       <li class="li"><a href="">FLEXBOX <br>PROJECT6</a></li>
+</ul>
+
+</div>
+
+<div class="main">
+<h1>Team collaboration done right</h1>
+<p class="box">thousands of teams from all over the world turn to ink to communicate and get things done.</p>
+</div>
+
+<aside>
+
+<div class="box1">
+<h3>LOGIN</h3>
+<p class="box"><b>username</b></p><input type="text" class="box">
+<p class="box"><b>password</b></p><input type="text" class="box"><br>
+<input type="button" value="Login" class="b1" style="background-color:#0000A0;color:white;border:2px solid grey;cursor:pointer">
+</div>
+
+<div class="box2">
+<p style="text-align:center">starting at</p>
+<p style="font-size:50px;text-align:center">$20.00</p>
+<input type="button" value="sign up" class="b">
+</div>
+
+</aside>
+
+</main>
+<footer>
+(c) 2012, Starbuzz Coffee<br>
+All trademarks and registered trademarks appearing on this site are the property of their respective owners.
+</footer>
+<script>
+var menu=document.querySelector('.left');
+var hide=document.querySelector('.back');
+
+
+function toggel()
+{
+menu.setAttribute("style","right:-10px;display:block");
+hide.setAttribute("style","right:245px;display:block");
+}
+
+function back()
+{
+menu.setAttribute("style","right:-325px;display:none");
+hide.setAttribute("style","right:-25px;display:none");
+}
+
+</script>
+</body>
+</html>

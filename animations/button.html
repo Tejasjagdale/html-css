@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>
+        button animation
+    </title>
+<style>
+    *{
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+    }
+
+body{
+    width:100%;
+    height:100vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.b{
+position:fixed;
+border:1px solid gold;
+border-radius:25px;
+height:50px;
+width:150px;
+text-align:center;
+color:#fff;
+text-decoration:none;
+box-sizing:border-box;
+background-image:linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,pink,#03a9f4);
+background-size:500%;
+animation:animate 10s linear infinite;
+font-size: 20px;
+text-transform: uppercase;
+outline:none;
+}
+
+
+.b:hover{
+    cursor: pointer;
+}
+
+
+@keyframes animate{
+ 0%
+{
+background-position:0%;
+}
+100%
+{
+background-position:500%;
+}
+}
+
+</style>
+</head>
+<body>
+    <div>
+        <button class="b">submit</button>
+    </div>
+</body>
+</html>

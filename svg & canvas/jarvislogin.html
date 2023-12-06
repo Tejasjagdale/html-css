@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SvG part 1</title>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+      }
+
+      #mainframe {
+        position: fixed;
+      }
+
+      .light {
+        position: fixed;
+        width: 685px;
+        height: 420px;
+        margin-top: 30px;
+        margin-left: 0px;
+        border: none;
+        box-shadow: 0px 0px 10px 5px #0ff2f6, 0px 0px 50px 5px inset #0ff2f6;
+        display: flex;
+        border-radius: 10% 10% 10% 10% / 10% 10% 10% 10%;
+      }
+
+      .light2 {
+        position: fixed;
+        width: 685px;
+        height: 420px;
+        margin-top: 30px;
+        margin-left: 0px;
+        border: none;
+        display: flex;
+        z-index: 10;
+      }
+
+      .sides {
+        width: 50%;
+        height: 100%;
+      }
+
+      .sides:nth-child(1) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .sides:nth-child(2) div {
+        width: 100%;
+        height: 33.33%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .input_filed {
+        width: 80%;
+        height: 40px;
+        background-color: #003163;
+        border: 2px solid #5ed4ec;
+        border-radius: 10px;
+        padding-left: 40px;
+        color: #5ed4ec;
+        font-size: 20px;
+        outline: none;
+      }
+
+      .input_filed::placeholder {
+        color: #5ed4ec;
+      }
+
+      button {
+        width: 180px;
+        height: 80px;
+        cursor: pointer;
+        background: url(images/button.png);
+        background-size: 100% 100%;
+        border: none;
+        outline: none;
+        color: #5ed4ec;
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 50px;
+      }
+
+      .icon_wrraper {
+        width: 250px;
+        height: 250px;
+        border: 2px solid #5ed4ec;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+      }
+
+      .icon_wrraper img {
+        width: 225px;
+        height: 225px;
+      }
+
+      #card1 {
+        transform: translateX(1000px);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .p1 {
+        transform: translateY(-500px);
+        transition: all 0.3s ease-in-out;
+      }
+
+      @media only screen and (max-width: 800px) {
+        #mainframe {
+          width: 600px;
+          height: 450px;
+        }
+      }
+
+      @media only screen and (max-width: 500px) {
+        .light2 {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="light"></div>
+
+    <div class="light2">
+      <div class="sides">
+        <div class="icon_wrraper">
+          <img src="images/face.png" class="icon" />
+        </div>
+      </div>
+      <div class="sides">
+        <div>
+          <i
+            style="
+              position: relative;
+              top: 30px;
+              left: 30px;
+              color: #5ed4ec;
+              font-size: 20px;
+            "
+            class="far fa-user-circle"
+          ></i
+          ><input
+            type="text"
+            placeholder="username"
+            style="margin-top: 60px"
+            class="input_filed"
+          />
+        </div>
+        <div>
+          <i
+            style="
+              position: relative;
+              top: 0px;
+              left: 30px;
+              color: #5ed4ec;
+              font-size: 20px;
+            "
+            class="fas fa-lock"
+          ></i
+          ><input type="password" placeholder="password" class="input_filed" />
+        </div>
+        <div><button>LOGIN</button></div>
+      </div>
+    </div>
+
+    <svg
+      id="mainframe"
+      width="800px"
+      height="600px"
+      style="border: 1px green solid"
+    >
+      <path stroke="green" stroke-width=".5" d="M80 0 V600"></path>
+      <path stroke="green" stroke-width=".5" d="M160 0 V600"></path>
+      <path stroke="green" stroke-width=".5" d="M240 0 V600"></path>
+      <path stroke="green" stroke-width=".5" d="M320 0 V600"></path>
+      <path stroke="green" stroke-width=".5" d="M400 0 V600"></path>
+      <path stroke="green" stroke-width=".5" d="M480 0 V600"></path>
+      <path stroke="green" stroke-width=".5" d="M560 0 V600"></path>
+      <path stroke="green" stroke-width=".5" d="M640 0 V600"></path>
+      <path stroke="green" stroke-width=".5" d="M720 0 V600"></path>
+
+      <path stroke="green" stroke-width=".5" d="M0 60 H800"></path>
+      <path stroke="green" stroke-width=".5" d="M0 120 H800"></path>
+      <path stroke="green" stroke-width=".5" d="M0 180 H800"></path>
+      <path stroke="green" stroke-width=".5" d="M0 240 H800"></path>
+      <path stroke="green" stroke-width=".5" d="M0 300 H800"></path>
+      <path stroke="green" stroke-width=".5" d="M0 360 H800"></path>
+      <path stroke="green" stroke-width=".5" d="M0 420 H800"></path>
+      <path stroke="green" stroke-width=".5" d="M0 480 H800"></path>
+      <path stroke="green" stroke-width=".5" d="M0 540 H800"></path>
+
+      <path
+        stroke="#5ED4EC"
+        stroke-width="1"
+        d="M80 60 h640 l40 30 v420 l-40 30 h-640 l-40 -30 v-420 l40 -30 l20 60 l-40 30 v120 l-10 15 v150 l10 15 v45 l40 30 h60 l10 5 h460 l10 -5 h55 l40 -30 l0 -50 l10 -15 v-250 l-10 -15 v-30 l-15 -15 h-160 l-20 -15 h-360 l-20 15 h-60"
+        fill="#5ED4EC"
+        fill-rule="evenodd"
+      ></path>
+      <path
+        class="p1"
+        stroke="#04324C"
+        stroke-width="2"
+        d="M120 100 l40 -60 h480 l40 60 Z"
+        fill="#05314E"
+      ></path>
+      <path
+        id="card1"
+        stroke="#0F5895"
+        stroke-width="1"
+        d="M80 80 h140 l20 15 h480 l40 25 v60 l10 10 v240 l-10 10 v70 l-40 30 h-80 l-10 10 h-480 l-10 -10 h-60 l-40 -30 v-60 l-10 -10 v-200 l10 -10 v-120 l40 -30 v25 h640 l30 20 v380 l-30 25 h-640 l-30 -25 v-380 l30 -20 Z"
+        fill="#0F5895"
+        fill-rule="evenodd"
+      ></path>
+      <text
+        x="400"
+        y="70"
+        alignment-baseline="middle"
+        style="fill: #00ecf7; font-size: 40; font-weight: 500"
+        text-anchor="middle"
+      >
+        J.A.R.V.I.S
+      </text>
+    </svg>
+  </body>
+  <script>
+    setTimeout(() => {
+      document
+        .querySelector(".light")
+        .setAttribute("style", "box-shadow:none;background-color:none");
+      document.querySelector(".light2").setAttribute("style", "display:none");
+    }, 00);
+
+    setTimeout(() => {
+      document
+        .querySelector(".light")
+        .setAttribute("style", "box-shadow:none;background-color:none");
+      document.querySelector(".light2").setAttribute("style", "display:none");
+      document
+        .querySelector("#card1")
+        .setAttribute("style", "transform:translateX(0px);");
+      document
+        .querySelector(".p1")
+        .setAttribute("style", "transform:translateY(0px);");
+    }, 500);
+
+    setTimeout(() => {
+      document
+        .querySelector(".light")
+        .setAttribute(
+          "style",
+          "box-shadow: 0px 0px 10px 5px #0FF2F6,0px 0px 0px 5px inset #0FF2F6;background-color: rgba(1, 70, 109, 0.4);"
+        );
+      document.querySelector(".light2").setAttribute("style", "display:none");
+    }, 1000);
+
+    setTimeout(() => {
+      document
+        .querySelector(".light")
+        .setAttribute(
+          "style",
+          "box-shadow: 0px 0px 10px 5px #0FF2F6,0px 0px 45px 5px inset #0FF2F6;background-color: rgba(1, 70, 109, 0.4);"
+        );
+      document.querySelector(".light2").setAttribute("style", "display:none");
+    }, 1200);
+
+    setInterval(() => {
+      document
+        .querySelector(".light")
+        .setAttribute(
+          "style",
+          "box-shadow: 0px 0px 10px 5px #0FF2F6,0px 0px 50px 5px inset #0FF2F6;background-color: rgba(1, 70, 109, 0.4);"
+        );
+      document.querySelector(".light2").setAttribute("style", "display:flex");
+    }, 1500);
+  </script>
+</html>

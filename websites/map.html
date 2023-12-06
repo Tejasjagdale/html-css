@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>
+map
+</title>
+<style>
+*
+{
+margin:0;
+padding:0;
+}
+
+main
+{
+width:100%;
+height:85vh;
+}
+
+header
+{
+width:100%;
+height:10vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-transform:uppercase;
+}
+
+h1
+{
+border-bottom:2px solid black;
+}
+
+.main
+{
+margin:0 10% 5vh 10%;
+width:80%;
+height:70vh;
+background-color:grey;
+display:grid;
+grid-template-rows:repeat(4,1fr);
+grid-template-columns:repeat(4,1fr);
+}
+
+.div1
+{
+background-color:red;
+grid-row:1/3;
+grid-column:1/3;
+}
+
+.div2
+{
+background-color:yellow;
+grid-row:1/2;
+grid-column:3/5;
+}
+
+.div3
+{
+background-color:blue;
+}
+
+.div4
+{
+background-color:orange;
+}
+
+.div5
+{
+background-color:green;
+}
+
+.div6
+{
+background-color:pink;
+}
+
+.div7
+{
+background-color:lightblue;
+grid-row:4/5;
+grid-column:1/3;
+}
+
+.div8
+{
+background-color:brown;
+grid-row:3/5;
+grid-column:3/5;
+}
+
+footer
+{
+height:15vh;
+}
+</style>
+<link rel=stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
+</head>
+<body>
+<main>
+<header><h1>My Gallery</h1></header>
+<div class="main">
+<a class="div1" href="../wallpaper/wp1.jpeg"><img src="../wallpaper/wp1.jpeg" style="width:100%;height:100%"></a>
+<a class="div2" href="../wallpaper/wp10.jpeg"><img src="../wallpaper/wp10.jpeg" style="width:100%;height:100%"></a>
+<a class="div3" href="../wallpaper/wp3.jpeg"><img src="../wallpaper/wp3.jpeg" style="width:100%;height:100%"></a>
+<a class="div4" href="../wallpaper/wp5.jpeg"><img src="../wallpaper/wp5.jpeg" style="width:100%;height:100%"></a>
+<a class="div5" href="../wallpaper/wp9.jpeg"><img src="../wallpaper/wp9.jpeg" style="width:100%;height:100%"></a>
+<a class="div6" href="../wallpaper/wp15.jpeg"><img src="../wallpaper/wp15.jpeg" style="width:100%;height:100%"></a>
+<a class="div7" href="../wallpaper/wp12.jpeg"><img src="../wallpaper/wp12.jpeg" style="width:100%;height:100%"></a>
+<a class="div8" href="../wallpaper/wp2.jpeg"><img src="../wallpaper/wp2.jpeg" style="width:100%;height:100%"></a>
+</div>
+</main>
+<footer>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.9724369892747!2d72.98540601485314!3
+d19.19640618701897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b92c29918b07%3A0xa
+0cb003d63ad8f4a!2sKalwa%20Naka!5e0!3m2!1sen!2sin!4v1591348378932!5m2!1sen!2sin" width="100%" 
+height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+</iframe>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js">
+</script>
+
+<script>
+$(document).ready(function(){
+$('..main').magnificpopup({});
+});
+</script>
+</body>
+</html>

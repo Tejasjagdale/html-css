@@ -1,0 +1,1924 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Main Room
+    </title>
+    <link rel="icon" href="../static/favicon.png">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #DBD7E7;
+            font-family: sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            background-color: transparent;
+            width: 8px;
+        }
+
+
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CCCCCC;
+        }
+
+        header {
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: 10vh;
+            background: #4D426D;
+            z-index: 10;
+        }
+
+        .alert {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            z-index: 50;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .inbox {
+            display: none;
+            width: 500px;
+            height: 400px;
+            background-color: #DBD7E7;
+            z-index: 55;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .inbox .head {
+            width: 100%;
+            height: 50px;
+            background-color: #4D426D;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            padding: 0px 30px;
+        }
+
+        .inbox .head i {
+            cursor: pointer;
+        }
+
+        .inbox div {
+            width: 100%;
+            height: 350px;
+            overflow-y: scroll;
+        }
+
+        .inbox div div {
+            width: 100%;
+            height: 40px;
+            font-size: 20px;
+            padding-left: 30px;
+            border-bottom: 0.5px solid grey;
+        }
+
+        .notification {
+            display: none;
+            width: 500px;
+            height: 400px;
+            background-color: #DBD7E7;
+            z-index: 55;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .notification .head {
+            width: 100%;
+            height: 50px;
+            background-color: #4D426D;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            padding: 0px 30px;
+        }
+
+        .notification .head i {
+            cursor: pointer;
+        }
+
+        .notification .notification_body {
+            width: 100%;
+            height: 350px;
+            overflow-y: scroll;
+        }
+
+        .notification .notification_body .alerts {
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-left: 10px;
+            border-bottom: 0.5px solid grey;
+        }
+
+        .alerts p span {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 15px;
+            background-color: #3AA48A;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .alerts .accept {
+            font-size: 25px;
+            background-color: transparent;
+            color: #0EF700;
+            cursor: pointer;
+        }
+
+        .alerts .decline {
+            font-size: 25px;
+            background-color: transparent;
+            color: #F61717;
+            cursor: pointer;
+        }
+
+        .alerts p {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .create_room {
+            display: none;
+            width: 500px;
+            height: 400px;
+            background-color: #DBD7E7;
+            z-index: 55;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .create_room .head {
+            width: 100%;
+            height: 50px;
+            background-color: #4D426D;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            padding: 0px 30px;
+        }
+
+        .create_room .head i {
+            cursor: pointer;
+        }
+
+        .create_room .crbody {
+            width: 100%;
+            height: 300px;
+            display: block;
+        }
+
+        .create_room .crbody div {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            height: 30%;
+            margin-top: 3%;
+            padding-left: 50px;
+        }
+
+        .crbody div label {
+            color: #4D426D;
+            font-weight: 600;
+        }
+
+        .crbody div input {
+            width: 80%;
+            height: 30px;
+            margin-top: 5px;
+            font-size: 20px;
+            padding-left: 5px;
+        }
+
+        .crbtn {
+            width: 100%;
+            height: 30%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-right: 50px;
+        }
+
+        .crabtn {
+            padding: 10px 30px;
+            font-size: 20px;
+            color: white;
+            background-color: blueviolet;
+            box-shadow: 0px 3px 1px 1px #6E276C;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .enter_roompass {
+            display: none;
+            width: 500px;
+            height: 250px;
+            background-color: #DBD7E7;
+            z-index: 55;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid black;
+        }
+
+        .enter_roompass .head {
+            width: 100%;
+            height: 50px;
+            background-color: #4D426D;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            padding: 0px 30px;
+        }
+
+        .enter_roompass .head i {
+            cursor: pointer;
+        }
+
+        .enter_roompass .crbody {
+            width: 100%;
+            height: 100px;
+            display: block;
+        }
+
+        .enter_roompass .crbody div {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            height: 70%;
+            margin-top: 3%;
+            padding-left: 50px;
+        }
+
+        .crbody div label {
+            color: #4D426D;
+            font-weight: 600;
+        }
+
+        .crbody div input {
+            width: 80%;
+            height: 30px;
+            font-size: 20px;
+            padding-left: 5px;
+        }
+
+
+        .icon {
+            width: 30%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: white;
+        }
+
+        .ficon {
+            width: 55px;
+            height: 55px;
+        }
+
+        .room_name {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            font-size: 23px;
+            color: white;
+        }
+
+        #addroom {
+            background-color: #CB1A37;
+        }
+
+        .room_name span {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #efa985;
+            margin-right: 20px;
+            margin-left: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .menu {
+            width: 20%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            text-decoration: none;
+        }
+
+
+        .menu li {
+            width: 33%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+        }
+
+        .menu li:nth-child(2) a {
+            width: 25px;
+            height: 25px;
+            position: relative;
+
+        }
+
+        .notifi {
+            width: 16px;
+            height: 16px;
+            font-size: 12px;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -2px;
+            right: 1px;
+            background-color: red;
+            color: white;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            width: 100%;
+            height: 90vh;
+            display: flex;
+        }
+
+        .profile {
+            position: absolute;
+            right: 0;
+            top: 0vh;
+            width: 20%;
+            height: 100vh;
+            background-color: white;
+            z-index: 50;
+            box-shadow: 1px 2px 2px 2px #ECECEC;
+            transform: translateX(100%);
+            transition: 0.2s ease-in-out;
+        }
+
+        .profile div {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 0.5px solid lightgrey;
+            font-size: 20px;
+        }
+
+        .profile div:hover {
+            background-color: lightskyblue;
+        }
+
+        .profile div span {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            border-radius: 50%;
+            margin: 0px 20px;
+        }
+
+        .side_menu {
+            width: 30%;
+            height: 90vh;
+            background-color: #839AE3;
+            z-index: 0;
+        }
+
+        .options {
+            width: 100%;
+            height: 10%;
+            font-size: 25px;
+            background-color: #839AE3;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border-bottom: 0.5px solid lightgrey;
+        }
+
+        .options span {
+            width: 33%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #839AE3;
+        }
+
+        .options span i {
+            cursor: pointer;
+            color: white;
+        }
+
+        .rooms {
+            width: 100%;
+            height: 90%;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            display: none;
+        }
+
+        .room {
+            width: 100%;
+            height: 10%;
+            background-color: #4D426D;
+            border-bottom: 0.5px solid lightgrey;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 20px;
+            color: white;
+        }
+
+        .room:hover {
+            cursor: pointer;
+            background-color: #F7F4AA;
+            color: #4D426D;
+        }
+
+        .room span {
+            width: 40px;
+            height: 40px;
+            background-color: #EFA985;
+            border-radius: 50%;
+            margin: 0px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .users {
+            width: 100%;
+            height: 90%;
+            position: relative;
+            display: none;
+        }
+
+        .roomusers {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            display: none;
+        }
+
+        .user {
+            width: 100%;
+            height: 10%;
+            background-color: #5C4F82;
+            color: white;
+            border-bottom: 0.5px solid lightgrey;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 20px;
+            position: relative;
+        }
+
+        .user_details {
+            position: absolute;
+            left: 80px;
+            z-index: 40;
+            width: 220px;
+            height: 250px;
+            display: none;
+        }
+
+        .ud_head {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #EFA985;
+            padding-top: 10px;
+            color: white;
+            border-radius: 10px 10px 0% 0% / 10px 10px 10px 10px;
+            border: 1px solid black
+        }
+
+        .user_details .ud_head span {
+            width: 65px;
+            height: 65px;
+            background-color: #4D426D;
+            border-radius: 50%;
+            margin: 0px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 25px;
+        }
+
+        .ud_body {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ud_body div {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            background-color: whitesmoke;
+            border: 1px solid black;
+        }
+
+        .vprofile {
+            color: red;
+            cursor: pointer;
+        }
+
+        .vprofile span {
+            width: 45px;
+            height: 45px;
+            background-color: red;
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .addfreind {
+            color: #25A72A;
+            cursor: pointer;
+        }
+
+        .addfreind .frd-icon {
+            width: 27px;
+            height: 27px;
+            background-color: #25A72A;
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        .pm_chat {
+            color: #339AF0;
+            border-radius: 0% 0% 10px 10px / 10px 10px 10px 10px;
+            cursor: pointer;
+        }
+
+        .pm_chat i {
+            margin-right: 15px;
+        }
+
+        .ud_body div span {
+            width: 25px;
+            height: 25px;
+            background-color: red;
+            font-size: 12px;
+        }
+
+        .user span {
+            width: 40px;
+            height: 40px;
+            background-color: #75caeb;
+            border-radius: 50%;
+            margin: 0px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            pointer-events: none;
+        }
+
+        .user .ud_head p {
+            font-size: 20px;
+        }
+
+        .user:hover {
+            cursor: pointer;
+            background-color: #F7F4AA;
+            color: #4D426D;
+        }
+
+        .friends {
+            width: 100%;
+            height: 90%;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            display: none;
+        }
+
+        .freind {
+            width: 100%;
+            height: 10%;
+            background-color: #4D426D;
+            border-bottom: 0.5px solid lightgrey;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 20px;
+            color: white;
+        }
+
+        .freind span {
+            width: 40px;
+            height: 40px;
+            background-color: #3AA48A;
+            border-radius: 50%;
+            margin: 0px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .freind:hover {
+            cursor: pointer;
+            background-color: #F7F4AA;
+            color: #4D426D;
+        }
+
+        .main_chat {
+            width: 70%;
+            height: 90vh;
+            position: relative;
+        }
+
+        .basic_chat_model {
+            padding: 0px 100px;
+            width: 100%;
+            height: 90%;
+            display: none;
+            flex-direction: column;
+            align-items: end;
+            overflow-y: scroll;
+        }
+
+        #myfile {
+            position: absolute;
+            left: 80px;
+            top: 16px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+        }
+
+        .emojis {
+            position: absolute;
+            bottom: 10%;
+            left: 0%;
+            width: 100%;
+            height: 0%;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            z-index: 40;
+            background-color: whitesmoke;
+            overflow-y: scroll;
+            box-shadow: 2px -5px 5px rgba(0, 0, 0, 0.6);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .emdiv {
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+
+        .emdiv2 {
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+
+        .persnol_chat_model {
+            position: absolute;
+            top: 10%;
+            left: 0%;
+            width: 100%;
+            height: 80%;
+            display: none;
+            flex-direction: column;
+            align-items: end;
+            z-index: 40;
+            background-color: whitesmoke;
+            overflow-y: scroll;
+        }
+
+        .persnol_chat_model .pmchathead {
+            width: 100%;
+            height: 15%;
+            background-color: #4D426D;
+            color: white;
+            font-size: 23px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 50px;
+            padding-right: 30px;
+        }
+
+        .persnol_chat_model .pmchathead span {
+            display: flex;
+        }
+
+        .persnol_chat_model .pmchathead i {
+            cursor: pointer;
+        }
+
+        .persnol_chat_model .pmchathead span span {
+            width: 40px;
+            height: 40px;
+            background-color: #3AA48A;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin-right: 20px;
+        }
+
+        .profile_div {
+            width: 400px;
+            height: 500px;
+            background-color: #DBD7E7;
+            z-index: 55;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid black;
+            display: none;
+        }
+
+        .profile_div .head {
+            width: 100%;
+            height: 30%;
+            background-color: #4D426D;
+            display: flex;
+        }
+
+        .dp_pic {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 10px;
+        }
+
+        .dp_pic span {
+            width: 100px;
+            height: 100px;
+            background-color: lightskyblue;
+            border-radius: 10px;
+            margin: 0px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            font-size: 80px;
+            color: white;
+        }
+
+        .name_type {
+            width: 60%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            color: white;
+            font-size: 20px;
+            justify-content: flex-end;
+        }
+
+        .name_type #exit {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            cursor: pointer;
+        }
+
+        .profile_div .crbody {
+            width: 100%;
+            height: 70%;
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+
+        .profile_div .crbody div {
+            width: 100%;
+            height: 22%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+            border-bottom: 1px solid black;
+        }
+
+
+        .profile_div .crbody .bdiv {
+            width: 130%;
+            display: flex;
+            height: 10%;
+            flex-direction: row;
+            transform: translateX(-10%);
+        }
+
+        .profile_div .crbody .bdiv span {
+            height: 100%;
+            width: 33.333%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px solid black;
+            cursor: pointer;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .activef {
+            display: flex;
+        }
+
+        .activeb {
+            display: block;
+        }
+
+        .activeb2 {
+            display: block;
+        }
+
+        .activeb3 {
+            display: block;
+        }
+
+        .activepm {
+            display: flex;
+        }
+
+        .activeem {
+            display: flex;
+        }
+
+        .jl_msg {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .jl_msg .cp3 {
+            position: relative;
+            padding: 10px;
+            background-color: darkgray;
+            margin-top: 10px;
+            max-width: 50%;
+            font-size: 15px;
+            color: white;
+        }
+
+        .other {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 10%;
+        }
+
+        .other .cp1 {
+            position: relative;
+            padding: 25px 70px 5px 10px;
+            border-radius: 15px 15px 15px 15px / 0 15px 15px 15px;
+            background-color: #4D426D;
+            margin-top: 20px;
+            max-width: 40%;
+            color: white;
+        }
+
+        .you {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 10%;
+        }
+
+        .you .cp2 {
+            position: relative;
+            padding: 25px 70px 5px 10px;
+            border-radius: 15px 15px 15px 15px / 15px 0px 15px 15px;
+            margin-top: 20px;
+            background-color: #EFA985;
+            max-width: 40%;
+        }
+
+        .dp {
+            position: absolute;
+            top: 0px;
+            left: -50px;
+            width: 40px;
+            height: 40px;
+            background-color: purple;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .mname {
+            position: absolute;
+            left: 10px;
+            top: 0px;
+            color: white;
+            font-size: 13px;
+            margin-right: 10px;
+        }
+
+
+        .mtime {
+            color: white;
+            position: absolute;
+            top: 2px;
+            right: 10px;
+            font-size: 11px;
+        }
+
+
+        .persnol_chat_model .other {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .persnol_chat_model .other .cp1 {
+            position: relative;
+            padding: 25px 70px 5px 10px;
+            border-radius: 15px 15px 15px 15px / 0 15px 15px 15px;
+            background-color: #4D426D;
+            margin-top: 20px;
+            max-width: 50%;
+            color: white;
+        }
+
+        .persnol_chat_model .you {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .persnol_chat_model .you .cp2 {
+            position: relative;
+            padding: 25px 70px 5px 10px;
+            border-radius: 15px 15px 15px 15px / 15px 0px 15px 15px;
+            margin-top: 20px;
+            background-color: #EFA985;
+            max-width: 50%;
+        }
+
+        .persnol_chat_model .dp {
+            position: absolute;
+            top: 0px;
+            left: -50px;
+            width: 40px;
+            height: 40px;
+            background-color: purple;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .persnol_chat_model .mname {
+            position: absolute;
+            left: 10px;
+            top: 0px;
+            color: white;
+            font-size: 13px;
+            margin-right: 10px;
+        }
+
+
+        .persnol_chat_model .mtime {
+            color: white;
+            position: absolute;
+            top: 2px;
+            right: 10px;
+            font-size: 11px;
+        }
+
+        .footer {
+            position: relative;
+            width: 100%;
+            height: 10%;
+            background-color: #4D426D;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer i {
+            cursor: pointer;
+        }
+
+        #emojis {
+            font-size: 25px;
+            margin: 0px 20px;
+            color: white;
+        }
+
+        #file {
+            font-size: 25px;
+            margin: 0px 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .type_msg {
+            width: 70%;
+            height: 40px;
+            margin: 0px 20px;
+            outline: none;
+            border: none;
+            border-radius: 2% 2% 2% 2% / 50% 50% 50% 50%;
+            font-size: 20px;
+            padding-left: 2%;
+        }
+
+        #enter {
+            font-size: 20px;
+            margin: 0px 20px;
+            background-color: #3EBCB3;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="alert">
+        <div class="inbox" tabindex="0">
+            <div class="head"><span><i class="fas fa-trash-alt"></i> clear</span><i class="fas fa-times"
+                    onclick="alertclose(event)"></i></div>
+            <div>
+                <div>msg 1</div>
+                <div>msg 2</div>
+                <div>msg 3</div>
+                <div>msg 4</div>
+                <div>msg 5</div>
+                <div>msg 6</div>
+                <div>msg 7</div>
+                <div>msg 8</div>
+                <div>msg 9</div>
+                <div>msg 10</div>
+                <div>msg 11</div>
+                <div>msg 12</div>
+                <div>msg 13</div>
+            </div>
+        </div>
+
+        <div class="notification" tabindex="0">
+            <div class="head"><span><i class="fas fa-trash-alt"></i> clear</span><i class="fas fa-times"
+                    onclick="alertclose(event)"></i></div>
+            <div class="notification_body">
+
+            </div>
+        </div>
+
+        <div class="create_room" tabindex="0">
+            <div class="head"><span>ChatterBox</span> <i class="fas fa-times" onclick="alertclose(event)"></i></div>
+            <div class="crbody">
+                <div>
+                    <label>RoomName:</label>
+                    <input type="text" name="Croomname" id="Croomname" />
+                </div>
+                <div>
+                    <label>Password:</label>
+                    <input type="password" name="Croompassword" id="Croompassword" />
+                </div>
+                <div class="crbtn">
+                    <button class="crabtn" onclick="createroom()">CreateRoom <i class="fas fa-sign-in-alt"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="enter_roompass">
+            <div class="head"><span>Enter Room password</span> <i class="fas fa-times" onclick="alertclose(event)"></i>
+            </div>
+            <div class="crbody">
+                <div>
+                    <label>Enter Password:</label>
+                    <input type="password" id="Eroompassword" />
+                </div>
+                <div class="crbtn">
+                    <button class="crabtn">Enter <i class="fas fa-sign-in-alt"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile_div">
+            <div class="head">
+                <div class="dp_pic">
+                    <span><i class="fas fa-user"></i></span>
+                </div>
+                <div class="name_type">
+                    <p class="type"><i class="fas fa-user"></i> guestuser</p>
+                    <p class="name">name</p>
+
+                    <i class="fas fa-times" id="exit" onclick="alertclose(event)"></i>
+                </div>
+            </div>
+            <div class="crbody">
+                <div class="bdiv">
+                    <span>Profile</span>
+                    <span>friends</span>
+                    <span>finding</span>
+                </div>
+                <div class="country">
+                    <label>country:</label>
+                    <p>india</p>
+                </div>
+
+                <div class="joinat">
+                    <label>joined at:</label>
+                    <p>5/2/2002</p>
+                </div>
+
+                <div class="status">
+                    <label>status:</label>
+                    <p>online</p>
+                </div>
+
+                <div class="current_room">
+                    <label>current room:</label>
+                    <p>Mainroom</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="icon"><img src="../static/favicon.png" class="ficon">Chatroom</div>
+        <div class="room_name">
+            <span><i class="fas fa-users"></i></span>Main Room
+        </div>
+        <ul class="menu">
+            <li><a href="#inbox" id="inbox"><i class="fas fa-envelope"></i></a></li>
+            <li><a href="#notification" id="notification"><i class="fas fa-bell"></i>
+                    <p class="notifi">1</p>
+                </a></li>
+            <li><a href="#log_profile" id="log_profile"><i class="fas fa-bars"></i></a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="profile">
+            <div><span></span></div>
+            <div>
+                <p>profile</p>
+            </div>
+            <div><a href="/logout">logout</a></div>
+        </div>
+        <input type="hidden" value={{type}} id="type" />
+        <input type="hidden" value={{username}} id="susername" />
+        <div class="side_menu">
+            <div class="options">
+                <span>
+                    <p id="users"><i class="fas fa-users"></i></p>
+                </span>
+                <span id={{type}}>
+                    <p id="friend"><i class="fas fa-user-plus"></i></p>
+                </span>
+                <span>
+                    <p id="rooms"><i class="fas fa-home"></i></p>
+                </span>
+            </div>
+            <div class="rooms">
+                <div class="room" id="addroom"><span><i class="fas fa-home"></i></span>Create
+                    Room</div>
+                <div class="room" id="Mainroom" onclick="room(this.id)"><span><i class="fas fa-users"></i></span>Main
+                    Room</div>
+                <div class="room" id="Chatbotroom1" onclick="room(this.id)"><span><i
+                            class="fas fa-users"></i></span>Quiz
+                    Room</div>
+                <div class="room" id="Chatbotroom2" onclick="room(this.id)"><span><i
+                            class="fas fa-users"></i></span>Covid
+                    Bot</div>
+                <div class="room" id="Pvroom1" onclick="room(this.id)"><span><i class="fas fa-users"></i></span>pvroom1
+                </div>
+            </div>
+
+            <div class="users active">
+                <div class="user_details">
+                    <div class="ud_head"><span><i class="fas fa-user"></i></span>
+                        <p>name</p>
+                    </div>
+                    <div class="ud_body">
+                        <div class="user-type" style="display:none"></div>
+                        <div class="vprofile" id="profile_div" onclick="view_profile()"><span><i
+                                    class="fas fa-user-tie"></i></span> viewprofile
+                        </div>
+                        <div class="addfreind" onclick="addfreind(this.className,event)">
+                            <span class="frd-icon"><i class="fas fa-user-plus"></i></span> Addfreind
+                        </div>
+                        <div class="pm_chat" onclick="pmchat()"><i class="fas fa-comments"></i> privatechat</div>
+                    </div>
+                </div>
+
+                <div class="roomusers activeb" id="Mainroom_user"></div>
+                <div class="roomusers" id="Chatbotroom1_user"></div>
+                <div class="roomusers" id="Chatbotroom2_user"></div>
+                <div class="roomusers" id="Pvroom1_user"></div>
+            </div>
+
+            <div class="friends">
+
+            </div>
+        </div>
+        <div class="main_chat">
+            <div class="persnol_chat_model" id="PM_chat_display">
+                <div class="pmchathead"><span><span><i class="fas fa-users"></i></span> personal chat</span> <i
+                        class="fas fa-times" onclick="closepm()"></i></div>
+            </div>
+            <div class="basic_chat_model activef" id="Mainroom_display"></div>
+            <div class="basic_chat_model" id="Chatbotroom1_display">This is a quizchat bot</div>
+            <div class="basic_chat_model" id="Chatbotroom2_display">This is a covidchat bot</div>
+            <div class="basic_chat_model" id="Pvroom1_display"></div>
+
+            <div class="footer">
+                <input type="file" id="myfile" name="avatar" accept=".jpg,.jpeg,.png">
+                <i class="far fa-smile" id="emojis" onclick="emoji()"></i>
+                <i class="far fa-paperclip" id="file"></i>
+                <input type="text" placeholder="Type a massage" class="type_msg" />
+                <i class="fas fa-paper-plane" onclick="sendresp()" id="enter"></i>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    function user_profile(event) {
+        var user_div = document.getElementById(event.target.id);
+        var top = user_div.offsetTop;
+
+        if (type == "register_user") {
+            if (user_div.getAttribute("usertype") == "register_user") {
+                document.querySelector(".user_details .addfreind").setAttribute("style", "display:flex");
+            } if (user_div.getAttribute("usertype") == "guest_user") {
+                document.querySelector(".user_details .addfreind").setAttribute("style", "display:none");
+            }
+        }
+        if (type == "guest_user") {
+            document.querySelector(".user_details .addfreind").setAttribute("style", "display:none");
+        }
+
+        document.querySelector(".user_details").setAttribute("style", `display:block;top:${top + 50}px`);
+        if (document.querySelector(".user_details .ud_head p").innerText == user_div.innerText) {
+            close_user_profile();
+        } else {
+            if (user_div.innerText == username) {
+                document.querySelector(".pm_chat").innerHTML = `<i class="far fa-edit"></i> Edit`;
+                document.querySelector(".user_details .ud_head p").innerText = user_div.innerText;
+            } else {
+                if (document.querySelector(".pm_chat").innerHTML == `<i class="far fa-edit"></i> Edit`) {
+                    document.querySelector(".pm_chat").innerHTML = `<i class="fas fa-comments"></i> privatechat`
+                }
+                document.querySelector(".user_details .ud_head p").innerText = user_div.innerText;
+            }
+        }
+    }
+
+    function close_user_profile() {
+        document.querySelector(".user_details").setAttribute("style", `display:none`);
+        document.querySelector(".user_details .ud_head p").innerText = "";
+    }
+
+    function closepm() {
+        document.querySelector(".persnol_chat_model").classList.remove("activepm")
+    }
+
+    if ($('#type').val() == "guest_user") {
+        document.getElementById("guest_user").setAttribute("style", "display:none");
+    }
+
+    document.getElementById("users").addEventListener("click", () => {
+        document.querySelector(".active").classList.remove("active");
+        document.querySelector(".users").classList.add("active");
+    });
+
+    document.getElementById("friends").addEventListener("click", () => {
+        document.querySelector(".active").classList.remove("active");
+        document.querySelector(".friends").classList.add("active");
+    });
+
+    document.getElementById("rooms").addEventListener("click", () => {
+        document.querySelector(".active").classList.remove("active");
+        document.querySelector(".rooms").classList.add("active");
+    });
+
+    function alertclose(event) {
+        event.preventDefault();
+
+        document.querySelector(".activeb2").classList.remove("activeb2");
+        document.querySelector(".alert").setAttribute("style", "display:none");
+    }
+
+    document.querySelector(".alert").addEventListener("click", (event) => { alertclose(event) });
+
+    document.getElementById("inbox").addEventListener("click", () => {
+        document.querySelector(".inbox").classList.add("activeb2");
+        document.querySelector(".alert").setAttribute("style", "display:block");
+    });
+
+    document.getElementById("notification").addEventListener("click", () => {
+        document.querySelector(".alert").setAttribute("style", "display:block");
+        document.querySelector(".notifi").setAttribute("style", "display:none");
+        document.querySelector(".notification").classList.add("activeb2");
+    });
+
+    document.getElementById("profile_div").addEventListener("click", () => {
+        document.querySelector(".alert").setAttribute("style", "display:block");
+        document.querySelector(".profile_div").classList.add("activeb2");
+        close_user_profile();
+    });
+
+    document.getElementById("addroom").addEventListener("click", () => {
+        document.querySelector(".alert").setAttribute("style", "display:block");
+        document.querySelector(".create_room").classList.add("activeb2")
+    });
+
+    document.querySelector(".inbox").addEventListener("click", (e) => {
+        if (e.target !== e.currentTarget) {
+            e.stopPropagation();
+        }
+    });
+
+    document.querySelector(".notification").addEventListener("click", (e) => {
+        if (e.target !== e.currentTarget) {
+            e.stopPropagation();
+        }
+    });
+
+    document.querySelector(".create_room").addEventListener("click", (e) => {
+        if (e.target !== e.currentTarget) {
+            e.stopPropagation();
+        }
+    });
+
+    document.querySelector(".profile_div").addEventListener("click", (e) => {
+        if (e.target !== e.currentTarget) {
+            e.stopPropagation();
+        }
+    });
+
+    document.querySelector(".enter_roompass").addEventListener("click", (e) => {
+        if (e.target !== e.currentTarget) {
+            e.stopPropagation();
+        }
+    });
+
+    document.getElementById("log_profile").addEventListener("click", () => {
+        document.querySelector(".profile").setAttribute("style", "transform:translate(0%)");
+    });
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.js"></script>
+
+<script>
+    var i = 1;
+    var type = $('#type').val();
+    var username = $('#susername').val();
+    var loc = window.location
+    var msg = $('.type_msg').val();
+    var wsSTART = 'ws://'
+    if (loc.protocol == 'https:') {
+        wsSTART = 'wss://'
+    }
+    var endpoint = wsSTART + window.location.host + window.location.pathname
+    var socket = new ReconnectingWebSocket(endpoint);
+    var csrf = $("input[name=csrfmiddlewaretoken").val()
+
+    function createroom() {
+        var croomname = $('#Croomname').val();
+        var croompassword = $('#Croompassword').val();
+
+        $.ajax({
+            url: "/addroom",
+            type: 'post',
+            data: {
+                room_username: croomname,
+                room_password: croompassword,
+                csrfmiddlewaretoken: csrf
+            },
+
+            success: function (data, status) {
+                alert("room created successfully");
+                alertclose(event);
+            }
+        })
+    };
+
+    function emojis(e) {
+        document.querySelector(".type_msg").value = document.querySelector(".type_msg").value + e;
+    }
+
+    function emoji(e) {
+        document.querySelector(".emojis").classList.add("activeem");
+        document.querySelector(".emojis").setAttribute("style", "height:40%");
+        document.querySelector(".footer").innerHTML = "<input type='file' id='myfile' onclick='file()'><i class='fal fa-times' id='emojis' onclick='closeem()'></i><i class='far fa-paperclip' id='file'></i><input type='text' placeholder='Type a massage' class='type_msg' /><i class='fas fa-paper-plane' onclick='sendresp()' id='enter'></i>";
+    }
+
+    function closeem(e) {
+        document.querySelector(".emojis").classList.remove("activeem");
+        document.querySelector(".emojis").setAttribute("style", "height:0%");
+        document.querySelector(".footer").innerHTML = "<input type='file' id='myfile' onclick='file()'><i class='far fa-smile' id='emojis' onclick='emoji()'></i><i class='far fa-paperclip' id='file'></i><input type='text' placeholder='Type a massage' class='type_msg' /><i class='fas fa-paper-plane' onclick='sendresp()' id='enter'></i>";
+    }
+
+    document.querySelector("#myfile").addEventListener("change", function(event) {
+        event.preventDefault();
+        var data = new FormData($('form'));
+
+        $.ajax({
+            url:"/upload1",
+            type: 'post',
+            data: data,
+
+            success: function (data) {
+                alert('success');
+            }
+        });
+        return false;
+    });
+
+    function room(id) {
+
+        document.querySelector(".room_name").innerHTML = document.getElementById(id).innerHTML;
+        var rnameb = (document.querySelector(".activef").id).split("_display")[0];
+        document.querySelector(".activef").classList.remove("activef");
+        document.getElementById(`${id}_display`).classList.add("activef");
+        document.querySelector(".activeb").classList.remove("activeb");
+        document.getElementById(`${id}_user`).classList.add("activeb");
+
+        var rname = (document.querySelector(".activef").id).split("_display")[0];
+
+        var data = {
+            "username": username,
+            "message": null,
+            "type": type,
+            "opretion": "room_change",
+            "roomname": rname,
+            "currentroom": rnameb
+        }
+        socket.send(JSON.stringify(data));
+    }
+
+    socket.onmessage = function (e) {
+        console.log(e.data);
+        e.preventDefault()
+        i++;
+        var mname = JSON.parse(e.data).username;
+        var opr = JSON.parse(e.data).opretion;
+        var room = JSON.parse(e.data).roomname;
+        var rname = `${room}_display`;
+        var each_user_type = JSON.parse(e.data).type;
+
+
+        if (opr == "passing_message") {
+            var time = JSON.parse(e.data).time;
+            var question = document.createElement("DIV");
+            question.id = "msg" + i;
+
+            if (mname == username) {
+                mname = "you"
+                question.className = "you";
+                var pclass = "cp2";
+            } else {
+                question.className = "other";
+                var pclass = "cp1"
+            }
+
+            document.querySelector(`#${rname}`).appendChild(question);
+            var objDiv = document.querySelector(`#${rname}`);
+            objDiv.scrollTop = objDiv.scrollHeight;
+            if (pclass == "cp2") {
+                document.getElementById("msg" + i).innerHTML = `<p class=${pclass}><span class="mname">${mname}</span> ${JSON.parse(e.data).message} <span class="mtime">${time}</span></p>`
+                document.getElementById("msg" + i).setAttribute("style", "animation: bounceInRight 1s ease-in 1;");
+            } if (pclass == "cp1") {
+                document.getElementById("msg" + i).innerHTML = `<p class=${pclass}><span class="dp"><i class="fas fa-user"></i></span><span class="mname">${mname}</span> ${JSON.parse(e.data).message} <span class="mtime">${time}</span></p>`
+                document.getElementById("msg" + i).setAttribute("style", "animation: bounceInLeft 1s ease-in 1;");
+            }
+        }
+        if (opr == "start") {
+            var time = JSON.parse(e.data).time;
+            var rname = (document.querySelector(".activef").id).split("_display")[0];
+            if (mname != username) {
+                var question = document.createElement("DIV");
+                question.id = "msg" + i;
+                question.className = "jl_msg";
+                var pclass = "cp3"
+
+                if (rname == "Mainroom") {
+                    document.querySelector(`#${rname}_display`).appendChild(question);
+                    document.getElementById("msg" + i).innerHTML = `<p class=${pclass}>${mname} joined the chat</p>`
+                    var objDiv = document.querySelector(`#${rname}`);
+                    objDiv.scrollTop = objDiv.scrollHeight;
+                }
+            }
+            var room_users = document.createElement("DIV");
+            room_users.id = "user" + i;
+            room_users.className = "user";
+
+
+            for (var h = 0; h < document.querySelectorAll(`#${rname}_user .user`).length; h++) {
+                if (document.querySelectorAll(`#${rname}_user .user`)[h].innerHTML == `<span><i class="fas fa-user"></i></span> ${mname}`) {
+                    document.querySelectorAll(`#${rname}_user .user`)[h].remove();
+                }
+            }
+
+            for (var h = 0; h < document.querySelectorAll(`#${rname}_user .user`).length; h++) {
+                if (document.querySelectorAll(`#${rname}_user .user`)[h].innerHTML != `<span><i class="fas fa-user"></i></span> ${mname}`) {
+                    document.querySelector(`#${rname}_user`).appendChild(room_users);
+                    document.getElementById("user" + i).innerHTML = `<span><i class="fas fa-user"></i></span> ${mname}`;
+                }
+            }
+
+            document.getElementById("user" + i).setAttribute("onclick", "user_profile(event)");
+            document.getElementById("user" + i).setAttribute("usertype", each_user_type);
+
+        }
+
+        if (opr == "roomusers") {
+            var lastroom = JSON.parse(e.data).lastroom;
+            var room_users = document.createElement("DIV");
+
+            room_users.id = "user" + i;
+            room_users.className = "user";
+
+            if (document.querySelectorAll(`#${room}_user .user`).length > 0) {
+                for (var h = 0; h < document.querySelectorAll(`#${room}_user .user`).length; h++) {
+                    if (document.querySelectorAll(`#${room}_user .user`)[h].innerHTML == `<span><i class="fas fa-user"></i></span> ${mname}`) {
+                        document.querySelectorAll(`#${room}_user .user`)[h].remove();
+                    }
+                }
+
+                for (var h = 0; h < document.querySelectorAll(`#${room}_user .user`).length; h++) {
+                    if (document.querySelectorAll(`#${room}_user .user`)[h].innerHTML != `<span><i class="fas fa-user"></i></span> ${mname}`) {
+                        document.querySelector(`#${room}_user`).appendChild(room_users);
+                        document.getElementById("user" + i).innerHTML = `<span><i class="fas fa-user"></i></span> ${mname}`;
+                    }
+                }
+
+                document.getElementById("user" + i).setAttribute("onclick", "user_profile(event)");
+                document.getElementById("user" + i).setAttribute("usertype", each_user_type);
+
+            } else {
+                document.querySelector(`#${room}_user`).appendChild(room_users);
+                document.getElementById("user" + i).innerHTML = `<span><i class="fas fa-user"></i></span> ${mname}`;
+
+                document.getElementById("user" + i).setAttribute("onclick", "user_profile(event)");
+                document.getElementById("user" + i).setAttribute("usertype", each_user_type);
+            }
+
+
+            if (lastroom != undefined) {
+                for (var h = 0; h < document.querySelectorAll(`#${lastroom}_user .user`).length; h++) {
+                    if (document.querySelectorAll(`#${lastroom}_user .user`)[h].innerHTML == `<span><i class="fas fa-user"></i></span> ${mname}`) {
+                        document.querySelectorAll(`#${lastroom}_user .user`)[h].remove();
+                    }
+                }
+            }
+
+        }
+        if (opr == "pmchat") {
+            var sender = JSON.parse(e.data).sender;
+            var time = JSON.parse(e.data).time;
+
+            var pmmessage = document.createElement("DIV");
+            pmmessage.id = "pmmsg" + i;
+
+            if (sender == username) {
+                mname = "you"
+                pmmessage.className = "you";
+                var pclass = "cp2";
+            } else {
+                pmmessage.className = "other";
+                var pclass = "cp1"
+            }
+
+            document.querySelector(`.persnol_chat_model`).appendChild(pmmessage);
+            var objDiv1 = document.querySelector(`.persnol_chat_model`);
+            objDiv1.scrollTop = objDiv1.scrollHeight;
+
+            if (pclass == "cp2") {
+                document.getElementById("pmmsg" + i).innerHTML = `<p class=${pclass}><span class="mname">you</span> ${JSON.parse(e.data).message} <span class="mtime">${time}</span></p>`
+                document.getElementById("pmmsg" + i).setAttribute("style", "animation: bounceInRight 1s ease-in 1;");
+            } if (pclass == "cp1") {
+                document.getElementById("pmmsg" + i).innerHTML = `<p class=${pclass}><span class="dp"><i class="fas fa-user"></i></span><span class="mname">${sender}</span> ${JSON.parse(e.data).message} <span class="mtime">${time}</span></p>`
+                document.getElementById("pmmsg" + i).setAttribute("style", "animation: bounceInLeft 1s ease-in 1;");
+            }
+        }
+        if (opr == "passing_pm_message") {
+            var sender = JSON.parse(e.data).sender;
+            var receiver = JSON.parse(e.data).receiver;
+            var time = JSON.parse(e.data).time;
+
+            var pmmessage = document.createElement("DIV");
+            pmmessage.id = "pmmsg" + i;
+
+            if (sender == username) {
+                mname = "you"
+                pmmessage.className = "you";
+                var pclass = "cp2";
+
+                document.querySelector(`.persnol_chat_model`).appendChild(pmmessage);
+                var objDiv1 = document.querySelector(`.persnol_chat_model`);
+                objDiv1.scrollTop = objDiv1.scrollHeight;
+
+                if (pclass == "cp2") {
+                    document.getElementById("pmmsg" + i).innerHTML = `<p class=${pclass}><span class="mname">you</span> ${JSON.parse(e.data).message} <span class="mtime">${time}</span></p>`
+                    document.getElementById("pmmsg" + i).setAttribute("style", "animation: bounceInRight 1s ease-in 1;");
+                }
+
+            } if (receiver == username) {
+                pmmessage.className = "other";
+                var pclass = "cp1";
+
+                document.querySelector(`.persnol_chat_model`).appendChild(pmmessage);
+                var objDiv1 = document.querySelector(`.persnol_chat_model`);
+                objDiv1.scrollTop = objDiv1.scrollHeight;
+
+                if (pclass == "cp1") {
+                    document.getElementById("pmmsg" + i).innerHTML = `<p class=${pclass}><span class="dp"><i class="fas fa-user"></i></span><span class="mname">${sender}</span> ${JSON.parse(e.data).message} <span class="mtime">${time}</span></p>`
+                    document.getElementById("pmmsg" + i).setAttribute("style", "animation: bounceInLeft 1s ease-in 1;");
+                }
+            }
+        }
+        if (opr == "view_profile") {
+            document.querySelector(".profile_div .crbody .status p").innerText = JSON.parse(e.data).status;
+            document.querySelector(".profile_div .crbody .joinat p").innerText = JSON.parse(e.data).date;
+            document.querySelector(".profile_div .head .name_type .type").innerHTML = `<i class="fas fa-user"></i> ${JSON.parse(e.data).type}`;
+            document.querySelector(".profile_div .head .name_type .name").innerText = JSON.parse(e.data).username;
+        }
+        if (opr == "freind_request") {
+            var sender = JSON.parse(e.data).sender;
+            var receiver = JSON.parse(e.data).receiver;
+
+            if (receiver == username) {
+                var notification = document.createElement("DIV");
+                notification.id = "alerts" + i;
+                notification.className = "alerts";
+                document.querySelector(".notifi").setAttribute("style", "display:flex");
+                document.querySelector(`.notification_body`).appendChild(notification);
+
+                document.querySelector(".alerts").innerHTML = `<p><span><i class="fas fa-user"></i></span> ${sender} sent you freind request</p><span class="accept" onclick="addfreind(this.className,event)"><i class="fas fa-check"></i></span><span class="decline" onclick="addfreind(this.className,event)"><i class="fas fa-times"></i></span>`;
+                document.getElementById("alerts" + i).setAttribute("requestsender", sender);
+            }
+        }
+        if (opr == "friends_list") {
+            var sender = JSON.parse(e.data).sender;
+            var receiver = JSON.parse(e.data).receiver;
+            var userstatus = JSON.parse(e.data).status;
+            var request_sender = JSON.parse(e.data).username;
+
+            if (userstatus == "request_accept") {
+                if (username == sender || username == receiver) {
+                    if (sender != username) {
+                        var frname = sender
+                    }
+                    if (receiver != username) {
+                        var frname = receiver
+                    }
+                    var friends = document.createElement("DIV");
+                    friends.id = "freind" + i;
+                    friends.className = "freind";
+
+                    document.querySelector(`.friends`).appendChild(friends);
+                    document.querySelector("#freind" + i).innerHTML = `<span><i class="fas fa-user"></i></span> ${frname}`;
+                }
+            }
+            if (userstatus == "request_received") {
+                var notification = document.createElement("DIV");
+                notification.id = "alerts" + i;
+                notification.className = "alerts";
+
+                document.querySelector(`.notification_body`).appendChild(notification);
+
+                document.querySelector(".alerts").innerHTML = `<p><span><i class="fas fa-user"></i></span> ${request_sender} sent you freind request</p><span class="accept" onclick="addfreind(this.className,event)"><i class="fas fa-check"></i></span><span class="decline" onclick="addfreind(this.className,event)"><i class="fas fa-times"></i></span>`;
+                document.getElementById("alerts" + i).setAttribute("requestsender", request_sender);
+            }
+        }
+    }
+
+
+    socket.onopen = function (e) {
+        e.preventDefault();
+        var rname = (document.querySelector(".activef").id).split("_display")[0];
+        var rooms = ["Mainroom", "Pvroom1"]
+
+        var firstdata = {
+            "username": username,
+            "message": null,
+            "type": type,
+            "opretion": "start",
+            "allrooms": rooms,
+        }
+
+        socket.send(JSON.stringify(firstdata));
+    }
+
+    document.querySelector('.type_msg').addEventListener("keyup", (e) => {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            sendresp();
+        }
+    })
+
+    function addfreind(opretion_type, event) {
+        var receiver = document.querySelector(".user_details .ud_head p").innerText;
+        document.querySelector(".user_details").setAttribute("style", "display:none");
+        document.querySelector(".user_details .ud_head p").innerText = "";
+
+        console.log(opretion_type)
+
+        if (opretion_type == "accept") {
+
+            var firstdata = {
+                "sender": event.target.parentNode.parentNode.getAttribute("requestsender"),
+                "opretion": "request_accept",
+                "receiver": username
+            }
+
+            document.getElementById(event.target.parentNode.parentNode.id).remove();
+
+        } if (opretion_type == "decline") {
+
+            var firstdata = {
+                "sender": event.target.parentNode.parentNode.getAttribute("requestsender"),
+                "opretion": "request_decline",
+                "receiver": username
+            }
+
+            document.getElementById(event.target.parentNode.parentNode.id).remove()
+
+        } if (opretion_type != "accept" && opretion_type != "decline") {
+
+            var firstdata = {
+                "sender": username,
+                "opretion": "freind_request",
+                "receiver": receiver
+            }
+        }
+
+        socket.send(JSON.stringify(firstdata));
+    }
+
+    function pmchat() {
+        var receiver = document.querySelector(".user_details .ud_head p").innerText;
+        document.querySelector(".persnol_chat_model").innerHTML = `<div class="pmchathead"><span><span><i class="fas fa-users"></i></span> ${receiver}</span> <i class="fas fa-times"onclick="closepm()"></i></div>`;
+        document.querySelector(".persnol_chat_model").classList.add("activepm");
+        document.querySelector(".user_details").setAttribute("style", "display:none");
+        document.querySelector(".user_details .ud_head p").innerText = "";
+
+
+        var firstdata = {
+            "username": username,
+            "message": null,
+            "type": type,
+            "opretion": "pmchat",
+            "receiver": receiver
+        }
+
+
+        socket.send(JSON.stringify(firstdata));
+    }
+
+    function sendresp() {
+        var msg = $('.type_msg').val();
+        var rname = (document.querySelector(".activef").id).split("_display")[0];
+        var rev = document.querySelector(".pmchathead span").innerText;
+
+        if (document.querySelector(".activepm")) {
+            var firstdata = {
+                "message": msg,
+                "sender": username,
+                "opretion": "passing_pm_message",
+                "receiver": rev,
+            }
+        } else {
+            var firstdata = {
+                "username": username,
+                "message": msg,
+                "type": type,
+                "opretion": "passing_message",
+                "roomname": rname
+            }
+        }
+
+        if ($('.type_msg').val() != "") {
+            socket.send(JSON.stringify(firstdata));
+            document.querySelector('.type_msg').value = "";
+        }
+    }
+
+    function view_profile() {
+        var high_user = document.querySelector(".user_details .ud_head p").innerText;
+
+        var firstdata = {
+            "username": high_user,
+            "type": type,
+            "opretion": "viewprofile",
+        }
+
+
+        socket.send(JSON.stringify(firstdata));
+    }
+
+    socket.onerror = function (e) {
+        e.preventDefault()
+        console.log("error", e)
+    }
+
+    socket.onclose = function (e) {
+        e.preventDefault()
+        alert("close")
+        console.log("close", e)
+    };
+
+</script>
+
+</html>

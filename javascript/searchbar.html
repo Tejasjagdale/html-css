@@ -1,0 +1,163 @@
+<html>
+<head>
+<title>
+searchbar
+</title>
+<style>
+*
+{
+margin:0;
+padding:0;
+}
+
+h1
+{
+text-transform:uppercase;
+color:green;
+width:100%;
+height:10vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+#mytable
+{
+width:99%;
+max-height:60vh;
+margin:0.5%;
+border-collapse:collapse;
+border:1px solid black;
+}
+
+th
+{
+height:6.66vh;
+text-align:center;
+border:1px solid black;
+background-color:grey;
+border-right:none;
+border-left:none;
+}
+
+td
+{
+height:6.66vh;
+text-align:center;
+border:1px solid black;
+border-right:none;
+border-left:none;
+}
+
+tr:hover
+{
+background-color:lightgrey;
+}
+
+#myinput
+{
+width:99%;
+height:6vh;
+margin:0.5%;
+padding-left:50px;
+font-weight:1000;
+}
+
+</style>
+</head>
+<body>
+<h1>search bar</h1>
+
+<input type="text" name="" id="myinput" placeholder="names...." onkeyup="search()">
+<table id="mytable">
+
+<tr class="header">
+<th>NAME</th>
+<th>DEGREE</th>
+<th>PROFESSION</th>
+</tr>
+
+<tr class="heading">
+<td style="width:30%">vinod</td>
+<td style="width:30%">MCS</td>
+<td style="width:40%">Full stack devloper</td>
+</tr>
+
+<tr class="tr">
+<td>Bahadur</td>
+<td>BBA</td>
+<td>HR manger</td>
+</tr>
+
+<tr class="tr">
+<td>Thapa</td>
+<td>BCS</td>
+<td>Front end devloper</td>
+</tr>
+
+<tr class="tr">
+<td>Arjun</td>
+<td>MCS</td>
+<td>Full stack devloper</td>
+</tr>
+
+<tr class="tr">
+<td>Ramesh</td>
+<td>MCS</td>
+<td>Full stack devloper</td>
+</tr>
+
+<tr class="tr">
+<td>RAM</td>
+<td>MCA</td>
+<td>Full stack devloper</td>
+</tr>
+
+<tr class="tr">
+<td>Amit</td>
+<td>BCS</td>
+<td>Full stack devloper</td>
+</tr>
+
+<tr class="tr">
+<td>Naren</td>
+<td>MCS</td>
+<td>Full stack devloper</td>
+</tr>
+
+</table>
+<script>
+
+function search()
+{
+let filter = document.getElementById('myinput').value.toUpperCase();
+
+let table= document.getElementById('mytable');
+
+let tr=table.getElementsByTagName('tr');
+
+for(var i=0;i<tr.length;i++)
+{
+let td=tr[i].getElementsByTagName('td')[0];
+
+if(td)
+{
+let textvalue = td.textContent;
+
+if(textvalue.toUpperCase().indexOf(filter) > -1)
+{
+tr[i].style.display="block";
+}
+
+else
+{
+tr[i].style.display="none";
+}
+}
+
+}
+
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<html>
+<head>
+<title>
+</title>
+</head>
+<style>
+
+*
+{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+header
+{
+width:100%;
+line-height:15vh;
+background-color:#20bf6b;
+position:relative;
+}
+
+h1
+{
+text-align:center;
+text-transform:uppercase;
+color:white;
+text-shadow:0 1px 0 #efefef,
+            0 2px 0 #efefef,
+            0 3px 0 #efefef,
+            0 4px 0 #efefef,
+            0 30px 5px rgb(0,0,0,0.15);
+letter-spacing:15px;
+font-size:1.8rem;
+}
+
+section
+{
+height:85vh;
+width:100%;
+background-color:#7bed9f;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.gamearea
+{
+width:50%;
+height:400px;
+padding:20px 0;
+background-color:#2ed57c;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+box-shadow:0 8px 6px -6px black;
+position:absolute;
+}
+
+h3
+{
+text-align:center;
+font-size:1.5rem;
+}
+
+input
+{
+width:40%;
+padding:15px 0;
+text-align:center;
+border-radius:25px;
+outline:none;
+border:none;
+background-color:#dff9fb;
+background-color:rgb(188,143,143);
+color:black;
+color:white;
+margin:2rem 0;
+font-size:1.1rem;
+}
+
+button
+{
+font-size:1.2rem;
+cursor:pointer;
+outline:none;
+border:#2f3542;
+margin-top:10px;
+color:#eb4d4b;
+}
+
+button.btn
+{
+font-weight:900;
+padding:1rem 2rem;
+background:white;
+text-transform:uppercase;
+transition-property:all;
+transition-duration:0.5s;
+transition-timing-function:cubic-bezier(0.65,-0.25,0.25,1.95);
+}
+
+button.btn:hover
+{
+letter-spacing:0.225rem;
+word-spacing:0.5rem;
+}
+
+.hidden
+{
+display:none;
+}
+
+
+.menu
+{
+width:35px;
+height:35px;
+display:flex;
+flex-direction:column;
+position:absolute;
+top:0;
+right:0;
+}
+
+.lines
+{
+width:100%;
+height:10px;
+margin-top:2px;
+margin-bottom:2px;
+background-color:yellow;
+}
+
+.amenu
+{
+width:300px;
+height:500px;
+background-color:red;
+}
+
+.ul1
+{
+width:100%;
+height:100%;
+list-style:none;
+}
+
+.li1
+{
+display:flex;
+}
+
+
+.no 
+{
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:40px;
+color:white;
+width:80px;
+height:80px;
+border-radius:40px;
+background-color:rgb(188,143,143);
+position:absolute;
+right:45%;
+top:-40px;
+}
+
+</style>
+<body>
+
+<header>
+<h1>Guess the word game </h1>
+<div class="menu" onclick="menu()">
+<div class="lines"></div>
+<div class="lines"></div>
+<div class="lines"></div>
+</div>
+</header>
+<section>
+<div class="gamearea">
+<p class="no"></p>
+<h3 class="msg" ></h3>
+<input type="text" class="hidden" >
+<button class="btn">click here to start</button>
+</div>
+</section>
+</body>
+<script>
+let a=1;
+let c=a;
+const msg = document.querySelector('.msg');
+const guess = document.querySelector('input');
+const btn = document.querySelector('.btn');
+const no = document.querySelector('.no');
+let play=false;
+let newWords="";
+let randWords="";
+let sWords=['lion','tiger','bear','panther','monkey','fox','elephant','gorilla','snake','zebra','cat','giraff','donkey','rinosores','dinosore','chetha','lepoard','rabit'];
+
+const creteNewWords =()=>
+{
+let a=Math.floor(Math.random()*sWords.length);
+let newTempSwords=sWords[a];
+return newTempSwords;
+}
+
+const scrambleWords =(arr)=>
+{
+for(let i=0; i<arr.length;i++)
+{
+let temp=arr[i];
+let j=Math.floor(Math.random()*(i+1));
+arr[i]=arr[j];
+arr[j]=temp;
+}
+return arr;
+}
+btn.addEventListener('click',function(){
+    if(!play){
+             play = true;
+             btn.innerHTML = "Guess"; 
+             guess.classList.toggle('hidden');
+             newWords = creteNewWords();
+             randWords = scrambleWords(newWords.split("")).join("");
+             let wor=randWords.fontcolor("navy");
+             msg.innerHTML=`Guess the animal name ${wor}`;
+             e=c++;
+             no.innerHTML=e;
+         }
+    else{
+         let tempWord = guess.value;
+         if(newWords===tempWord ){
+           let ans=newWords.fontcolor("yellow");
+           play = false;
+           msg.innerHTML=`Awesome It's correct.ans is ${ans}`; 
+           btn.innerHTML="next";
+           guess.classList.toggle('hidden');
+           guess.value="";
+          }else{ let ret=randWords.fontcolor("red");
+                 msg.innerHTML=`sorry It's incorrect.plz try again ${ret} `; 
+                }
+         }
+  
+})
+</script>
+</html>

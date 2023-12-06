@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>
+</title>
+</head>
+<style>
+*
+{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+main
+{
+display:flex;
+justify-content:center;
+align-items:center;
+width:100%;
+height:100vh;
+background-color:black;
+}
+
+button
+{
+width:200px;
+height:50px;
+background:white;
+background-image:none;
+border:2px solid orange;
+border-radius:15% 15% 15% 15%/50% 50% 50% 50%;
+outline:none;
+font-size:20px;
+position:relative;
+}
+
+@keyframes tb
+{
+0%{font-size:20px;}
+25%{font-size:17px;}
+50%{font-size:19px;}
+75%{font-size:17px;}
+}
+
+</style>
+<body>
+
+<main>
+
+<button onclick="start()" id="button">complete order</button>
+
+</main>
+
+</body>
+<script>
+var but=document.getElementById('button');
+
+function start()
+{
+but.setAttribute("style","animation:tb 2s linear;animation-timing-function:cubic-bezier(0.65,-0.25,0.25,1.95)");
+window.setTimeout("next1()",2000);
+}
+
+function next1()
+{
+but.setAttribute("style","font-size:0;background-image:url(../images/delivery.gif);background-size:100% 100%");
+window.setTimeout("next2()",8400);
+}
+
+function next2()
+{
+but.innerHTML="order placed";
+but.setAttribute("style","font-size:20px;background-image:none");
+window.setTimeout("next3()",1200);
+}
+
+
+function next3()
+{
+but.innerHTML="";
+but.setAttribute("style","font-size:20px");
+window.setTimeout("next4()",200);
+}
+
+function next4()
+{
+but.innerHTML="complete order";
+but.setAttribute("style","font-size:20px");
+}f
+</script>
+</html>
+
+
+
+
+
+
+
+

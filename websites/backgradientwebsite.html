@@ -1,0 +1,296 @@
+<html>
+<head>
+<title>
+background-gradient
+</title>
+<style>
+*
+{
+padding:0;
+margin:0;
+box-sizing:border-box;
+}
+
+body{
+    overflow: hidden;
+    color:white;
+}
+
+main
+{
+width:100%;
+height:100vh;
+background-color:black;
+}
+
+header
+{
+width:100%;
+height:40vh;
+font-size:60px;
+font-weight:900;
+display:flex;
+justify-content:center;
+align-items:center;
+text-transform:uppercase;
+text-shadow:1px 1px  #FF00FF,2px 2px  #FF0000,3px 3px #FFFF00;
+}
+
+h6
+{
+width:100%;
+height:10vh;
+font-size:30px;
+letter-spacing:10px;
+word-spacing:20px;
+font-weight:900;
+display:flex;
+justify-content:center;
+align-items:center;
+text-transform:uppercase;
+}
+
+.buttons
+{
+width:100%;
+height:10vh;
+font-size:20px;
+font-weight:900;
+display:flex;
+justify-content:center;
+align-items:flex-start;
+text-transform:uppercase;
+}
+
+.button1
+{
+margin:0px 15px;
+}
+
+.button2
+{
+margin:0px 15px;
+}
+
+.output
+{
+width:80%;
+height:10vh;
+font-size:27px;
+display:flex;
+justify-content:center;
+align-items:center;
+text-transform:uppercase;
+margin-left:10%;
+margin-top:30px;
+color:black;
+}
+
+.slide
+{
+width:20%;
+height:100vh;
+background-color:white;
+position:absolute;
+top:0px;
+left:-20%;
+z-index:1;
+border:1px solid black;
+transition:all 0.3s linear;
+}
+
+.icon
+{
+position:absolute;
+top:0px;
+left:0px;
+width:2%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:50px;
+font-weight:900;
+background-color:white;
+color:red;
+border:1px solid black;
+cursor:pointer;
+}
+
+.menu
+{
+list-style:none;
+width:100%;
+height:70vh;
+}
+
+.menu li
+{
+width:100%;
+height:10vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-transform:uppercase;
+font-size:30px;
+border:1px solid red;
+color:black;
+}
+
+
+.menu li:hover
+{
+background-color:red;
+color:white;
+cursor:pointer;
+}
+
+.return
+{
+width:30px;
+height:60px;
+color:white;
+background-color:red;
+position:absolute;
+top:43vh;
+left:-22%;
+font-weight:900;
+font-size:50px;
+display:flex;
+justify-content:center;
+align-items:center;
+border:1px solid black;
+cursor:pointer;
+transition:all 0.3s linear;
+}
+
+.selected:hover
+{
+background-color:white;
+}
+
+.newc{
+    transform: translateX(620px);
+    width:300px;
+    height:100px;
+    background-color: black;
+    border:5px double black;
+    display:none;
+}
+
+.output{
+    background-color: white;
+}
+
+.extra1{
+    display:none;
+}
+
+.extra2{
+    display:none;
+}
+
+
+</style>
+
+<script src='../javascript/jquery-3.5.1.min.js'></script>
+
+</head>
+
+<body>
+
+<span class="icon" onclick="menu()">></span>
+
+<main>
+<div class="slide">
+<ul class="menu">
+<li class="selected">menu</li>
+<li onclick="setbgcolor(0)">to right</li>
+<li onclick="setbgcolor(1)">to left</li>
+<li onclick="setbgcolor(2)">45 deg</li>
+<li onclick="setbgcolor(3)">to top</li>
+<li onclick="setbgcolor(4)">to bottom</li>
+<li onclick="setbgcolor(5)">-45 deg</li>
+<li onclick="ograd(this.id)" id="o1">conical</li>
+<li onclick="ograd(this.id)" id="o2">repeating</li>
+<li onclick="ograd(this.id)" id="o3">radial</li>
+</ul>
+</div>
+<span class="return" onclick="back()"><</span>
+<header>
+color gradient genrator
+</header>
+<h6>pick the color</h6>
+<div class="buttons">
+<label>color1:</label><span><input type="color" class="button1" value="#ec1c24"></span>
+<label>color2:</label><span><input type="color" class="button2" value="#fff200"></span>
+<label class="extra1">color3:</label><span class="extra2"><input type="color" class="button3" value="#fff200"></span>
+</div>
+<div class="newc"></div>
+<p class="output"></P>
+</main>
+
+<script>
+
+var x1=document.querySelector('.button1');
+var x2=document.querySelector('.button2');
+var x3=document.querySelector('.button3');
+var y=document.querySelector('.slide');
+var z=document.querySelector('.icon');
+var r=document.querySelector('.return');
+var main=document.querySelector('main');
+var output=document.querySelector('.output');
+var type1=document.querySelector('.type1');
+var direction=["to right","to left","45deg","to top","to bottom","-45deg"];
+var i;
+
+const setbgcolor=(i)=>
+{
+console.log("working");
+main.style.background=`linear-gradient(${direction[i]},${x1.value},${x2.value})`;
+output.innerHTML=`copy the code : linear-gradient(${direction[i]},${x1.value},${x2.value});`;
+document.querySelector(".extra1").setAttribute("style","display:none;");
+document.querySelector(".extra2").setAttribute("style","display:none;");
+document.querySelector(".newc").setAttribute("style",`display:none`);
+}
+
+x1.addEventListener('input',setbgcolor("none"));
+x2.addEventListener('input',setbgcolor("none"));
+
+
+function menu()
+{
+y.setAttribute("style","left:0%");
+z.setAttribute("style","display:none");
+r.setAttribute("style","left:20%");
+}
+
+
+function back()
+{
+y.setAttribute("style","left:-20%");
+z.setAttribute("style","display:flex");
+r.setAttribute("style","left:-22%");
+}
+
+function ograd(id){
+    document.querySelector(".extra1").setAttribute("style","display:block;");
+    document.querySelector(".extra2").setAttribute("style","display:block;");
+    document.querySelector("main").setAttribute("style","background:black;")
+    if(id=="o1"){
+    document.querySelector(".newc").setAttribute("style",`background-image:conic-gradient(from 60deg,${x1.value},${x2.value},${x3.value});display:flex;`);
+    output.innerHTML=`copy the code :conic-gradient(from 60deg,${x1.value},${x2.value},${x3.value});`;
+    }
+    if(id=="o2"){
+    document.querySelector(".newc").setAttribute("style",`background-image:repeating-linear-gradient(-45deg,${x1.value}, ${x2.value} 10%, ${x3.value} 20%);display:flex;`);
+    output.innerHTML=`copy the code :repeating-linear-gradient(-45deg,${x1.value}, ${x2.value} 10%, ${x3.value} 20%);`;
+    }
+    if(id=="o3"){
+    document.querySelector(".newc").setAttribute("style",`background-image: radial-gradient(${x1.value}, ${x1.value}, ${x3.value});display:flex;`);
+    output.innerHTML=`copy the code :radial-gradient(${x1.value}, ${x1.value}, ${x3.value});`;
+    }
+}
+
+</script>
+</body>
+</html>

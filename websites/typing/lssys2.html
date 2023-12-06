@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chat Room</title>
+  <link rel="icon" href="../static/favicon.png" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    * {
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+    }
+
+    body {
+      position: relative;
+      width: 100%;
+      min-height:87vh;
+      background-color: #FFF;
+      overflow-x:hidden;
+      transition: all 0.8s linear;
+    }
+
+    header {
+      display: flex;
+      width: 100%;
+      height: 13vh;
+      background: #37BBF9;
+      box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+      color: white;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .icon {
+      width: 70%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      padding-right: 35%;
+      align-items: center;
+      font-size: 40px;
+    }
+
+    .ficon {
+      width: 55px;
+      height: 55px;
+    }
+
+    .menu {
+      width: 30%;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      text-decoration: none;
+    }
+
+    .menu li {
+      width: 33%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .menu li a {
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+    }
+
+    .main2{
+      width:100%;
+      height:87vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main {
+      position: relative;
+      margin-top: 4%;
+      margin-left: 20%;
+      margin-bottom: 50px;
+      width: 60%;
+      height: auto;
+      background: #37BBF9;
+      box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+      padding-top: 60px;
+      padding-bottom: 20px;
+      display: none;
+    }
+
+    main h1 {
+      color: whitesmoke;
+      padding: 2%;
+    }
+
+    main p {
+      color:whitesmoke;
+      padding: 2%;
+    }
+
+    .rules {
+      width: 80%;
+      padding: 2%;
+      background: #05A7F5;
+      margin: 3% 10%;
+      border-radius: 5px;
+      box-shadow: 0px 3px 1px 1px #7FFF00;
+      color: white;
+    }
+
+    .rules span {
+      color: #7FFF00;
+      font-weight: 900;
+      font-size: 17px;
+    }
+
+    .buttons {
+      width: 80%;
+      margin-left: 10%;
+      height: auto;
+      display: flex;
+      justify-content: space-around;
+      padding: 20px 0px;
+    }
+
+    .btn1 {
+      padding: 10px 30px;
+      font-size: 20px;
+      color: white;
+      background: #fc5c62;
+      box-shadow: 0px 3px 1px 1px brown;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .btn2 {
+      padding: 10px 30px;
+      font-size: 20px;
+      color: white;
+      background: #05A7F5;
+      box-shadow: 0px 3px 1px 1px rgb(88, 85, 112);
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .fbtn1 {
+      padding: 5px 20px;
+      font-size: 20px;
+      color: white;
+      background: #fc5c62;
+      box-shadow: 0px 3px 1px 1px brown;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .guest_login {
+      width: 60%;
+      height: auto;
+      background: #37BBF9;
+      box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+      padding-top: 25px;
+      padding-bottom: 20px;
+      display: none;
+      flex-direction: column;
+    }
+
+    .guest_login h1 {
+      color: white;
+      padding: 2%;
+    }
+
+    .guest_login div {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .guest_login div label {
+      color: white;
+      font-weight: 600;
+    }
+
+    .guest_login div input {
+      width: 70%;
+      height: 30px;
+      margin-top: 5px;
+      font-size: 20px;
+      padding-left: 5px;
+    }
+
+    .guest_login div:nth-child(3) {
+      width: 70%;
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+    }
+
+    .preloder {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 10;
+    }
+
+    .preloder h1 {
+      color: #3AB5BD;
+      margin-bottom: 80px;
+      font-size: 50px;
+      font-weight: 900;
+      font-family: sans-serif;
+      text-shadow: 2px 2px black;
+    }
+
+    .center_div {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      animation: animateBg 10s linear infinite;
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .center_div img{
+      width:200px;
+      height:200px;
+      border-radius: 50%;
+      box-shadow: 1px 1px 5px 5px black;
+    }
+
+    .mid-div {
+      width: 500px;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      flex-direction: column;
+    }
+
+    .wrapper-div{
+            width:100%;
+            height:90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-slider{
+            width:60%;
+            height:70%;
+            background-color:#37BBF9;
+            position: relative;
+            box-shadow: 0px 5px 45px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .left-msg{
+            position: absolute;
+            left:0%;
+            top:0%;
+            width:50%;
+            height:100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left-msg .center-msg{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .left-msg .center-msg button{
+            width:90px;
+            height:40px;
+            font-size: 20px;
+            border:none;
+            background-color: white;
+            margin-top:20px;
+            cursor: pointer;
+        }
+
+        .left-msg p{
+            font-size: 30px;
+            color:white;
+        }
+
+        .right-msg{
+            position: absolute;
+            right:0%;
+            bottom:0%;
+            width:50%;
+            height:100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right-msg .center-msg{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .right-msg .center-msg button{
+            width:90px;
+            height:40px;
+            font-size: 18px;
+            border:none;
+            background-color: white;
+            margin-top:20px;
+            cursor: pointer;
+        }
+
+        .right-msg p{
+            font-size: 30px;
+            color:white;
+        }
+
+        .slider{
+            position: absolute;
+            left:0%;
+            top:-15%;
+            width:50%;
+            height:130%;
+            overflow: hidden;
+            transition: all 0.8s ease-in-out;
+            box-shadow: 0px 5px 45px rgba(0, 0, 0, 0.15);
+        }
+
+        .slider-wrapper{
+            width:100%;
+            height:100%;
+            position: relative;
+            top:0%;
+            left:0%;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .left-slider{
+            position: absolute;
+            top:0%;
+            left:0%;
+            width:100%;
+            height:100%;
+            transition: all 0.5s ease-in-out;
+            transition-delay: 0.3s;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login{
+            width: 100%;
+            height:100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login div{
+            width:100%;
+            height:15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login div input{
+            border:2px solid grey;
+            padding-left: 10px;
+            font-size: 20px;
+            outline: none;
+            width:300px;
+            height:50px;
+        }
+
+        .login div button{
+            border:1px solid grey;
+            width:150px;
+            height:50px;
+            color:white;
+            font-size: 25px;
+            background-color: #05A7F5;
+        }
+
+        .right-slider{
+            position: absolute;
+            top:0%;
+            left:100%;
+            width:100%;
+            height:100%;
+            transition: all 0.5s ease-in-out;
+            transition-delay: 0.3s;
+            z-index: 50;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register{
+            width: 100%;
+            height:100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register div{
+            width:100%;
+            height:15%;
+            /* background-color: yellow; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register div input{
+            border:2px solid grey;
+            padding-left: 10px;
+            font-size: 20px;
+            outline: none;
+            width:300px;
+            height:50px;
+        }
+
+        .register div button{
+            border:1px solid grey;
+            width:150px;
+            height:50px;
+            color:white;
+            font-size: 25px;
+            background-color: #F5354B;
+        }
+
+        .footer {
+            position: relative;
+            bottom: 0%;
+            width: 100%;
+            height:10vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #37BBF9;
+            color:white;
+            }
+  </style>
+</head>
+<body>
+  <div class="preloder">
+    <div class="mid-div">
+      <h1>Please wait...</h1>
+      <div class="center_div">
+        <img src="../static/preloder.gif"/>
+      </div>
+    </div>
+  </div>
+  <header>
+    <div class="icon"><img src="../static/favicon.png" class="ficon" />ChatterBox</div>
+    <ul class="menu">
+      <li><a class="home" href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact us</a></li>
+    </ul>
+  </header>
+  <main>
+    <h1>Chat Rules:</h1>
+    <p>
+      Please read the following rules before joining the chat rooms. Any
+      violation will get you banned from the Chat.
+    </p>
+    <div class="rules">
+      <span>No Spam:</span> Do not spam chat users with random or automated
+      messages.
+    </div>
+    <div class="rules">
+      <span>No Provocation:</span> Do not attack or harass others because of
+      their race, religion or anything that is personal.
+    </div>
+    <div class="rules">
+      <span>No Bad Links:</span> Do not send links to websites that are
+      similar to Chatroom or websites that aren't authentic or look
+      suspicious.
+    </div>
+    <div class="rules">
+      <span>No Sexual Harassment:</span> Do not attack or harass people of
+      opposite gender and respect everyone online. Also we do not encourage
+      sex-talk or any other practices here.
+    </div>
+    <div class="rules">
+      <span>Other rules:</span> Even if we didn't mention everything, any act
+      that is considered a bad behavior will result in a permanent ban.
+    </div>
+    <p>
+      Please keep the chat clean or you might get banned for any of the rules
+      mentioned above. We are also working on a "Report" feature that will let
+      you report bad users easily.
+    </p>
+    <div class="buttons">
+      <button class="btn1" id="login_form">Log In</button>
+      <button class="btn2" id="glogin_form">Guest login</button>
+    </div>
+    <p>
+      We do not keep our users' data or messages sent here, Chatroom
+      automatically deletes all your message history whenever you logout,
+      making Chatroom totally Anonymous and secure.
+    </p>
+  </main>
+
+  <div class="main2">
+    <div class="wrapper-div">
+        <div class="main-slider">
+            <div class="left-msg">
+                <div class="center-msg">
+                    <p>Already Have an Account?</p>
+                    <button onclick="login()">Log In</button>
+                </div>
+            </div>
+            <div class="right-msg">
+                <div class="center-msg">
+                    <p>Don't Have an Account?</p>
+                    <button onclick="signin()">Sign In</button>
+                </div>
+            </div>
+            <div class="slider">
+                <div class="slider-wrapper">
+                    <div class="left-slider">
+                        <div class="login">
+                            <h1>Login here:</h1>
+
+                            <div>
+                              <input type="text" name="log_username" id="log_username_email" placeholder="username/email:"/>
+                            </div>
+
+                            <div>
+                              <input type="password" name="log_password" id="log_password" placeholder="password:"/>
+                            </div>
+
+                            <div>
+                              <button  onclick="login2()">login <i class="fas fa-sign-in-alt"></i></button>
+                            </div>
+
+                          </div>
+                    </div>
+
+                    <div class="right-slider">
+                        <div class="register">
+                            <h1>Get register here:</h1>
+                            <div>
+                              <input type="text" name="reg_username" id="reg_username" placeholder="username:"/>
+                            </div>
+                        
+                            <div>
+                              <input type="email" name="reg_email" id="reg_email" placeholder="email:"/>
+                            </div>
+                        
+                            <div>
+                              <input type="password" name="reg_password" id="reg_password" placeholder="password:"/>
+                            </div>
+                        
+                            <div>
+                              <button type="submit" onclick="addRecord()">Sign in <i class="fas fa-sign-in-alt"></i></button>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <div class="guest_login">
+    <h1>Login here:</h1>
+    <div>
+      <label>username:</label>
+      <input type="text" name="glog_username" id="glog_username" />
+    </div>
+
+    <div>
+      <button class="fbtn1" onclick="glogin()">Login</button>
+    </div>
+  </div>
+  </div>
+
+  <div class="footer">
+    <p>We do not keep our user's data or messages sent here, Chatroom
+    automatically deletes all your messages history whenever you logout,
+    making Chatroom totally Anonymous and Secure.</p>
+  </div>
+
+</body>
+
+<script>
+  setTimeout(preloder, 1000);
+
+  function preloder() {
+    document.querySelector(".preloder").setAttribute("style", "display:none");
+    document.querySelector("main").setAttribute("style", "display:block");
+  }
+
+  const signin = () =>{
+        document.querySelector("body").setAttribute("style","background-color:#F5354B");
+        document.querySelector(".main-slider").setAttribute("style","background-color:#F85D6F");
+        document.querySelector(".slider").setAttribute("style","position:absolute;left:50%");
+        document.querySelector(".left-slider").setAttribute("style","position:absolute;left:-100%");
+        document.querySelector(".right-slider").setAttribute("style","position:absolute;left:0%");
+        document.querySelector("header").setAttribute("style","background-color:#F85D6F");
+    };
+
+    const login = () =>{
+        document.querySelector("body").setAttribute("style","background-color:#05A7F5");
+        document.querySelector(".main-slider").setAttribute("style","background-color:#37BBF9");
+        document.querySelector(".slider").setAttribute("style","position:absolute;left:0%");
+        document.querySelector(".right-slider").setAttribute("style","position:absolute;left:100%");
+        document.querySelector(".left-slider").setAttribute("style","position:absolute;left:0%");
+        document.querySelector("header").setAttribute("style","background-color:#37BBF9");
+    };
+
+</script>
+
+<script>
+  document.querySelector(".home").addEventListener("click", () => {
+    document.querySelector(".main2").setAttribute("style","display:none");
+    document.querySelector(".wrapper-div").setAttribute("style", "display:none");
+    document.querySelector(".guest_login").setAttribute("style", "display:none");
+    document.querySelector("main").setAttribute("style", "display:block");
+    document.querySelector(".footer").setAttribute("style","display:block");
+    document.querySelector("body").setAttribute("style","background-color:#fff");
+    document.querySelector("header").setAttribute("style","background-color:#37BBF9");
+  });
+
+  document.getElementById("login_form").addEventListener("click", function () {
+      document.querySelector(".main2").setAttribute("style","display:flex");
+      document.querySelector(".wrapper-div").setAttribute("style", "display:flex");
+      document.querySelector(".guest_login").setAttribute("style", "display:none");
+      document.querySelector("main").setAttribute("style", "display:none");
+    document.querySelector(".footer").setAttribute("style","display:none");
+    });
+
+  document.getElementById("glogin_form").addEventListener("click", function () {
+    document.querySelector(".main2").setAttribute("style","display:flex");
+      document.querySelector(".guest_login").setAttribute("style", "display:flex");
+      document.querySelector(".wrapper-div").setAttribute("style", "display:none");
+      document.querySelector("main").setAttribute("style", "display:none");
+    document.querySelector(".footer").setAttribute("style","display:none");
+    document.querySelector("body").setAttribute("style","background-color:#fff");
+    document.querySelector("header").setAttribute("style","background-color:#37BBF9");
+    });
+</script>
+
+</html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="jarvis.png">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>J.A.R.V.I.S</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-image: url(images/bga1.jpg);
+            transform-style:preserve-3d;
+            perspective: 400px;
+        }
+
+        
+
+        .reactor-container {
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            border: 1px dashed #888;
+            position: relative;
+            border-radius: 50%;
+            background-color: #384c50;
+            border: 1px solid rgb(18, 20, 20);
+            box-shadow: 0px 0px 32px 8px rgb(18, 20, 20), 0px 0px 4px 1px rgb(18, 20, 20) inset;
+            transition: all 0.5s linear;
+            transform-style:preserve-3d;
+            transition-delay: 0.5s;
+        }
+
+        .reactor-container-inner {
+            height: 338px;
+            width: 338px;
+            background-color: rgb(22, 26, 27);
+            box-shadow: 0px 0px 4px 1px #52FEFE;
+        }
+
+        .reactor-ring1 {
+            height: 325px;
+            width: 325px;
+            background-color: transparent;
+            border: 4px solid #2E474A;
+            z-index: 10;
+        }
+
+        .reactor-ring2 {
+            height: 270px;
+            width: 270px;
+            background-color: rgba(34, 41, 49, 0);
+            border: 2px solid #2E474A;
+            z-index: 5;
+        }
+        /* #E18923 */
+        /* #FFE32B */
+        .reactor-coil {
+            height: 260px;
+            width: 260px;
+            background-color: transparent;
+            border: 25px solid #EFF7F7;
+            box-shadow: 0px 0px 20px 5px #02ACF6 , 0px 0px 20px 5px #02ACF6  inset;
+            z-index: 10;
+            transition: all 0.5s linear;
+            display: none;
+        }
+
+        .reactor-outer-ring {
+            height: 370px;
+            width: 370px;
+            background-color: rgba(34, 41, 49, 0);
+            border: 2px solid grey;
+            z-index: 10;
+        }
+
+        .reactor-glass {
+            height: 200px;
+            width: 200px;
+            background-color: transparent;
+            border: 2px solid #2E474A;
+            z-index: 10;
+        }
+
+        .circle {
+            border-radius: 50%;
+        }
+
+        .circle2{
+            position: relative;
+            clip-path: circle(50% at 50% 50%);
+            border: 3px solid #4DF0EB;
+            box-shadow: 0px 0px 20px 5px inset #3BACAD,0px 0px 20px 5px  #3BACAD;
+            background-color: rgba(34, 41, 49, 0);
+        }
+
+        .circle2::after{
+            content: "";
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border:1px solid  #4DF0EB;
+        }
+
+        .abs-center {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }
+
+
+        .coil-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            animation: 5s infinite linear reactor-anim;
+        }
+
+        .svg1 {
+        transform: rotateZ(150deg);
+        background: transparent;
+        }
+
+        .rotate {
+        transform: rotateZ(-90deg);
+        background: transparent;
+        }
+
+        .coil {
+            position: absolute;
+            width: 15px;
+            height: 10px;
+            top: calc(50% - 120px);
+            left: calc(50% - 20px);
+            transform-origin: 20px 120px;
+            background-color: #38C4C0;
+            transition: all 2s ease-in-out;
+        }
+
+        .coil-1 {
+            transform: rotate(0deg);
+        }
+
+        .coil-2 {
+            transform: rotate(15deg);
+        }
+
+        .coil-3 {
+            transform: rotate(30deg);
+        }
+
+        .coil-4 {
+            transform: rotate(45deg);
+        }
+
+        .coil-5 {
+            transform: rotate(60deg);
+        }
+
+        .coil-6 {
+            transform: rotate(75deg);
+        }
+
+        .coil-7 {
+            transform: rotate(90deg);
+        }
+
+        .coil-8 {
+            transform: rotate(105deg);
+        }
+
+        .coil-9 {
+            transform: rotate(120deg);
+        }
+
+        .coil-10 {
+            transform: rotate(135deg);
+        }
+
+        .coil-11 {
+            transform: rotate(150deg);
+        }
+
+        .coil-12 {
+            transform: rotate(165deg);
+        }
+
+        .coil-13 {
+            transform: rotate(180deg);
+        }
+
+        .coil-14 {
+            transform: rotate(195deg);
+        }
+
+        .coil-15 {
+            transform: rotate(210deg);
+        }
+
+        .coil-16 {
+            transform: rotate(225deg);
+        }
+
+        .coil-17 {
+            transform: rotate(240deg);
+        }
+
+        .coil-18 {
+            transform: rotate(255deg);
+        }
+
+        .coil-19 {
+            transform: rotate(270deg);
+        }
+
+        .coil-20 {
+            transform: rotate(285deg);
+        }
+
+        .coil-21 {
+            transform: rotate(300deg);
+        }
+
+        .coil-22 {
+            transform: rotate(315deg);
+        }
+
+        .coil-23 {
+            transform: rotate(330deg);
+        }
+
+        .coil-24 {
+            transform: rotate(345deg);
+        }
+
+        @keyframes reactor-anim {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .coilo {
+            position: absolute;
+            width: 15px;
+            height: 10px;
+            top: calc(50% - 145px);
+            left: calc(50% - 20px);
+            transform-origin: 20px 145px;
+            background-color: transparent;
+            border-left:1px solid white;
+            border-right:1px solid white;
+            transition: all 2s ease-in-out;
+        }
+
+        .coilo-1 {
+            transform: rotate(0deg);
+        }
+
+        .coilo-2 {
+            transform: rotate(15deg);
+        }
+
+        .coilo-3 {
+            transform: rotate(30deg);
+        }
+
+        .coilo-4 {
+            transform: rotate(45deg);
+        }
+
+        .coilo-5 {
+            transform: rotate(60deg);
+        }
+
+        .coilo-6 {
+            transform: rotate(75deg);
+        }
+
+        .coilo-7 {
+            transform: rotate(90deg);
+        }
+
+        .coilo-8 {
+            transform: rotate(105deg);
+        }
+
+        .coilo-9 {
+            transform: rotate(120deg);
+        }
+
+        .coilo-10 {
+            transform: rotate(135deg);
+        }
+
+        .coilo-11 {
+            transform: rotate(150deg);
+        }
+
+        .coilo-12 {
+            transform: rotate(165deg);
+        }
+
+        .coilo-13 {
+            transform: rotate(180deg);
+        }
+
+        .coilo-14 {
+            transform: rotate(195deg);
+        }
+
+        .coilo-15 {
+            transform: rotate(210deg);
+        }
+
+        .coilo-16 {
+            transform: rotate(225deg);
+        }
+
+        .coilo-17 {
+            transform: rotate(240deg);
+        }
+
+        .coilo-18 {
+            transform: rotate(255deg);
+        }
+
+        .coilo-19 {
+            transform: rotate(270deg);
+        }
+
+        .coilo-20 {
+            transform: rotate(285deg);
+        }
+
+        .coilo-21 {
+            transform: rotate(300deg);
+        }
+
+        .coilo-22 {
+            transform: rotate(315deg);
+        }
+
+        .coilo-23 {
+            transform: rotate(330deg);
+        }
+
+        .coilo-24 {
+            transform: rotate(345deg);
+        }
+
+
+        .text1{
+            width:100%;
+            height: 50%;
+            border-bottom: 1px solid #4DF0EB;
+            color:#4DF0EB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .text2{
+            width:100%;
+            height: 50%;
+            border-top: 1px solid #4DF0EB;
+            color:#4DF0EB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .voice-text{
+            position: fixed;
+            bottom:20px;
+            left:50%;
+            transform: translateX(-50%);
+            width:700px;
+            height:100px;
+            background-color:rgba(17, 122, 165, 0.2);
+            box-shadow: 0px 0px 12px 8px rgb(18, 20, 20),0px 0px 20px 5px #4DF0EB inset;
+            border: 6px solid #384C50;
+            border-radius: 20px;
+            color:white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .voice-text2{
+            position: fixed;
+            bottom:50px;
+            right:60px;
+            width:320px;
+            height:400px;
+            background-color:rgba(17, 122, 165, 0.2);
+            box-shadow: 0px 0px 12px 8px rgb(18, 20, 20),0px 0px 20px 5px #4DF0EB inset;
+            border: 6px solid #384C50;
+            border-radius: 20px;
+            color:white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .voice-text3{
+            position: fixed;
+            top:100px;
+            right:50px;
+            width:300px;
+            height:150px;
+            background-color:rgba(0, 0, 0, 1);
+            box-shadow: 0px 0px 12px 8px rgb(18, 20, 20);
+            border: 3px solid grey;
+            color:white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        #sidemenu1{
+            position: fixed;
+            left:0%;
+            top:0%;
+        }
+
+        .shadow{
+            transform: translateX(-300px);
+            transition: all 0.2s ease-out;
+            cursor: pointer;
+            filter: drop-shadow( 0px 0px 5px #5FD9EF);
+            backdrop-filter: blur(20px);
+        }
+
+        .smbutton{
+            background-color: aqua;
+            z-index: 25;
+            cursor: pointer;
+            filter: drop-shadow( 0px 0px 2px #5FD9EF);
+        }
+
+        /* .sight{
+            position: fixed;
+            width:100%;
+            height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective:0px;
+            perspective-origin:50% 50%; 
+        }
+
+        .outer_room{
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100vh;
+            transform-style: preserve-3d;
+            transform:translateZ(400px);
+        }
+
+        .wall4{
+            position: fixed;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            width:1000px;
+            height: 500px;
+            background-color: rgb(0,0,0,0.1);
+        }
+
+        .wall1{
+            position: fixed;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%) rotateY(90deg);
+            transform-origin: left;
+            width:1000px;
+            height: 500px;
+            background-color: rgb(0,0,0);
+            background-image: url(images/bgs.png);
+            background-size: 100%;
+            background-position: center;
+        }
+
+        .wall2{
+            position: fixed;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%) rotateY(-90deg);
+            transform-origin: right;
+            width:1000px;
+            height: 500px;
+            background-color: rgb(0,0,0);
+            background-image: url(images/bgs.png);
+            background-size: 100%;
+            background-position: center;
+        }
+
+        .wall3{
+            position: fixed;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%) translateZ(-500px);
+            width:1000px;
+            height: 500px;
+            background-color: rgb(0,0,0);
+            background-image: url(images/bgs.png);
+            background-size: 100%;
+            background-position: center;
+        }
+
+        .floor{
+            position: fixed;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%) rotateX(90deg);
+            transform-origin: bottom;
+            width:1000px;
+            height: 500px;
+            background-color: rgb(0,0,0);
+            background-image: url(images/bgs.png);
+            background-size: 100%;
+            background-position: center;
+        }
+
+        .slab{
+            position: fixed;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%) rotateX(-90deg);
+            transform-origin: top;
+            width:1000px;
+            height: 500px;
+            background-color: rgb(0,0,0);
+            background-image: url(images/bgs.png);
+            background-size: 100%;
+            background-position: center;
+        } */
+
+        .side-icon{
+            position: fixed;
+            top:330px;
+            left:15px;
+            transform: translateY(-50%);
+            color:#EA8F49;
+            text-shadow: 0px 0px 5px #EA8F49;
+            font-size: 55px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="sight">
+        <div class="outer_room" >
+            <div class="floor"></div>
+           <div class="slab"></div>
+           <div class="wall1"></div>
+           <div class="wall2"></div>
+           <div class="wall3"></div>
+           <div class="wall4"></div>
+        </div>
+    </div> -->
+
+    <div class="reactor-container">
+        <div class="reactor-container-inner circle abs-center"></div>
+        <div class="reactor-ring1 circle abs-center"></div>
+        <div class="reactor-ring2 circle abs-center"></div>
+        <svg  x="0px" y="0px" width="400px" height="400px" viewBox="0 0 300 300" class="abs-center rotate svg1">
+
+            <circle class="path2" 
+                    stroke="rgba(255,255,255,0.3)" 
+                    fill="none" 
+                    stroke-width="14" 
+                    cx="150" cy="150" r="110" />
+
+        </svg>
+        <svg x="0px"  y="0px" width="400px" height="400px" viewBox="0 0 300 300" class="abs-center svg1">
+
+            <circle class="path" 
+                    stroke="#A75009" 
+                    fill="none" 
+                    stroke-width="14" 
+                    cx="150" cy="150" r="110" />
+
+        </svg>
+        <div class="reactor-outer-ring circle abs-center"></div>
+        <div class="reactor-glass circle2 abs-center">
+            <div class="text1">
+                J.A.R.V.I.S
+            </div>
+            <div class="text2">
+                ACTIVATED
+            </div>
+        </div>
+        
+
+        <div class="coil-container">
+                <div class="coil coil-1"></div>
+                <div class="coil coil-2"></div>
+                <div class="coil coil-3"></div>
+                <div class="coil coil-4"></div>
+                <div class="coil coil-5"></div>
+                <div class="coil coil-6"></div>
+                <div class="coil coil-7"></div>
+                <div class="coil coil-8"></div>
+                <div class="coil coil-9"></div>
+                <div class="coil coil-10"></div>
+                <div class="coil coil-11"></div>
+                <div class="coil coil-12"></div>
+                <div class="coil coil-13"></div>
+                <div class="coil coil-14"></div>
+                <div class="coil coil-15"></div>
+                <div class="coil coil-16"></div>
+                <div class="coil coil-17"></div>
+                <div class="coil coil-18"></div>
+                <div class="coil coil-19"></div>
+                <div class="coil coil-20"></div>
+                <div class="coil coil-21"></div>
+                <div class="coil coil-22"></div>
+                <div class="coil coil-23"></div>
+                <div class="coil coil-24"></div>
+        </div>
+
+        <div class="coil-container2">
+            <div class="coilo coilo-1"></div>
+            <div class="coilo coilo-2"></div>
+            <div class="coilo coilo-3"></div>
+            <div class="coilo coilo-4"></div>
+            <div class="coilo coilo-5"></div>
+            <div class="coilo coilo-6"></div>
+            <div class="coilo coilo-7"></div>
+            <div class="coilo coilo-8"></div>
+            <div class="coilo coilo-9"></div>
+            <div class="coilo coilo-10"></div>
+            <div class="coilo coilo-11"></div>
+            <div class="coilo coilo-12"></div>
+            <div class="coilo coilo-13"></div>
+            <div class="coilo coilo-14"></div>
+            <div class="coilo coilo-15"></div>
+            <div class="coilo coilo-16"></div>
+            <div class="coilo coilo-17"></div>
+            <div class="coilo coilo-18"></div>
+            <div class="coilo coilo-19"></div>
+            <div class="coilo coilo-20"></div>
+            <div class="coilo coilo-21"></div>
+            <div class="coilo coilo-22"></div>
+            <div class="coilo coilo-23"></div>
+            <div class="coilo coilo-24"></div>
+    </div>
+    <div class="reactor-coil circle abs-center"></div>
+    </div>
+
+    <div class="voice-text">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, ipsam laboriosam, quidem amet magnam et laborum ducimus maxime fugiat cumque aliquid blanditiis aspernatur dolores, atque odit eaque sequi pariatur voluptatum? Dicta fugit architecto totam porro.
+    </div>
+
+    <div class="voice-text2">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus et alias quas veniam praesentium velit ratione est dolor sit possimus omnis optio facere quibusdam, voluptatibus, molestias amet eligendi nostrum harum sed. Voluptatum veritatis commodi odio praesentium corporis aut autem, ex labore excepturi quia cum? Voluptatibus ipsum porro molestias ab eveniet amet corporis eum distinctio odit ea suscipit ratione, magnam at praesentium maxime eligendi ullam culpa officia inventore! Reiciendis aliquid optio similique error quam. A laboriosam officia sit corrupti facilis sequi.
+    </div>
+
+    <div class="voice-text3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi ullam soluta totam explicabo fugit corrupti! Veniam temporibus amet beatae a. Autem sint praesentium doloribus maiores!
+    </div>
+
+    <svg height="600" width="450" id="sidemenu1" style="padding-top:20px">
+        <path  stroke="#5FD9EF" stroke-width="4" d="M0 200 v200 l50 -50 v-90 Z" fill="rgba(17, 122, 165, 0.2)" class="smbutton" fill-rule="evenodd" ></path>
+        <path  stroke="#5FD9EF" stroke-width="4" d="M30 25 v70 h225 l15 -15 v-40 h-170 v-30 h-40 Z" fill="rgba(17, 122, 165, 0.2)" class="shadow" fill-rule="evenodd" ></path>
+        <path  stroke="#5FD9EF" stroke-width="4" d="M30 140 v70 h225 l15 -15 v-40 h-170 v-30 h-40 Z" fill="rgba(17, 122, 165, 0.2)" class="shadow" fill-rule="evenodd" ></path>
+        <path  stroke="#5FD9EF" stroke-width="4" d="M30 255 v70 h225 l15 -15 v-40 h-170 v-30 h-40 Z" fill="rgba(17, 122, 165, 0.2)" class="shadow" fill-rule="evenodd" ></path>
+        <path  stroke="#5FD9EF" stroke-width="4" d="M30 370 v70 h225 l15 -15 v-40 h-170 v-30 h-40 Z" fill="rgba(17, 122, 165, 0.2)" class="shadow" fill-rule="evenodd" ></path>
+        <path  stroke="#5FD9EF" stroke-width="4" d="M30 485 v70 h225 l15 -15 v-40 h-170 v-30 h-40 Z" fill="rgba(17, 122, 165, 0.2)" class="shadow" fill-rule="evenodd" ></path>
+    </svg>
+
+    <p class="side-icon">
+        <i class="fas fa-caret-right"></i>
+        <!-- <i class="fas fa-caret-left"></i> -->
+    </p>
+
+</body>
+<script>
+    document.querySelector(".smbutton").addEventListener("click",()=>{
+        for(var i=0;i<=4;i++){
+            f=(5-(i))/30;
+        document.querySelectorAll(".shadow")[i].setAttribute("style",`transform:translateX(100px);transition-delay:${f}s`);
+        }
+    });
+
+    setTimeout(() => {
+        for(var i=1;i<=24;i++){
+        document.querySelector(".coil-"+i).setAttribute("style"," box-shadow: 0px 0px 10px 5px #02ACF6;background-color:#EFF7F7;width:15px;height:25px;top: calc(50% - 127px);left: calc(50% - 20px);transform-origin: 20px 127px;");
+        }
+
+        setTimeout(() => {
+            document.querySelector(".coil-container").setAttribute("style","animation-duration:0.3s");
+
+            // setTimeout(() => {
+            //     document.querySelector(".reactor-coil").setAttribute("style","display:block;");
+            // },2000);
+        },1000);
+    }, 2000);
+
+    let circle = document.querySelector('.path');
+    const range = 45;
+    const len = 2 * Math.PI * 80;
+
+    circle.style.strokeDasharray = len;
+    circle.style.strokeDashoffset = len * .9;
+    circle.style.transition = "stroke-dashoffset .3s ease-in-out";
+
+    let range_value = Number(range)
+        , value = len -  (range_value / 100) * len;
+    circle.style.strokeDashoffset = value;
+
+    let circle2 = document.querySelector('.path2');
+    const range2 = 90;
+    const len2 = 2 * Math.PI * 80;
+
+    circle2.style.strokeDasharray = len2;
+    circle2.style.strokeDashoffset = len2 * .9;
+    circle2.style.transition = "stroke-dashoffset .3s ease-in-out";
+
+    let range_value2 = Number(range2)
+        , value2 = len2 -  (range_value2 / 100) * len2;
+    circle2.style.strokeDashoffset = value2;
+</script>
+
+</html>

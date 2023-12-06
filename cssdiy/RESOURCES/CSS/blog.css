@@ -1,0 +1,432 @@
+/*----------------------------------------------------------------------*/
+/*HERO BLOG TITLE*/
+/*----------------------------------------------------------------------*/
+.mnav{
+    display:none;
+}
+
+.bloghero h1 {
+    font-family: 'Pacifico', cursive;
+    color: #d2fdff;
+    font-size: 400%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+cite img {
+    border-radius: 50%;
+    height: 60px;
+    margin-right: 10px;
+    vertical-align: middle;
+    margin-bottom: -15px;
+    margin-top: -15px;
+}
+
+cite {
+    font-size: 100%;
+    display: block;
+    margin-top: 25px;
+    color: #d2fdff;
+    font-weight: 400;
+}
+
+cite a {
+    color: #d2fdff;
+    margin: 0 3px;
+
+}
+
+.date{
+    color: #d2fdff;
+    font-weight: 400;
+    margin-top: 25px;
+}
+
+.langauage_discription p{
+    color: #303c6c;
+    font-weight: 400;
+    margin-top: 25px;
+}
+
+.bloghero .tags {
+    margin-left: 0px;
+}
+
+.langauage_discription div {
+    display: flex;
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: -40px;
+}
+
+.info_bar {
+    height:20px;
+    border-radius:10% 10% 10% 10% / 50% 50% 50% 50%;
+}
+
+.heroimg{
+    padding-bottom: 4%;
+}
+
+/*------------------------------------------------------------------------*/
+/*BLOG CONTENT*/
+/*------------------------------------------------------------------------*/
+
+
+.blog_img {
+    width: 500px;
+    height: 500px;
+    margin-left: 500px;
+}
+
+.blog{
+    padding-bottom: 100px;
+}
+
+.para {
+    width: 65%;
+    margin-left: 30px;
+    margin-top: 30px;
+    padding-top: 30px;
+    word-spacing: 3px;
+}
+
+.blogGIF{
+    border-radius: 5px;
+    margin-left: 110px;
+    margin-top: -100px;
+    width: 48%;
+    height: auto;
+}
+
+.imgs3{
+    margin: 60px 60px;
+    width: 55%;
+    height: auto;
+}
+
+div.fixedElement{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 15%;
+    margin-left:72%;
+    width:25%;
+    height:auto;
+    z-index:100;
+    box-shadow: 0 10px 25px 0px rgba(114, 106, 106, 0.34);
+    background: white;
+    border-radius: 10px;
+    margin-top: -100px;
+    background-color: #764B6D;
+}
+
+.fixedElement h3
+{
+    text-align: center;
+    color:#FBF0A1;
+}
+
+.fixedElement li{
+    position:relative;
+    width:100%;
+    height: fit-content;
+    display:flex;
+    border-top: 1px solid #FBF0A1;
+    justify-content: center;
+}
+
+.fixedElement a{
+    z-index:2;
+    text-decoration: none;
+    margin:5% 0%;
+    color:white;
+}
+
+.fixedElement li:before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:0%;
+    height:100%;
+    background-color: teal;
+    transition:all 0.2s ease-out;
+}
+
+
+.fixedElement ul li{
+    list-style: none;
+    padding: 10px 10px;
+}
+
+.fixedElement li:hover:before{
+     width:100%;
+}
+
+.fixedElement li:hover  a{
+    color:white;
+    font-weight: 400;
+}
+
+/*------------------------------------------------------------------------*/
+/*EMAIL*/
+/*------------------------------------------------------------------------*/
+
+.section_email
+{
+    width:100%;
+    height:auto;
+    display: flex;
+    background-image: url("heroBackground.png");
+    background-size: cover;
+    margin-top: 5%;
+    border-radius: 5px;
+     
+}
+
+.section_email div
+{
+    width:100%;
+    height:auto;
+}
+
+.section_email div h1
+{
+    width:75%;
+    padding-top:10px;
+    font-family: 'Pacifico',cursive;    
+    padding:20px 50px;
+    color:#d2fdff;
+}
+
+.section_email div p
+{
+    width:70%;
+    padding:20px 50px;
+    color:white;
+    margin-bottom:5%;
+}
+
+.esec_input
+{
+    width:100%;
+    display:flex;
+    margin-bottom: 100px; 
+    position: relative;   
+}
+
+.einput1,.einput2
+{
+    position: absolute;
+    height:40px;
+    outline:none;
+    border:none;
+    border-bottom:2px solid white;
+    font-size: 20px;
+    padding:10px;
+    background-color:transparent;
+    color:white;
+    width: 20%;
+}
+
+.esec_input label
+{
+    position: absolute;
+    top:5px;
+    color:white;
+    transition: all 0.2s ease-out;
+}
+
+.esec_input input:focus + label , .esec_input input:valid+label {
+    color:#d2fdff;
+    font-weight:600px;
+    top:-30px;
+    font-size: 80%;
+}
+
+.esbtn{
+    position: absolute;
+    top:0%;
+    left:55%;
+    color:white;
+    background:#303c6c;
+    cursor:pointer;
+    width:15%;
+    height:40px;
+    outline:none;
+    border:2px solid white;
+    border-radius:5px;
+    padding:0 15px;
+}
+
+/*------------------------------------------------------------------------*/
+/*COMMENTS*/
+/*------------------------------------------------------------------------*/
+
+
+.comment
+{
+    width:100%;
+    height:auto;
+    padding:50px 0; 
+    padding-right:8%; 
+    margin-bottom:100px;
+}
+
+.comment div
+{
+    width:75%;
+    height:auto;
+    margin-bottom:100px;
+    background: antiquewhite;
+    border-radius: 5px;
+}
+
+.comment div h1
+{
+    position: relative;
+    width:100%;
+    height:50px;
+    margin-bottom:20px;
+    padding:10px 30px;
+    font-size:140%;
+    background:linear-gradient(to right,#2a1e4e,#303c6c,#f4976c,#fbe8a6);
+    border-radius: 5px;
+}
+
+.comment div h1 span
+{
+    position: absolute;
+    right:-43%;
+    width:75%;
+    height:50px;
+    margin-bottom:20px;
+    padding:10px 0px;
+    font-size: 70%;
+}
+
+.comment i{
+    margin-right: 20px;
+}
+
+
+.comment p
+{
+    width:90%;
+    height:auto;
+    padding:30px 30px;
+}
+
+
+
+/*------------------------------------------------------------------------*/
+/*REPLY*/
+/*------------------------------------------------------------------------*/
+
+.fsec {
+    width: 100%;
+    padding-top: 10px;
+    background-image: url("heroBackground.png");
+    background-size: cover;
+    padding-bottom: 100px;
+     
+}
+
+.secform {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 60%;
+    height: 300px;
+    margin-left: 20%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.secform p {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.secform div {
+    position: relative;
+    grid-column: 1/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.secform p input {
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    width: 80%;
+    height:40px;
+    padding-left: 5px;
+    background: transparent;
+    color: #d2d2d2;
+    border: none;
+    outline: none;
+    transition:all 0.2s linear;
+    border-bottom: 2px solid #d2fdff;
+}
+
+.secform div input {
+    position: absolute;
+    left: 20px;
+    top: 30px;
+    width: 90%;
+    height:60px;
+    font-weight:300;
+    padding-left: 5px;
+    color: #d2fdff;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #d2fdff;
+}
+
+.secform p label {
+    position: absolute;
+    left: 23px;
+    top: 50px;
+    color: #d2fdff;
+    transition: all 0.2s linear;
+}
+
+.secform div label {
+    position: absolute;
+    left: 25px;
+    color: #d2fdff;
+    top: 60px;
+    transition: all 0.2s linear;
+}
+
+.secform p input:focus+label,
+.secform p input:valid+label {
+    color:#d2fdff;
+    font-weight:600px;
+    top: 12px;
+    font-size: 15px;
+}
+
+.secform div input:focus+label,.secform div input:valid+label{
+    color:#d2fdff;
+    top: 5px;
+    font-size: 15px;
+}
+
+.secform p input:focus,
+.secform div input:focus {
+    color:#d2fdff;
+}
+
+.fsecp {
+    display: block;
+    margin: 40px auto;
+    width: 60%;
+    text-align: center;
+    color: #d2fdff;
+}

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Signin System</title>
+    <style>
+        *{
+            margin:0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100%;
+            height:100vh;
+            background-color: #05A7F5;
+            overflow:hidden;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .wrapper-div{
+            width:100%;
+            height:90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-slider{
+            width:60%;
+            height:60%;
+            background-color:#37BBF9;
+            position: relative;
+            box-shadow: 0px 5px 45px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .left-msg{
+            position: absolute;
+            left:0%;
+            top:0%;
+            width:50%;
+            height:100%;
+            /* background-color: aqua; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left-msg .center-msg{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .left-msg .center-msg button{
+            width:90px;
+            height:40px;
+            font-size: 20px;
+            border:none;
+            background-color: white;
+            margin-top:20px;
+            cursor: pointer;
+        }
+
+        .left-msg p{
+            font-size: 30px;
+            color:white;
+        }
+
+        .right-msg{
+            position: absolute;
+            right:0%;
+            bottom:0%;
+            width:50%;
+            height:100%;
+            /* background-color: blueviolet; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right-msg .center-msg{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .right-msg .center-msg button{
+            width:90px;
+            height:40px;
+            font-size: 18px;
+            border:none;
+            background-color: white;
+            margin-top:20px;
+            cursor: pointer;
+        }
+
+        .right-msg p{
+            font-size: 30px;
+            color:white;
+        }
+
+        .slider{
+            position: absolute;
+            left:0%;
+            top:-15%;
+            width:50%;
+            height:130%;
+            overflow: hidden;
+            transition: all 0.8s ease-in-out;
+            box-shadow: 0px 5px 45px rgba(0, 0, 0, 0.15);
+        }
+
+        .slider-wrapper{
+            width:100%;
+            height:100%;
+            position: relative;
+            top:0%;
+            left:0%;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .left-slider{
+            position: absolute;
+            top:0%;
+            left:0%;
+            width:100%;
+            height:100%;
+            /* background-color: red; */
+            transition: all 0.5s ease-in-out;
+            transition-delay: 0.5s;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login{
+            width: 100%;
+            height:100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login div{
+            width:100%;
+            height:15%;
+            /* background-color: yellow; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login div input{
+            border:2px solid grey;
+            padding-left: 10px;
+            font-size: 20px;
+            outline: none;
+            width:300px;
+            height:50px;
+        }
+
+        .login div button{
+            border:1px solid grey;
+            width:150px;
+            height:50px;
+            color:white;
+            font-size: 25px;
+            background-color: #05A7F5;
+        }
+
+        .right-slider{
+            position: absolute;
+            top:0%;
+            left:100%;
+            width:100%;
+            height:100%;
+            /* background-color: red; */
+            transition: all 0.5s ease-in-out;
+            transition-delay: 0.5s;
+            z-index: 50;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register{
+            width: 100%;
+            height:100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register div{
+            width:100%;
+            height:15%;
+            /* background-color: yellow; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register div input{
+            border:2px solid grey;
+            padding-left: 10px;
+            font-size: 20px;
+            outline: none;
+            width:300px;
+            height:50px;
+        }
+
+        .register div button{
+            border:1px solid grey;
+            width:150px;
+            height:50px;
+            color:white;
+            font-size: 25px;
+            background-color: #F5354B;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper-div">
+        <div class="main-slider">
+            <div class="left-msg">
+                <div class="center-msg">
+                    <p>Already Have an Account?</p>
+                    <button onclick="login()">Log In</button>
+                </div>
+            </div>
+            <div class="right-msg">
+                <div class="center-msg">
+                    <p>Don't Have an Account?</p>
+                    <button onclick="signin()">Sign In</button>
+                </div>
+            </div>
+            <div class="slider">
+                <div class="slider-wrapper">
+                    <div class="left-slider">
+                        <div class="login">
+                            <h1>Login here:</h1>
+
+                            <div>
+                              <input type="text" name="log_username" id="log_username_email" placeholder="username/email:"/>
+                            </div>
+
+                            <div>
+                              <input type="password" name="log_password" id="log_password" placeholder="password:"/>
+                            </div>
+
+                            <div>
+                              <button class="fbtn1" onclick="login()">login <i class="fas fa-sign-in-alt"></i></button>
+                            </div>
+
+                          </div>
+                    </div>
+
+                    <div class="right-slider">
+                        <div class="register">
+                            <h1>Get register here:</h1>
+                            <div>
+                              <input type="text" name="reg_username" id="reg_username" placeholder="username:"/>
+                            </div>
+                        
+                            <div>
+                              <input type="email" name="reg_email" id="reg_email" placeholder="email:"/>
+                            </div>
+                        
+                            <div>
+                              <input type="password" name="reg_password" id="reg_password" placeholder="password:"/>
+                            </div>
+                        
+                            <div>
+                              <button class="fbtn1" type="submit" onclick="addRecord()">Sign in <i class="fas fa-sign-in-alt"></i></button>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const signin = () =>{
+        document.querySelector("body").setAttribute("style","background-color:#F5354B");
+        document.querySelector(".main-slider").setAttribute("style","background-color:#F85D6F");
+        document.querySelector(".slider").setAttribute("style","position:absolute;left:50%");
+        document.querySelector(".left-slider").setAttribute("style","position:absolute;left:-100%");
+        document.querySelector(".right-slider").setAttribute("style","position:absolute;left:0%");
+    };
+
+    const login = () =>{
+        document.querySelector("body").setAttribute("style","background-color:#05A7F5");
+        document.querySelector(".main-slider").setAttribute("style","background-color:#37BBF9");
+        document.querySelector(".slider").setAttribute("style","position:absolute;left:0%");
+        document.querySelector(".right-slider").setAttribute("style","position:absolute;left:100%");
+        document.querySelector(".left-slider").setAttribute("style","position:absolute;left:0%");
+    };
+</script>
+</html>

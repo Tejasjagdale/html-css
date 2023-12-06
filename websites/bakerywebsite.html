@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<title>
+bakery website
+</title>
+<link rel="stylesheet" type="text/css" href="../websitecss/bakery.css">
+</head>
+<body>
+<header>
+<div class="row">
+
+<img src="../images/LOGO.png" class="logo">
+
+<ul class="main-nav">
+<li><a href="#">cake delivery</a></li>
+<li><a href="#">how to order</a></li>
+<li><a href="#">check more</a></li>
+<li><a href="#">sign up</a></li>
+</ul>
+
+<div class="menu" onclick="menu()">
+<div class="lines"></div>
+<div class="lines"></div>
+<div class="lines"></div>
+</div>
+
+</div>
+
+</header>
+
+<main>
+
+<h1 class="heading">
+wellcome to <span>tejas cafe</span>.<br>
+house of cake lover just enjoy.
+</h1>
+<div class="buttons">
+<a href="" class="btn1">click to order</a>
+<a href="" class="btn2">show me more</a>
+</div>
+</main>
+
+<footer>
+(c) 2012, TEJAS CAFE<br>
+All trademarks and registered trademarks appearing on this site are the property of their respective owners.
+</footer>
+<script>
+
+function menu()
+{
+var x=document.querySelector('.main-nav');
+
+if(x.style.display==="none")
+{
+document.querySelector('.main-nav').style.display="block";
+}
+
+else
+{
+document.querySelector('.main-nav').style.display="none";
+}
+}
+
+</script>
+</body>
+</html>

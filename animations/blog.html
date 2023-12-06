@@ -1,0 +1,165 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>
+            blog
+        </title>
+        <link href="blog.css" rel="stylesheet">
+    </head>
+    <body>
+        <section class="sec1">
+        <header>
+            <h1>1.Swatch Book Tutorial with CSS3 & jQuery </h1>
+            <p>
+                A tutorial about how to create a swatch book like component that let's you open and rotate the single swatches revealing some details.
+                We will be using CSS transforms and transitions and create a simple jQuery plugin.
+            </p>
+            <div class="lagdis">
+                <h2>Languages used in this effect</h1>
+               <div>
+                   <div ><p><p style="border:1px solid black;margin-right:10px;width:25px;height:25px;background:#e34c26"></p> <p style="color:brown;cursor:pointer;text-decoration:underline;font-weight:900;">HTML</p></p></div>
+                   <div ><p><p style="border:1px solid black;margin-right:10px;width:25px;height:25px;background:#f0db4f"></p> <p style="color:brown;cursor:pointer;text-decoration:underline;font-weight:900;">JAVASCRIPT</p></p></div>
+                   <div ><p><p style="border:1px solid black;margin-right:10px;width:25px;height:25px;background:#2965f1"></p> <p style="color:brown;cursor:pointer;text-decoration:underline;font-weight:900;">CSS</p></p></div>
+               </div>
+                <div class="bar">
+                    <span style="background-color:#e34c26;width:20%;height:100%">20%</span>
+                    <span style="background-color:#f0db4f;width:20%;height:100%">20%</span>
+                    <span style="background-color:#2965f1;width:60%;height:100%">60%</span>
+                </div>
+            </div>
+        </header>
+        </section>
+
+        <section class="sec2">
+            <div class="img">
+                <img src="images/btn5.gif" width="100%" height="100%">
+            </div>
+
+            <div class="bimg">
+                <p class="p1">Today’s tutorial is about creating an animated swatch book using CSS rotation transforms and JavaScript.<br>
+                   The idea is to show a swatch book like structure and make the single swatches or “sheets” clickable.<br>
+                   When clicking on a swatch, we’ll rotate the other swatches in order to reveal the selected one.<br>
+                </p>
+
+                 <div>
+                     <img src="images/img1.png" width="25%" height="60%">
+                     <p style="margin-left:20px;">Please note: the result of this tutorial will only work as intended in browsers that support the respective CSS properties.</p>
+                 </div>
+
+                 <p  class="p2">
+                 In this tutorial we will be using an icon font that was created with <span>Fontello.</span>
+                 </p>
+
+                <p class="p3">
+                    We will omit vendor prefixes in this tutorial. 
+                    But you’ll of course find them in the files.
+                </p>
+            </div>
+        </section>
+
+        <section class="section_email">
+            <div>
+
+            </div>
+            <div>
+                <h1>Start new designs quicker</h1>
+                <p>
+                   <span style="color:navy;font-weight: 600;">It’s my aim to help you be a better designer.</span>
+                   I’ve made you a simple Adobe Illustrator template to manage your colour, grid and guides. So you’ll get to executing your ideas around 20 minutes sooner, every time.
+                </p>
+                <p>
+                    Join my monthlyish email list and I’ll send you the template and new tutorials to help you design & code beautiful websites. You can unsubscribe anytime.
+                </p>
+                <form>
+                    <div>
+                         <input type="text"  style="flex:1;top:50px;left:0px"><label style="left:0px">First Name</label>
+                        <input type="text"  style="flex:1;top:50px;left:250px"><label style="left:270px">Email</label>
+                        <input type="submit" value="sign me up" style="flex:1;color:white;background:burlywood;cursor:pointer;top:50px;left:500px;">
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="sec3">
+            <h1><img src="images/html.png" width="40px" height="40px">    THE HTML </h1>
+            <p class="s3p1">For the markup we’ll have a simple structure with several divisions where each one contains an icon span and a h4:</p>
+
+            <img src="images/img2.jpg" width="500px" height="500px" class="imgs3">
+
+            <p class="s3p2">
+                The last division will not have an icon span but instead an h4 and an h5 element. This last division will be our “cover”, the top most layer of the swatch book.<br><br>
+                Let’s take a look at the style.
+            </p>
+        </section>
+
+        <section class="sec4">
+            <h1><img src="images/css.png" width="40px" height="40px">    THE CSS </h1>
+            <p class="s4p1">
+                First, let’s define the style for the containing wrapper. We’ll make it the same width like one of the swatches (although they will take up more space) so that we can easily center it:
+            </p>
+
+            <img src="images/css1.png" width="500px" height="500px" class="img1s4">
+
+            <p class="s4p2">
+                Our aim is to create a swatch book like structure with several swatch “sheets”. Each one will be rotated using the CSS transform property (JS). So, let’s give the swatches a realistic width and height and make them absolute. Our initial state is that all swatches are stacked on top of each other. The transform-origin will define how our swatches will be rotated. Since we’ll want to use the bottom left corner for that, we’ll set a value of 25% 90%. The backface-visibility hidden will help avoiding a jagged looking text when rotating:
+            </p>
+
+            <img src="images/css2.jpg" width="500px" height="500px" class="img2s4">
+
+            <p class="s4p3">
+                We want to make it look as realistic as possible, so we’ll give the bottom most element, which is our first child, a very subtle shadow. For every following element we’ll increase that second shadow.
+            </p>
+
+            <img src="images/css3.gif" width="500px" height="500px" class="img3s4">
+
+            <p class="s4p4">
+                Last, but not least, let’s style the icon class. We’ll use an icon font that we have generated with Fontello (Entypo icon set). We’ll style the span and the :before pseudo-element, which will contain the characters of the icon font:<br><br>
+                And that’s all the style! Now, let’s make some magic!
+            </p>
+
+        </section>
+
+        <section class="sec5">
+
+            <h1><img src="images/js.png" width="40px" height="40px">    THE JAVASCRIPT </h1>
+            <p class="s5p1">
+                First, let’s define the style for the containing wrapper. We’ll make it the same width like one of the swatches (although they will take up more space) so that we can easily center it:
+            </p>
+
+            <img src="images/css1.png" width="500px" height="500px" class="img1s5">
+
+            <p class="s5p2">
+                Our aim is to create a swatch book like structure with several swatch “sheets”. Each one will be rotated using the CSS transform property (JS). So, let’s give the swatches a realistic width and height and make them absolute. Our initial state is that all swatches are stacked on top of each other. The transform-origin will define how our swatches will be rotated. Since we’ll want to use the bottom left corner for that, we’ll set a value of 25% 90%. The backface-visibility hidden will help avoiding a jagged looking text when rotating:
+            </p>
+
+            <img src="images/css2.jpg" width="500px" height="500px" class="img2s5">
+
+            <p class="s5p3">
+                We want to make it look as realistic as possible, so we’ll give the bottom most element, which is our first child, a very subtle shadow. For every following element we’ll increase that second shadow.
+            </p>
+
+            <img src="images/css3.gif" width="500px" height="500px" class="img3s5">
+
+            <p class="s5p4">
+                Last, but not least, let’s style the icon class. We’ll use an icon font that we have generated with Fontello (Entypo icon set). We’ll style the span and the :before pseudo-element, which will contain the characters of the icon font:<br><br>
+                And that’s all the style! Now, let’s make some magic!
+            </p>
+
+        </section>
+
+        <section class="fsec">
+            <h1>Leave a Reply</h1>
+            <p class="fsecp">Your email address will not be published. Required fields are marked *</p>
+            <form>
+                <div class="secform">
+                   <p><input type="text" required><label>First Name</label></p>
+                   <p><input type="text" required><label>Last Name</label></p>
+                    <p><input type="text" required><label>Email</label></p>
+                    <p><input type="text" required><label>Website</label></p>
+                    <div><input type="textarea"  required><label>type your comment</label></div>
+                </div>
+            </form>
+        </section>
+
+    </body>
+</html>

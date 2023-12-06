@@ -1,0 +1,291 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>
+cargame
+</title>
+<style>
+*
+{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scrolling:none;
+}
+
+.hide
+{
+display:none;
+}
+
+.car
+{
+position:absolute;
+left:175px;
+bottom:20px;
+width:70px;
+height:110px;
+background:transparent;
+background-image:url('../gameimages/police.png');
+background-size:100% 100%;
+border-radius:20px;
+}
+
+.enemy
+{
+position:absolute;
+left:175px;
+bottom:20px;
+width:70px;
+height:110px;
+}
+
+
+.road
+{
+overflow:hidden;
+width:400px;
+height:100vh;
+background:#2d3436;
+margin:auto;
+position:relative;
+border-right:7px dashed #c8d6e5;
+border-left:7px dashed #c8d6e5;
+}
+
+.lines
+{
+position:absolute;
+margin-left:195px;
+width:10px;
+height:100px;
+background:white;
+}
+
+.score
+{
+position:absolute;
+top:15px;
+left:40px;
+background:#10ac84;
+width:300px;
+height:70px;
+text-align:center;
+color:white;
+line-height:70px;
+font-size:1.5em;
+font-family:fantasy;
+box-shadow:0 5px 5px #777;
+}
+
+.startgame
+{
+position:absolute;
+background:#ee5253;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+color:white;
+z-index:1;
+text-align:center;
+border:1px solid #ff6b6b;
+padding:15px;
+margin:auto;
+width:50%;
+cursor:pointer;
+font-family:carfont;
+letter-spacing:5;
+font-size:20px;
+word-spacing:3;
+line-height:30px;
+text-transform:uppercase;
+box-shadow:0 5px 5px #777;
+}
+
+.main
+{
+position:absolute;
+top:0px;
+left:0px;
+width:100%;
+height:100vh;
+background-image:url('../gameimages/bgforrg.jpg');
+animation:seen 2s linear infinite;
+}
+
+</style>
+</head>
+<body>
+<div class="main">
+<div class="score"></div>
+<div class="startgame">
+<p>Press here to start <br>
+   Arrow keys to move <br>
+   If you hit another car you will lose
+</p>
+</div>
+<div class="road"></div>
+</div>
+</body>
+<script>
+const score=document.querySelector('.score');
+const startscreen=document.querySelector('.startgame');
+const gamearea=document.querySelector('.road');
+
+startscreen.addEventListener('click',start);
+const song2 = new Audio();
+song2.src="../songs&videos/carrunning.mp3";
+const song3 = new Audio();
+song3.src="../songs&videos/carcrash.mp3";
+const song4 = new Audio();
+song4.src="../songs&videos/sidehit.mp3";
+
+
+let player={speed:5,score:0};
+let keys ={ ArrowUp:false, ArrowDown:false,ArrowLeft:false,ArrowRight:false}
+
+document.addEventListener('keydown',keyDown);
+document.addEventListener('keyup',keyUp);
+
+function play()
+{
+song2.play();
+}
+
+function keyDown(e)
+{
+e.preventDefault();
+keys[e.key]=true;
+}
+
+function keyUp(e)
+{
+e.preventDefault();
+keys[e.key]=false;
+}
+
+function collide(a,b)
+{
+arect =a.getBoundingClientRect();
+brect =b.getBoundingClientRect();
+
+return !((arect.top>brect.bottom)||(arect.bottom<brect.top)||(arect.left>brect.right)||(arect.right<brect.left))
+}
+
+function movelines()
+{
+if(player.x==300){song4.play();}
+if(player.x==5){song4.play();}
+play();
+let lines=document.querySelectorAll('.lines');
+
+lines.forEach(function(item){
+if(item.y >= 700)
+{
+item.y -= 750;
+}
+item.y += player.speed;
+item.style.top=item.y+"px";
+}) 
+}
+
+
+function endgame()
+{
+song2.pause();
+song3.play()
+player.start=false;
+startscreen.classList.remove('hide');
+startscreen.innerHTML="<img width='300px' height='120px' src='../gameimages/carcrash.png'> <br> Game Over <br> Your final score is "+player.score+"<br>Press here to restart the game.";
+}
+
+
+function moveenemy(car)
+{
+let enemy=document.querySelectorAll('.enemy');
+
+enemy.forEach(function(item){
+if(collide(car,item))
+{
+endgame();
+}
+
+if(item.y >= 750)
+{
+item.y = -300;
+item.style.left=Math.floor(Math.random()*330)+"px";
+}
+item.y += player.speed;
+item.style.top=item.y+"px";
+}) 
+}
+
+function playgame()
+{
+let car=document.querySelector('.car');
+let road=gamearea.getBoundingClientRect();
+
+
+if(player.start)
+{
+movelines();
+moveenemy(car);
+if(keys.ArrowUp && player.y>(road.top+80)){player.y -= player.speed}
+if(keys.ArrowDown && player.y<(road.bottom-120)){player.y += player.speed}
+if(keys.ArrowLeft && player.x>6){player.x -= player.speed}
+if(keys.ArrowRight && player.x<(road.width-100)){player.x += player.speed}
+
+car.style.top=player.y+"px";
+car.style.left=player.x+"px";
+
+window.requestAnimationFrame(playgame);
+player.score++;
+score.innerText="Score:"+" "+(player.score-1);
+}
+}
+
+
+function start()
+{
+song3.pause();
+gamearea.innerHTML="";
+startscreen.classList.add('hide');
+player.start=true;
+player.score=0;
+window.requestAnimationFrame(playgame);
+
+for(i=0;i<5;i++)
+{
+let roadline=document.createElement("DIV");
+roadline.setAttribute('class',"lines");
+roadline.y=(i*150);
+roadline.style.top=roadline.y+"px";
+gamearea.appendChild(roadline);
+}
+
+let car = document.createElement("DIV");
+car.setAttribute('class','car');
+gamearea.appendChild(car);
+
+player.x=car.offsetLeft;
+player.y=car.offsetTop;
+
+
+for(i=0;i<3;i++)
+{
+let enemycars=["url('../gameimages/truck1.png')","url('../gameimages/truck2.png')","url('../gameimages/car3.png')"]
+let enemycar=document.createElement("DIV");
+enemycar.setAttribute('class',"enemy");
+enemycar.y=((i+1)*350) * -1;
+enemycar.style.top=enemycar.y+"px";
+enemycar.style.background='transparent';
+enemycar.style.backgroundImage=enemycars[i];
+enemycar.style.backgroundSize="100% 100%";
+enemycar.style.left=Math.floor(Math.random()*350)+"px";
+gamearea.appendChild(enemycar);
+}
+}
+
+
+</script>
+</html>

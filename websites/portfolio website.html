@@ -1,0 +1,254 @@
+<html>
+<head>
+<title>
+website
+</title>
+<link rel="stylesheet" type="text/css" href="../websitecss/portfoliowebsite.css">
+</head>
+<body>
+<main id="main">
+<img src="../images/thapa.jpeg" class="div1" style="border:1px solid black">
+<header class="rheader">
+<h1 class="name">tejas jagdale</h1>
+<img src="../images/facebook.png" width="30px" height="30px" class="icons">
+<img src="../images/youtube.png" width="25px" height="25px" class="icons">
+<img src="../images/in.png" width="33px" height="33px" class="icons">
+<img src="../images/twitter.png" width="30px" height="30px" class="icons">
+</header>
+<div class="div3">
+<p style="color:white;font-size:20px;padding:24px;text-transform:uppercase"> we are web devloper and youtuber</p>
+</div>
+<div class="div4" style="border:0px solid black" onclick="menu1()" >
+<img src="../images/home.png" width="40px" height="40px" >
+<p class="iconn">home</p>
+</div>
+<div class="div5" style="border:0px solid black" onclick="menu2()">
+<img src="../images/capicon.png" width="45px" height="45px">
+<p class="iconn">resume</p>
+</div>
+<div class="div6" style="border:0px solid black" onclick="menu3()">
+<img src="../images/folder.png" width="40px" height="40px">
+<p class="iconn">contact</p>
+</div>
+<div class="div7" style="border-left:1px solid black" onclick="menu4()">
+<img src="../images/mail.png" width="45px" height="45px">
+<p class="iconn">work</p>
+</div>
+<div class="firstpage" style="border:1px solid black;border-top:none">
+<header class="header1" style="color:white;font-size:50px">My Resume</header>
+<h1 class="heading1"></h1>
+<div class="main1">
+<div class="lower">
+<h2></h2>
+<h2 style="transform:translateY(10px)">HTML</h2>
+<p class="html"></p>
+<h2 style="transform:translateY(23px)">CSS</h2>
+<p class="css"></p>
+<h2 style="transform:translateY(33px)">JQUERY</h2>
+<p class="jquery"></p>
+<h2 style="transform:translateY(43px)">PHP</h2>
+<p class="php"></p>
+<h2 style="transform:translateY(53px)">JAVASCRIPT</h2>
+<p class="javascript"></p>
+</div>
+</div>
+</div>
+<div class="secondpage" >
+<header class="header2"></header>
+</div>
+<div class="thirdpage" >
+<header class="header3"></header>
+</div>
+<div class="fourthpage" >
+<header class="header4"></header>
+</div>
+<footer>
+<button class="b1">download</button>
+</footer>
+</main>
+<script>
+var x=document.querySelector('.firstpage');
+var y=document.querySelector('.secondpage');
+var z=document.querySelector('.thirdpage');
+var a=document.querySelector('.fourthpage');
+
+
+function menu1()
+{
+if(x.style.display==="none")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.firstpage').setAttribute("style","grid-row:4/5;display:block");
+document.querySelector('.secondpage').setAttribute("style","grid-row:6/7;display:none");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:7/8;display:none");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:8/9;display:none");
+document.querySelector('footer').setAttribute("style","grid-row:5/6");
+}
+
+else if(y.style.display==="block")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.firstpage').setAttribute("style","grid-row:4/5;display:block");
+document.querySelector('.secondpage').setAttribute("style","grid-row:6/7;display:none");
+}
+
+else if(z.style.display==="block")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.firstpage').setAttribute("style","grid-row:4/5;display:block");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:7/8;display:none");
+}
+
+else if(a.style.display==="block")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.firstpage').setAttribute("style","grid-row:4/5;display:block");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:8/9;display:none");
+}
+
+else 
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 15vh 10vh 10vh 10vh 10vh");
+document.querySelector('.firstpage').setAttribute("style","grid-row:5/6;display:none");
+document.querySelector('.secondpage').setAttribute("style","grid-row:6/7;display:none");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:7/8;display:none");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:8/9;display:none");
+document.querySelector('footer').setAttribute("style","grid-row:4/5");
+}
+}
+
+function menu2()
+{
+if(y.style.display==="none")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.secondpage').setAttribute("style","grid-row:4/5;display:block;border:0.5px solid black");
+document.querySelector('footer').setAttribute("style","grid-row:5/6");
+document.querySelector('.firstpage').setAttribute("style","grid-row:6/7;display:none");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:7/8;display:none");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:8/9;display:none");
+}
+
+else if(x.style.display==="block")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.secondpage').setAttribute("style","grid-row:4/5;display:block;border:0.5px solid black");
+document.querySelector('.firstpage').setAttribute("style","grid-row:6/7;display:none");
+}
+
+else if(z.style.display==="block")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.secondpage').setAttribute("style","grid-row:4/5;display:block;border:0.5px solid black");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:7/8;display:none");
+}
+
+else if(a.style.display==="block")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.secondpage').setAttribute("style","grid-row:4/5;display:block;border:0.5px solid black");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:8/9;display:none");
+}
+
+else
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 15vh 10vh 10vh 10vh 10vh");
+document.querySelector('.secondpage').setAttribute("style","grid-row:5/6;display:none");
+document.querySelector('footer').setAttribute("style","grid-row:4/5");
+document.querySelector('.firstpage').setAttribute("style","grid-row:6/7;display:none");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:7/8;display:none");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:8/9;display:none");
+}
+}
+
+function menu3()
+{
+if(z.style.display==="none")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:4/5;display:block;border:0.5px solid black");
+document.querySelector('footer').setAttribute("style","grid-row:5/6");
+document.querySelector('.firstpage').setAttribute("style","grid-row:7/8;display:none");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:8/9;display:none");
+document.querySelector('.secondpage').setAttribute("style","grid-row:6/7;display:none");
+}
+
+
+else if(x.style.display==="block")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:4/5;display:block;border:0.5px solid black");
+document.querySelector('.firstpage').setAttribute("style","grid-row:7/8;display:none");
+}
+
+else if(y.style.display==="block")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:4/5;display:block;border:0.5px solid black");
+document.querySelector('.secondpage').setAttribute("style","grid-row:6/7;display:none");
+}
+
+else if(a.style.display==="block")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:4/5;display:block;border:0.5px solid black");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:8/9;display:none");
+}
+
+else
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 15vh 10vh 10vh 10vh 10vh");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:5/6;display:none");
+document.querySelector('footer').setAttribute("style","grid-row:4/5");
+document.querySelector('.firstpage').setAttribute("style","grid-row:7/8;display:none");
+document.querySelector('.secondpage').setAttribute("style","grid-row:6/7;display:none");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:8/9;display:none");
+}
+}
+
+function menu4()
+{
+if(a.style.display==="none")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:4/5;display:block;border:0.5px solid black");
+document.querySelector('footer').setAttribute("style","grid-row:5/6");
+document.querySelector('.firstpage').setAttribute("style","grid-row:7/8;display:none");
+document.querySelector('.secondpage').setAttribute("style","grid-row:6/7;display:none");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:7/8;display:none");
+}
+
+else if(x.style.display==="block")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:4/5;display:block;border:0.5px solid black");
+document.querySelector('.firstpage').setAttribute("style","grid-row:7/8;display:none");
+}
+
+else if(y.style.display==="block")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:4/5;display:block;border:0.5px solid black");
+document.querySelector('.secondpage').setAttribute("style","grid-row:6/7;display:none");
+}
+
+else if(z.style.display==="block")
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 100vh 15vh 10vh 10vh 10vh");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:4/5;display:block;border:0.5px solid black");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:7/8;display:none");
+}
+
+else
+{
+document.getElementById('main').setAttribute("style","grid-template-rows:25vh 10vh 25vh 15vh 10vh 10vh 10vh 10vh");
+document.querySelector('.fourthpage').setAttribute("style","grid-row:5/6;display:none");
+document.querySelector('footer').setAttribute("style","grid-row:4/5");
+document.querySelector('.firstpage').setAttribute("style","grid-row:7/8;display:none");
+document.querySelector('.secondpage').setAttribute("style","grid-row:6/7;display:none");
+document.querySelector('.thirdpage').setAttribute("style","grid-row:7/8;display:none");
+}
+}
+</script>
+</body>
+</html>

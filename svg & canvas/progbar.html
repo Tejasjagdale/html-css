@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>progbar </title>
+    <style>
+        html { font-size: 16px;} 
+        body { font-family: sans-serif; }
+
+        svg {
+        transform: rotateZ(45deg);
+        background:red;
+        }
+
+        @keyframes run {
+        to {
+            stroke-dashoffset: 0;
+        }
+        }
+
+        .abs-center {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+        <svg x="0px" y="0px" width="400px" height="400px" viewBox="0 0 300 300" class="abs-center">
+
+          <circle class="path" 
+                  stroke="hotpink" 
+                  fill="none" 
+                  stroke-width="10" 
+                  cx="150" cy="150" r="80" />
+        </svg>   
+</body>
+<script>
+    let circle = document.querySelector('.path');
+    const range = 100;
+    const len = 2 * Math.PI * 80;
+
+    circle.style.strokeDasharray = len;
+    circle.style.strokeDashoffset = len * .9;
+    circle.style.transition = "stroke-dashoffset .3s ease-in-out";
+
+    let range_value = Number(range)
+        , value = len -  (range_value / 100) * len;
+    circle.style.strokeDashoffset = value;
+</script>
+</html>

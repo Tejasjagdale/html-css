@@ -1,0 +1,105 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>
+        button animation
+    </title>
+<style>
+    *{
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+    }
+
+body{
+    width:100%;
+    height:100vh;
+    background-color:rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.b{
+ width:200px;
+ height:80px;
+ border-radius:40px;
+ background-color: blanchedalmond;
+ outline: none;
+ border:none;
+ cursor: pointer;
+ position: relative;
+ overflow: hidden;
+ z-index: 2;
+ padding:10px;
+ box-shadow:0px 0px 10px 5px black;
+}
+
+span{
+    position: absolute;
+    background-color: chartreuse;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate 0.8s linear;
+    z-index: 1;
+}
+
+@keyframes animate {
+    0%{
+        width: 0px;
+        height: 0px;
+    }
+    100%{
+        width: 500px;
+        height:500px;
+    }
+}
+
+p{
+position: absolute;
+left:50%;
+top:50%;
+transform: translate(-50%,-50%);
+color:red;
+ text-transform: uppercase;
+ font-size: 25px;
+ font-weight: 900;
+ z-index: 10;
+ pointer-events: none
+}
+
+</style>
+</head>
+<body>
+    <p>submit</p>
+    <div>
+        <button class="b"></button>
+    </div>
+</body> 
+<script>
+    var i=0;
+    document.querySelector(".b").addEventListener("click",function(e){
+        i++;
+        var x=e.clientX - e.target.offsetLeft;
+        var y=e.clientY - e.target.offsetTop;
+
+        var colors=["0","#173b67","#228999","#902020","chartreuse","#507a18","#c05a88","#557846","#c01fb6","#7a30c2","#cb0000","#e5e500","#caa612","#2b2b2b","#6b6b6b"];
+
+        var ripples = document.createElement('span');
+        this.appendChild(ripples);
+        ripples.setAttribute("style",`left:${x};top:${y};background:${colors[i]}`);
+        document.querySelector("p").setAttribute("style","color:white");
+
+
+        setTimeout((params)=> {
+            ripples.remove();
+            document.querySelector(".b").setAttribute("style",`background:${colors[i]}`);
+        if(i>=14){
+            i=0;
+        }
+
+        },800);
+    });
+</script>
+</html>
